@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Articloke</title>
-           <link rel="stylesheet" href="CSS/Utils2.css" />
+           <link rel="stylesheet" href="CSS/Utils.css" />
               <link rel="stylesheet" href="Asset/css/DivCustom.css" />
                  <link rel="stylesheet" href="Asset/css/.css" />
     </head>
@@ -19,6 +19,7 @@
             <div style = "width: 100%; height: 300px; top: 60px;">
                   <img style = "width: 100%; height: 200px; top: 0; left:0"> 
                  <div class = "horizontal-center " style = "top: 100px; width: 800px; height: 200px; right: calc(50%-400px); border: 2px solid;  background-color:#D5E6BD;">
+                     <a href = "SearchArticle.jsp" class = "not-hover">
                      <div class =" hover-green-div" style = "left:0;top:0;height:200px;width:400px;">
                          
                         <img style = "height: 60px; width: 60px; top: 30px; left:30px" src = "Image/Home/read.png">
@@ -27,6 +28,7 @@
                         <div style = "top:110px; left: 30px; max-width: 300px"> ARTICLOKE will finds the most relevant articles as you expected.</div>
 
                      </div>
+                     </a>
                      <div class =" hover-green-div" style = "right:0;top:0;height:200px;width:400px;">
                          <img style = "height: 60px; width: 60px; top: 30px; left:30px" src = "Image/Home/upload.png">
                         <div class = "large" style ="top:30px;left: 120px; font-size: 24px; font-weight: bold"> SUBMIT YOUR PAPER

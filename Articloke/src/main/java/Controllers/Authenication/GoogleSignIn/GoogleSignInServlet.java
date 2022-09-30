@@ -21,7 +21,7 @@ public class GoogleSignInServlet extends HttpServlet {
        String code = request.getParameter("code");
         String accessToken = GoogleSupport.getToken(code);
         GoogleDTO userToken = GoogleSupport.getUserInfo(accessToken);
-        String URL = "test.jsp";
+        String URL = "Home.jsp";
         String username = userToken.getId();
         String email = userToken.getEmail();
         String firstName = userToken.getGiven_name();
