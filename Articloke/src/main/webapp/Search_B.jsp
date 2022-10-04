@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Search_B
-    Created on : 04-Oct-2022, 07:24:50
-    Author     : tucuo
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

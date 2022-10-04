@@ -16,7 +16,7 @@ public class ShowArticleResultServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = "SearchArticle.jsp";
+        String URL = "Search_Bootstrap4.jsp";
         try {
             String keyword = request.getParameter("keyword");
             String title = request.getParameter("title");
@@ -57,6 +57,7 @@ public class ShowArticleResultServlet extends HttpServlet {
             }
 
             request.setAttribute("maxPage", maxPage);
+            request.setAttribute("searchEmpty", true);
 
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);

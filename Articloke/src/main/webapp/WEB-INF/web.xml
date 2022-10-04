@@ -24,6 +24,10 @@
         <servlet-name>MovePageServlet</servlet-name>
         <servlet-class>Controllers.SearchArticle.MovePageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ResetParamsServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.ResetParamsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>MovePageServlet</servlet-name>
         <url-pattern>/MovePageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetParamsServlet</servlet-name>
+        <url-pattern>/ResetParamsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

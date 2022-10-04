@@ -23,3 +23,6 @@ body{
 .custom-border{
     border-radius: 15px;
 }
+.custom-no-break{
+  white-space: nowrap;
+}

@@ -19,7 +19,7 @@ public class MovePageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String URL = "SearchArticle.jsp";
+       String URL = "Search_Bootstrap4.jsp";
         try {
             String keyword = request.getParameter("keyword");
             String title = request.getParameter("title");
@@ -63,7 +63,7 @@ public class MovePageServlet extends HttpServlet {
             request.setAttribute("maxIndex", maxIndex);
             request.setAttribute("currentPage", currentPage);
             request.setAttribute("maxPage", maxPage);
-
+            request.setAttribute("searchEmpty", true);
             
             
         } finally {
