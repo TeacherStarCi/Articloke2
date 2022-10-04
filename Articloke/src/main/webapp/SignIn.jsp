@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <jsp:include page="Footer.jsp" />
-                <jsp:include page="Navigation.jsp" />
+                <jsp:include page="Navigation_Bootstrap.jsp" />
             </div>
         </div>
     </body>

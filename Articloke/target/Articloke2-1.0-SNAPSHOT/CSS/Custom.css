@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.custom-center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.custom-vertical-center{
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.custom-horizontal-center{
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.custom-horizontal-line{
+    padding-top: 2px;
+    padding-left: 2px;
+    background: #000;
+}
+.custom-border{
+    border-radius: 15px;
+}

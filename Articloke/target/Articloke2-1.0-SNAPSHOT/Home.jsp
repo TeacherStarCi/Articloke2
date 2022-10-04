@@ -1,151 +1,212 @@
 <%-- 
-    Document   : Home
-    Created on : 27-Sep-2022, 14:49:53
+    Document   : Home_B
+    Created on : 03-Oct-2022, 15:30:23
     Author     : tucuo
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Articloke</title>
-           <link rel="stylesheet" href="CSS/Utils2.css" />
-              <link rel="stylesheet" href="Asset/css/DivCustom.css" />
-                 <link rel="stylesheet" href="Asset/css/.css" />
+        <title>JSP Page</title>
+        <link rel="stylesheet" href="CSS/Bootstrap4.css">
+        <link rel="stylesheet" href="CSS/Hover.css">
     </head>
     <body>
-        <div style = "width: 100%; height: 2960px; top: 0; right: 0">
-            <div style = "width: 100%; height: 300px; top: 60px;">
-                  <img style = "width: 100%; height: 200px; top: 0; left:0"> 
-                 <div class = "horizontal-center " style = "top: 100px; width: 800px; height: 200px; right: calc(50%-400px); border: 2px solid;  background-color:#D5E6BD;">
-                     <div class =" hover-green-div" style = "left:0;top:0;height:200px;width:400px;">
-                         
-                        <img style = "height: 60px; width: 60px; top: 30px; left:30px" src = "Image/Home/read.png">
-                        <div class = "large" style ="top:30px;left: 120px; font-size: 24px; font-weight: bold"> FIND ARTICLES
-                        </div>
-                        <div style = "top:110px; left: 30px; max-width: 300px"> ARTICLOKE will finds the most relevant articles as you expected.</div>
 
-                     </div>
-                     <div class =" hover-green-div" style = "right:0;top:0;height:200px;width:400px;">
-                         <img style = "height: 60px; width: 60px; top: 30px; left:30px" src = "Image/Home/upload.png">
-                        <div class = "large" style ="top:30px;left: 120px; font-size: 24px; font-weight: bold"> SUBMIT YOUR PAPER
+        <div class ="container-fluid position-relative" style = " padding: 0" >
+
+            <jsp:include page="Navigation_B.jsp" />
+            <div class = "container-fluid position-relative" style = "height: 600px; padding: 0" >    
+                <img src ="Image/Art.gif" style = "position: absolute; width: 100%;">
+                <div class = "position-absolute" style = " top: 10%; left: 50%; transform: translate(-50%,0);text-align: center ">
+                    <span style = "font-size:8rem; font-weight: bolder;font-family: cursive">  Articloke</span>
+                    <br> <span class ="h5" style = "font-family: cursive;"> The garden that plants lots of knowledge.
+                    </span>     
+                </div>
+                <div class ="position-absolute h5" style = "top: 55%; left: 50%; transform: translate(-50%,0)">
+                    <div class = "position-relative" style = "left: 50%; transform: translate(-50%,0)"> Looking for an article? Just give us a keyword </div> 
+                    <div class ="d-inline-block mt-2 position-relative" style = "left: 50%; transform: translate(-50%,0)">
+                        <div class ="d-flex">
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keyword" size = "37" >
+                            <button type ="submit" class ="btn btn-light ml-2" > <span class = "h5"> Find </span> </button>
+
+                        </div>  
+
+                    </div>
+                </div>
+            </div>
+            <div class = "container-fluid mt-5 position-relative" style = "height: 600px; background: linear-gradient(180deg, #C6B6C5 5%, rgba(255,255,255,1) 100%); top: -30%">
+
+                <span class ="h1" style = "font-weight: bold"> Articles </span>
+                <div class = "row">
+                    <div class = "col-6 mt-3"> 
+                        <span class = "h4"> Recently </span> 
+
+                        <div class = "mb-2"style ="padding: 1px; background: black">
+
                         </div>
-                        <div style = "top:110px; left: 30px;  max-width: 300px"> ARTICLOKE editors will receive your efforts, then publish it.</div>
-                         
-                         
-                         
-                     </div>
-                
-                 
-                 
-                 
-                 </div>
-                
-            </div>
-            
-            <div  class ="horizontal-center" style = "top: 400px; width: 1200px; height: 120px">
-                <div class ="horizontal-center no-break" style = "top:10px;font-size : 40px"> VISION, KNOWLEDGE and PERCEIVE</div>
-                <div class = "horizontal-center no-break" style = "top: 65px"> These are the 3 principals that every article in Articloke must have. </div>
-                <div class = "horizontal-center no-break" style ="top: 90px"> We are introducing several of them below.</div>
-                
+                        <div class ="row">
+                           
+                                    <div class ="col-8">
+                                        <div class = "hover-space">
+                                            <img src ="${sessionScope.articles_byDate.get(0).picture}" class = "position-relative img-thumbnail image" style ="width: 100%">
+                                            <div class = "text">
+                                                <div class = "px-5 pb-5">
+                                                    <span class = "h4"> ${sessionScope.articles_byDate.get(0).title} </span> <br>
+                                                     Author: ${sessionScope.articles_byDate.get(0).username}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class ="col-4">
+                                        <div class = "hover-space" style ="margin-bottom: 30px" >
+                                            <img src ="${sessionScope.articles_byDate.get(1).picture}" class = "position-relative img-thumbnail image" style ="width: 100%">
+                                            <div class = "text">
+                                                <div class = "px-3 pb-3">
+                                                    <span class = "h5"> ${sessionScope.articles_byDate.get(1).title} </span> <br>
+                                                    Author: ${sessionScope.articles_byDate.get(1).username}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class = "hover-space">
+                                            <img src ="${sessionScope.articles_byDate.get(2).picture}" class = "position-relative img-thumbnail image" style ="width: 100%">
+                                            <div class = "text">
+                                                <div class = "px-3 pb-3">
+                                                    <span class = "h5"> ${sessionScope.articles_byDate.get(2).title} </span> <br>
+                                                    Author: ${sessionScope.articles_byDate.get(2).username}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+                                    
+                                    
+                                    
+                            </div>
+                            <div class = "col-6 mt-3">
+                                <span class = "h4">  Latest  </span>
+                                
+
+                                <div class = "mb-2"style ="padding: 1px; background: black">
+
+                                </div>
+                                <div class ="row">
+                                    <div class ="col-8">
+                                        <div class = "hover-space">
+                                            <img src ="${sessionScope.articles_byReaction.get(0).article.picture}" class = "position-relative img-thumbnail image" style ="width: 100%">
+                                            <div class = "text">
+                                                <div class = "px-5 pb-5">
+                                                    <span class = "h4"> ${sessionScope.articles_byReaction.get(0).article.title} </span> <br>
+                                                    Author: ${sessionScope.articles_byReaction.get(0).article.username}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class ="col-4">
+                                        <div class = "hover-space" style ="margin-bottom: 30px" >
+                                            <img src ="${sessionScope.articles_byReaction.get(1).article.picture}" class = "position-relative img-thumbnail image" style ="width: 100%">
+                                            <div class = "text">
+                                                <div class = "px-3 pb-3">
+                                                    <span class = "h5"> ${sessionScope.articles_byReaction.get(1).article.title} </span> <br>
+                                                    Author: ${sessionScope.articles_byReaction.get(1).article.username}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class = "hover-space">
+                                            <img src ="${sessionScope.articles_byReaction.get(2).article.picture}" class = "position-relative img-thumbnail image" style ="width: 100%">
+                                            <div class = "text">
+                                                <div class = "px-3 pb-3">
+                                                    <span class = "h5"> ${sessionScope.articles_byReaction.get(2).article.title} </span> <br>
+                                                    Author: ${sessionScope.articles_byReaction.get(2).article.username}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class = "container-fluid mt-5" style = "height: 1000px">
+                        <div class ="row">
+                            <div class ="col-6">
+                                <span class ="h1" style = "font-weight: bold"> Topic </span>
+                                <div class = "row ">
+                                    <div class ="col-4">
+                                        <div class = "mt-5 p-2" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                        <img  src = "${sessionScope.topics_byCount.get(0).topic.picture}" style = "height: 40px; width: 40px " class = "mr-2">  
+                                               
+                                        <div class = "h4">  ${sessionScope.topics_byCount.get(0).topic.topic}  </div>
+                                        <div class = "h6"> ${sessionScope.topics_byCount.get(0).count} article<c:if test = "${sessionScope.topics_byCount.get(0).count > 1}">s</c:if> </div>
+                                        </div>
                                         
-            </div>
-                   
-            
-            <div class = "horizontal-center" style = "top: 550px; width: 1200px; height: 840px">
-                <div  style = "width: 100%; font-size: 24px; font-weight: bold; top: 0; left: 0; height: 40px; border-bottom: 2px solid grey">
-                    <div class = "vertical-center" style = "left: 30px; font-size: 24px">
-                      Latest  
+                                         <div class = "mt-5 p-2" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                        <img  src = "${sessionScope.topics_byCount.get(3).topic.picture}" style = "height: 40px; width: 40px " class = "mr-2">  
+                                               
+                                        <div class = "h4">  ${sessionScope.topics_byCount.get(3).topic.topic}  </div>
+                                        <div class = "h6"> ${sessionScope.topics_byCount.get(3).count} article<c:if test = "${sessionScope.topics_byCount.get(3).count > 1}">s</c:if> </div>
+                                        </div>
+                                                    
+                                    </div>
+                                    <div class ="col-4">
+                                       <div class = "mt-5 p-2" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                        <img  src = "${sessionScope.topics_byCount.get(1).topic.picture}" style = "height: 40px; width: 40px " class = "mr-2">  
+                                               
+                                        <div class = "h4">  ${sessionScope.topics_byCount.get(1).topic.topic}  </div>
+                                        <div class = "h6"> ${sessionScope.topics_byCount.get(1).count} 
+                                            article<c:if test = "${sessionScope.topics_byCount.get(1).count > 1}">s</c:if> </div>
+                                        </div>
+                                        
+                                           <div class = "mt-5 p-2" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                        <img  src = "${sessionScope.topics_byCount.get(4).topic.picture}" style = "height: 40px; width: 40px " class = "mr-2">  
+                                               
+                                        <div class = "h4">  ${sessionScope.topics_byCount.get(4).topic.topic}  </div>
+                                        <div class = "h6"> ${sessionScope.topics_byCount.get(4).count} article<c:if test = "${sessionScope.topics_byCount.get(4).count > 1}">s</c:if> </div>
+                                        </div>
+                                                    
+                                    </div>
+
+                                        <div class ="col-4">
+                                            <div class = "mt-5 p-2" style = "border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                        <img  src = "${sessionScope.topics_byCount.get(2).topic.picture}" style = "height: 40px; width: 40px" class = "mr-2">  
+                                               
+                                        <div class = "h4">  ${sessionScope.topics_byCount.get(2).topic.topic}  </div>
+                                        <div class = "h6"> ${sessionScope.topics_byCount.get(2).count} article<c:if test = "${sessionScope.topics_byCount.get(2).count > 1}">s</c:if> </div>
+                                        </div>
+                                            
+                                               <div class = "mt-5 p-2" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                        <img  src = "${sessionScope.topics_byCount.get(5).topic.picture}" style = "height: 40px; width: 40px " class = "mr-2">  
+                                               
+                                        <div class = "h4">  ${sessionScope.topics_byCount.get(5).topic.topic}  </div>
+                                        <div class = "h6"> ${sessionScope.topics_byCount.get(5).count} article<c:if test = "${sessionScope.topics_byCount.get(5).count > 1}">s</c:if> </div>
+                                        </div>
+                                                    
+                                        </div>
+                                </div>
+                            </div>
+                            <div class ="col-6">
+                                <span class ="h1" style = "font-weight: bold"> Influencers </span>
+                                <div class = "row">
+                                    <div class ="col-4">
+                                        Mathematics
+                                    </div>
+                                    <div class ="col-4">
+                                        Physics
+                                    </div>
+
+                                    <div class ="col-4"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div style = "top: 14px; right: 30px; font-size: 16px">
-                    Read more
                 </div>
-                </div>
-              
-                <div  style = "top: 40px; width: 1200px; height: 800px; left: 0">
-                     <div  style = "top: 10px; width: 780px; left: 10px; height: 780px; border: 2px solid grey">
-                      
-                       <img style = "top:0;left:0; width: 100%; height: 100%" src="${sessionScope.articles_byDate.get(0).picture}">
-                         
-                </div>
-                     <div  style = "top: 10px; width: 380px; right: 10px; height: 380px; border: 2px solid grey">
-                      <img style = "top:0;left:0; width: 100%; height: 100%" src="${sessionScope.articles_byDate.get(1).picture}">
-                         
-                </div>
-                     <div  style = "top: 410px; width: 380px; right: 10px; height: 380px; border: 2px solid grey">
-                     <img style = "top:0;left:0; width: 100%; height: 100%" src="${sessionScope.articles_byDate.get(2).picture}">
-                         
-                </div>
-                </div>
-            </div>
-            
-              <div class = "horizontal-center" style = "top: 1450px; width: 1200px; height: 840px">
-                <div  style = "width: 100%; font-size: 24px; font-weight: bold; top: 0; left: 0; height: 40px; border-bottom: 2px solid grey">
-                    <div class = "vertical-center" style = "left: 30px; font-size: 24px">
-                      Popular 
-                    </div>
-                    <div style = "top: 14px; right: 30px; font-size: 16px">
-                    Read more
-                </div>
-                </div>
-              
-                <div  style = "top: 40px; width: 1200px; height: 800px; left: 0">
-                     <div  style = "top: 10px; width: 780px; left: 10px; height: 780px; border: 2px solid grey">
-                     <img style = "top:0;left:0; width: 100%; height: 100%" src="${sessionScope.articles_byReaction.get(0).article.picture}"> 
-                </div>
-                     <div  style = "top: 10px; width: 380px; right: 10px; height: 380px; border: 2px solid grey">
-                <img style = "top:0;left:0; width: 100%; height: 100%" src="${sessionScope.articles_byReaction.get(1).article.picture}">
-                </div>
-                     <div  style = "top: 410px; width: 380px; right: 10px; height: 380px; border: 2px solid grey">
-                   <img style = "top:0;left:0; width: 100%; height: 100%" src="${sessionScope.articles_byReaction.get(2).article.picture}">
-                </div>
-            </div>
-          </div>
-                
-                
-            <div class = "horizontal-center" style = "top: 2380px; width: 1200px; height: 350px; border: 5px solid">
-                <div style = "left: 0; right: 0; width: 100%; height: 40px"> 
-                    <div class = "horizontal-center" style = "top: 20px; font-size: 32px; font-weight: bold"> Enthusiastic Topic</div>
-                </div>
-                
-                  <div  style = "width: 400px; font-size: 20px; top: 90px; left: 100px; height: 60px;">
-                     <img style = "top:10px;left:10px; width: 40px; height: 40px" src="${sessionScope.topics_byCount.get(0).topic.picture}">
-                     <div class = "vertical-center" style = "left: 70px;font-size: 24px"> ${sessionScope.topics_byCount.get(0).topic.topic} </div>
-                     <div class = "" style = "bottom: 12px; right:30px"> ${sessionScope.topics_byCount.get(0).count} articles</div>
-                  
-                  </div> 
-                <div  style = "width: 400px; font-size: 20px; top: 90px; right: 100px; height: 60px;">
-                      <img style = "top:10px;left:10px; width: 40px; height: 40px" src="${sessionScope.topics_byCount.get(1).topic.picture}">
-                     <div class = "vertical-center" style = "left: 70px;font-size: 24px"> ${sessionScope.topics_byCount.get(1).topic.topic} </div>
-                <div class = "" style = "bottom: 12px; right:30px"> ${sessionScope.topics_byCount.get(1).count} articles</div>
-                </div> 
-                 <div  style = "width: 400px; font-size: 20px; top: 170px; left: 100px; height: 60px;">
-                   <img style = "top:10px;left:10px; width: 40px; height: 40px" src="${sessionScope.topics_byCount.get(2).topic.picture}">
-                     <div class = "vertical-center" style = "left: 70px;font-size: 24px"> ${sessionScope.topics_byCount.get(2).topic.topic} </div>
-                <div class = "" style = "bottom: 12px; right:30px"> ${sessionScope.topics_byCount.get(2).count} articles</div>
-                 </div> 
-                 <div  style = "width: 400px; font-size: 20px; top: 170px; right: 100px; height: 60px;">
-                       <img style = "top:10px;left:10px; width: 40px; height: 40px" src="${sessionScope.topics_byCount.get(3).topic.picture}">
-                     <div class = "vertical-center" style = "left: 70px;font-size: 24px"> ${sessionScope.topics_byCount.get(3).topic.topic} </div>
-                 <div class = "" style = "bottom: 12px; right:30px"> ${sessionScope.topics_byCount.get(3).count} articles</div>
-                 </div> 
-                 <div  style = "width: 400px; font-size: 20px; top: 250px; left: 100px; height: 60px;">
-                    <img style = "top:10px;left:10px; width: 40px; height: 40px" src="${sessionScope.topics_byCount.get(4).topic.picture}">
-                     <div class = "vertical-center" style = "left: 70px;font-size: 24px"> ${sessionScope.topics_byCount.get(4).topic.topic} </div>
-                  <div class = "" style = "bottom: 12px; right:30px"> ${sessionScope.topics_byCount.get(4).count} articles</div>
-                 </div> 
-                 <div  style = "width: 400px; font-size: 20px; top: 250px; right: 100px; height: 60px;">
-                       <img style = "top:10px;left:10px; width: 40px; height: 40px" src="${sessionScope.topics_byCount.get(5).topic.picture}">
-                       <div class = "vertical-center" style = "left: 70px;font-size: 24px"> ${sessionScope.topics_byCount.get(5).topic.topic} </div>
-                      <div class = "" style = "bottom: 12px; right:30px"> ${sessionScope.topics_byCount.get(5).count} articles</div>
-                 </div> 
-                 
-             
-            </div>
-                
-            <jsp:include page="Footer.jsp" />
-        <jsp:include page="Navigation.jsp" />
-       </div> 
-    </body>
-</html>
+                </body>
+                </html>

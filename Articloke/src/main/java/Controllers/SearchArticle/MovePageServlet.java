@@ -49,22 +49,29 @@ public class MovePageServlet extends HttpServlet {
             
             if (action.equals("Next")){
             request.setAttribute("articles", articles);
-            request.setAttribute("minIndex", minIndex + 5);
-            request.setAttribute("maxIndex", maxIndex + 5);
-            request.setAttribute("currentPage", currentPage + 1);
-            request.setAttribute("maxPage", maxPage);
-            }
+            minIndex += 5;
+            maxIndex += 5;
+            currentPage += 1;
+            } else
              if (action.equals("Previous")){
-            request.setAttribute("articles", articles);
-            request.setAttribute("minIndex", maxIndex - 5);
-            request.setAttribute("maxIndex", minIndex - 5);
-            request.setAttribute("maxPage", maxPage);
+            minIndex -= 5;
+            maxIndex -= 5;
+            currentPage -= 1;
             }
+            request.setAttribute("articles", articles);
+            request.setAttribute("minIndex", minIndex);
+            request.setAttribute("maxIndex", maxIndex);
+            request.setAttribute("currentPage", currentPage);
+            request.setAttribute("maxPage", maxPage);
 
+            
+            
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);
         }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

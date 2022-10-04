@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SEARCH ARTICLE</title>
-        <link rel="stylesheet" href="CSS/Utils2.css" />
+        <link rel="stylesheet" href="CSS/Utils.css" />
         <link rel="stylesheet" href="CSS/DivCustom.css" />
         <link rel="stylesheet" href="CSS/Table.css" />
     </head>
@@ -117,41 +117,47 @@
 
                     </div>  
                 </c:if>
-                 <div style = "bottom: 0; left: 0; height: 60px; width: 100%; border-top: 2px solid grey">
-                     <input type = "hidden" name = "keyword" value = "${requestScope.keyword}">
-                     <input type = "hidden" name = "title" value = "${requestScope.title}">
-<input form ="MovePageServlet" type = "hidden" name = "author" value = "${requestScope.author}">
-<input form ="MovePageServlet" type = "hidden" name = "topic" value = "${requestScope.topic}">
-<input form ="MovePageServlet" type = "hidden" name = "organization" value = "${sessionScope.user.organization}">
-<input form ="MovePageServlet" type = "hidden" name = "permission" value = "${requestScope.permission}">
-<input form ="MovePageServlet" type = "hidden" name = "sortedBy" value = "${requestScope.sortedBy}">
-<input form ="MovePageServlet" type = "hidden" name = "currentPage" value = "${requestScope.currentPage}">
-<input form ="MovePageServlet"type = "hidden" name = "minIndex" value = "${requestScope.minIndex}">
-<input form ="MovePageServlet" type = "hidden" name = "maxIndex" value = "${requestScope.maxIndex}">
-<input form ="MovePageServlet" type = "hidden" name = "maxPage" value = "${requestScope.maxPage}">
-                     <form id = "MovePageServlet" action = "MovePageServlet"> </form>
-                     <input form ="MovePageServlet" class ="center smaller" style ="left: calc(50% - 150px)" type = "submit" name ="action" value = "Previous">
-                     <div style = "font-size: 20px" class = "center">
-                    Page 
-                    <c:if test = "${not empty requestScope.currentPage}">
-                       ${requestScope.currentPage}     
+                <div style = "bottom: 0; left: 0; height: 60px; width: 100%; border-top: 2px solid grey">
+                    <form id = "MovePageServlet" action = "MovePageServlet"> </form>
+                  
+                    <input form ="MovePageServlet" type = "hidden" name = "keyword" value = "${requestScope.keyword}">
+                    <input form ="MovePageServlet" type = "hidden" name = "title" value = "${requestScope.title}">
+                    <input form ="MovePageServlet" type = "hidden" name = "author" value = "${requestScope.author}">
+                    <input form ="MovePageServlet" type = "hidden" name = "topic" value = "${requestScope.topic}">
+                    <input form ="MovePageServlet" type = "hidden" name = "organization" value = "${sessionScope.user.organization}">
+                    <input form ="MovePageServlet" type = "hidden" name = "permission" value = "${requestScope.permission}">
+                    <input form ="MovePageServlet" type = "hidden" name = "sortedBy" value = "${requestScope.sortedBy}">
+                    <input form ="MovePageServlet" type = "hidden" name = "currentPage" value = "${requestScope.currentPage}">
+                    <input form ="MovePageServlet"type = "hidden" name = "minIndex" value = "${requestScope.minIndex}">
+                    <input form ="MovePageServlet" type = "hidden" name = "maxIndex" value = "${requestScope.maxIndex}">
+                    <input form ="MovePageServlet" type = "hidden" name = "maxPage" value = "${requestScope.maxPage}">
+
+                    <c:if test="${requestScope.currentPage > 1}" >
+                        <input form ="MovePageServlet" class ="center smaller" style ="left: calc(50% - 150px)" type = "submit" name ="action" value = "Previous">
                     </c:if>
-                     <c:if test = "${empty requestScope.currentPage}">
-                       1
+                    <div style = "font-size: 20px" class = "center">
+                        Page 
+                        <c:if test = "${not empty requestScope.currentPage}">
+                            ${requestScope.currentPage}     
+                        </c:if>
+                        <c:if test = "${empty requestScope.currentPage}">
+                            1
+                        </c:if>
+                        of 
+                        <c:if test = "${not empty requestScope.maxPage}">
+                            ${requestScope.maxPage}     
+                        </c:if>
+                        <c:if test = "${empty requestScope.maxPage}">
+                            1
+                        </c:if>
+
+                    </div>
+                    <c:if test="${requestScope.currentPage < requestScope.maxPage}" >
+                        <input form ="MovePageServlet" class ="center smaller" style ="left: calc(50% + 150px)" type = "submit" name ="action" value = "Next">   
                     </c:if>
-                    of 
-                      <c:if test = "${not empty requestScope.maxPage}">
-                       ${requestScope.maxPage}     
-                    </c:if>
-                     <c:if test = "${empty requestScope.maxPage}">
-                       1
-                    </c:if>
-                     
                 </div>
-           <input form ="MovePageServlet" class ="center smaller" style ="left: calc(50% + 150px)" type = "submit" name ="action" value = "Next">   
-            </div>
             </div>   
-           
+
             <jsp:include page="Footer.jsp" />
             <jsp:include page="Navigation.jsp" />    
         </div>
