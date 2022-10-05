@@ -1,94 +1,76 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:if test = "${not empty sessionScope.user}">
+    <%
+    String redirectURL = "Home.jsp";
+    response.sendRedirect(redirectURL);
+%>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SIGN UP</title>
+        <title>Sign Up</title>
         <link rel="stylesheet" href="CSS/Utils.css" />
         <link rel="stylesheet" href="CSS/DivCustom.css" />
 
     </head>
     <body>
-        <form id = "SignUp" action = "SignUpServlet" method="">
-        </form>
-        <div style = "width: 100%; height: 1200px">
-            <div class ="horizontal-center" style = "width: 600px; height: 800px; border: 3px solid; top: 140px">
-                <div class ="horizontal-center" style = "top:15px; font-size:40px; font-weight: bold">
-                    SIGN UP
-                </div>
-                <div class ="horizontal-center" style = "top:80px; font-size:20px; font-weight: bold">
-                    Create an Articloke account
-                </div>
-                <div style = "top:160px;font-size:20px" class ="horizontal-center">
-                    Username* 
-                </div>
-                <input name ="username" value ="${requestScope.username}" placeholder="Username" form ="SignUp" type = "text" style = "top:190px;width: 500px" class = "horizontal-center">
-
-                <div class ="horizontal-center" style = "top:220px; font-size:20px">
-                    Password*
-                </div>
-                <input name ="password" value ="" placeholder="Password" form ="SignUp" type = "password" style = "top:250px;width: 500px" class = "horizontal-center">
-                <div class ="horizontal-center" style = "top:280px; font-size:20px">
-                    Confirm Password* 
-                </div>  
-                <input name ="confirm" value ="" placeholder="Confirm Password" form ="SignUp" type = "password" style = "top:310px;width: 500px;" class = "horizontal-center">
-                <div class ="horizontal-center" style = "top:340px; font-size:20px">
-                    Name*
-                </div>
-
-                <input name ="firstName" value ="${requestScope.firstName}" placeholder="First Name" form ="SignUp"  type = "text" style = "top:370px;width: 238px; left:42px" >
-                <input name ="lastName" value ="${requestScope.lastName}" placeholder="Last Name" form ="SignUp"type = "text" style = "top:370px;width: 238px; right:42px">
-                <div style = "top:420px;height: 40px; width: 100%">
-                    <div class = "horizontal-center" style = "top:40px; width: 500px">
-                        <input name ="term" form ="SignUp" class = "vertical-center" type = "checkbox" value = "checked">
-
+        
+        <div class = "container-fluid p-0 position-absolute" style = "min-height: 140%">
+            <jsp:include page="Navigation_B.jsp" /> 
+            
+            <div class ="position-absolute custom-center pb-3" style ="border: 1px solid;  width: 100%; max-width: 400px; top: 45%">
+                <div class = "text-center h3 mt-3"> Sign Up</div>
+       
+                        <form action = "SignUpServlet" id = "SignUpServlet" method = "get"> </form>
+                        
+                     <div class = "h5 text-center mt-3"> Create an Articloke account</div>
+                    <div class = "px-4 mt-4"> 
+                    <div class = "mt-1"> Username*</div>
+                         <input form ="SignUpServlet" type="text" class="form-control mt-1"  placeholder="Username" name = "username" value = "${requestScope.username}">   
+                         <span style = "color:red">${requestScope.usernameError} </span>
+                         <div class = "mt-1"> Password*</div> 
+                         <input form ="SignUpServlet" type="password" class="form-control mt-1" placeholder="Password" name = "password" value = "">
+                         <span style = "color:red">${requestScope.passwordError} </span>
+                         <div class = "mt-1"> Confirm Password*</div>
+                         <input form ="SignUpServlet" type="password" class="form-control mt-1"  placeholder="Confirm Password" name = "confirm" value = "">   
+                        <span style = "color:red">${requestScope.confirmError} </span>
+                         <div class = "mt-1"> Name*</div> 
+                         <div class ="d-flex">
+                             <div class = "pr-2">
+                             <input form ="SignUpServlet" type="text" class="form-control mt-1" placeholder="First Name" name = "firstName" value = "${requestScope.firstName}">
+                              
+                             </div>
+                             <div class = "pl-2">
+                             <input form ="SignUpServlet" type="text" class="form-control mt-1" placeholder="Last Name" name = "lastName" value = "${requestScope.lastName}">
+          </div> 
+                         </div>
+                             <c:if test = "${not empty requestScope.firstNameError}"><span style = "color:red">${requestScope.firstNameError} </span> <br> </c:if>  
+                             <span style = "color:red">${requestScope.lastNameError} </span>
+                             <div class = "custom-horizontal-center mr-2 position-relative d-flex mt-2">
+                        <input form ="SignUpServlet" name ="term" form ="SignUp" class = "vertical-center mr-3" type = "checkbox" value = "checked">
+                
                         <div class = "vertical-center" style="text-align:justify; left: 30px;"> 
                             I have read and understood the Registered User Agreement and agree to be bound by all of its terms.
                         </div>
-                    </div>
-
-                </div> 
-                <c:if test = "${requestScope.signUpError}">
-                    <div class ="horizontal-center " style ="top: 520px; color: red; font-size:20px"> 
-                        <c:if test = "${not empty requestScope.usernameError}">
-                            <div class = "horizontal-center no-break" style = "display: inline-block ">
-                                ${requestScope.usernameError} 
-                            </div>
-                            <br>
-
-                        </c:if>
-                        <c:if test = "${not empty requestScope.passwordError}">
-                            <div class = "horizontal-center no-break" style = "display: inline-block ">
-                                ${requestScope.passwordError}   </div>
-                            <br>
-                        </c:if>
-                        <c:if test = "${not empty requestScope.confirmError}">
-                            <div class = "horizontal-center no-break" style = "display: inline-block ">
-                                ${requestScope.confirmError}   </div> <br>
-                            </c:if>
-                            <c:if test = "${not empty requestScope.firstNameError}">
-                            <div class = " horizontal-center no-break" style = "display: inline-block ">
-                                ${requestScope.firstNameError} </div>  <br> 
-                            </c:if>
-                            <c:if test = "${not empty requestScope.lastNameError}">
-                            <div class = "horizontal-center no-break" style = "display: inline-block ">
-                                ${requestScope.lastNameError} </div>   <br>
-                            </c:if>
-                            <c:if test = "${not empty requestScope.termError}">
-                            <div class = "horizontal-center no-break" style = "display: inline-block ">
-                                ${requestScope.termError} </div> <br>
-
-                        </c:if>
-
-
-                    </div>
-
-                </c:if>
-                <input form ="SignUp" class ="horizontal-center" style ="top: 690px" type = "submit" name ="" value = "SIGN UP">  
-
+                         
+                    </div> 
+                        <span style = "color:red">${requestScope.termError} </span> 
+                        <br>
+                         
+                         
+                         <input form ="SignUpServlet" type ="submit" class ="position-relative custom-horizontal-center mt-4 btn btn-light border-dark" value = "Sign Up">
+                         <div class = "mt-3 text-center"> Already have an account? <a href = "SignIn.jsp" style ="color: black">  Sign In</a>   </div>
+                         
+                    
+                          
             </div>
-            <jsp:include page="Footer.jsp" />
-            <jsp:include page="Navigation.jsp" />
+      
+                                   
+                                 
+                         </div>           
+            <jsp:include page="Footer.jsp" /> 
+        </div>
     </body>
 </html>

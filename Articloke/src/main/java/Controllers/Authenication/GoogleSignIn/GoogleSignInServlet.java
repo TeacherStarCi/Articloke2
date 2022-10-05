@@ -18,17 +18,18 @@ public class GoogleSignInServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String code = request.getParameter("code");
-        String accessToken = GoogleSupport.getToken(code);
-        GoogleDTO userToken = GoogleSupport.getUserInfo(accessToken);
+        
         String URL = "Home.jsp";
-        String username = userToken.getId();
-        String email = userToken.getEmail();
-        String firstName = userToken.getGiven_name();
-        String lastName = userToken.getFamily_name();
-        String picture = userToken.getPicture();
-    
         try {
+              String code = request.getParameter("code");
+              String accessToken = GoogleSupport.getToken(code);
+              GoogleDTO userToken = GoogleSupport.getUserInfo(accessToken);
+              String username = userToken.getId();
+              String email = userToken.getEmail();
+              String firstName = userToken.getGiven_name();
+              String lastName = userToken.getFamily_name();
+              String picture = userToken.getPicture();
+            
             UserDTO user = new UserDTO(username, email, null,
                     firstName,lastName, picture, "User", null, null, null, null, true);
             try {

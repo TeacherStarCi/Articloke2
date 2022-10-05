@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package Controllers.Authenication.SignUp;
 
 import Respiratory.User.UserDAO;
@@ -50,12 +47,12 @@ public class SignUpServlet extends HttpServlet {
                 request.setAttribute("confirmError", ErrorMessage.checkPasswordConfirm(password, confirm));
                 request.setAttribute("firstNameError", ErrorMessage.checkFirstNameLength(firstName));
                 request.setAttribute("lastNameError", ErrorMessage.checkLastNameLength(lastName));
-                ;
+                
                    
         }
         
         else {
-                    UserDTO user = new UserDTO(username, URL, password, firstName, lastName, null, null, null, null, null, null, true);
+                    UserDTO user = new UserDTO(username, null, password, firstName, lastName, null, "User", null, null, null, null, true);
                     try {
                         UserDAO.addUser(user);
                     } catch (SQLException ex) {

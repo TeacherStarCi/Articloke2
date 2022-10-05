@@ -184,6 +184,7 @@ public class UserDAO implements Serializable {
                 }
 
             }
+        } catch (SQLException e) {
         } finally {
             if (con != null) {
                 con.close();
