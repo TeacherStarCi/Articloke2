@@ -1,5 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="CSS/Bootstrap4.css">
 <link rel="stylesheet" href="CSS/Custom.css">
+ 
 <div style = "height: 60px">
 <nav class ="navbar navbar-nav navbar-expand-lg fixed-top" style = "border-bottom: 1px grey solid; height: 60px; background: #C6B6C5;">    
      
@@ -8,7 +10,6 @@
         <div class="d-inline-block position-relative h3 ml-2 " style = "font-family: cursive; color: #212529;top: 7px; "> Articloke </div>
     </a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-5">
       <li class="nav-item">
           <a class="nav-link" href="#"><span style = "color: black" class = "h5"> About Us</span></a>
@@ -26,6 +27,7 @@
         <input class="form-control mr-sm-2" form="ShowArticleResultServlet" type="search" placeholder="Search on Articloke" aria-label="Search" name ="keyword" value ="">        
         <button class="btn btn-light my-2 my-sm-0" form="ShowArticleResultServlet" type="submit"><span class = "h5">Search</span></button>    
     </form>
+    <c:if test = "${empty sessionScope.user}">
       <ul class="navbar-nav ml-5">
       <li class="nav-item">
           <a class="nav-link" href="SignIn.jsp">
@@ -36,11 +38,26 @@
      <ul class="navbar-nav">
       <li class="nav-item">
           <a class="nav-link" href="SignUp.jsp">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><span class = "h5" style = "color: black; ">Sign Up </span></button>
+          <button class="btn btn-outline-light my-2 my-sm-0 " type="submit"><span class = "h5" style = "color: black; ">Sign Up </span></button>
           </a> 
       </li>
        </ul> 
-  </div>
+       </c:if>
+        <c:if test = "${not empty sessionScope.user}">
+      <div class="nav-item dropdown ml-5">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="rounded-circle" src ="${sessionScope.user.picture}" style = "height: 40px; width: 40px">
+        </a>
+          <div class="dropdown-menu position-absolute" style ="left:-100px" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="SignOutServlet">Sign Out</a>
+   
+        </div>
+      </div>
+
+        
+       </c:if>
+    
 
     
 </nav>
