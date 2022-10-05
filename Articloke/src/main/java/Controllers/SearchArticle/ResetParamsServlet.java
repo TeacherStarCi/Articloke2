@@ -14,7 +14,7 @@ public class ResetParamsServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       
-       String URL = "Search_Bootstrap4.jsp";
+       String URL = "Search.jsp";
         try {
             
         } finally{

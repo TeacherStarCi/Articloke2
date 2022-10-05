@@ -25,7 +25,7 @@ public class ArticleDAO implements Serializable {
     }
 
     public static List<ArticleDTO> getArticlesPublishedDate_FromLatestToOldest() throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT * FROM Article ORDER BY publishedDate DESC";
+        String SQL = "SELECT * FROM Article WHERE permission = 'Public' ORDER BY publishedDate DESC";
         List<ArticleDTO> articles = null;
         Connection con = null;
         PreparedStatement pre = null;

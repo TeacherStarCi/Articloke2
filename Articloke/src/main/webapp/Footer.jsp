@@ -1,55 +1,42 @@
-<link href="CSS/Utils.css" rel="stylesheet">
-<link href="CSS/DivCustom.css" rel="stylesheet">
-<div style="border-top: 4px solid; bottom: 0; background-color: #D5E6BD;
-     left: 0; width: 100%;
-     height: 150px;">
-
-    <div style = "top: 0;left: 0; width:100px; height: 150px">      
-            <img class="horizontal-center" style = "top: 30px; width: 70px; height: 70px" src = "Image/LogoIcon.png">      
-    
-            <img class="horizontal-center" style = "top: 110px; width: 96px; height: 20px" src = "Image/TitleIcon.png" >    
-            
-       </div>       
-    <div style = "top: 0; left: 100px; width: 200px; height: 150px">
-        <div class="center"  style = "width: 180px">
+<link rel="stylesheet" href="CSS/Bootstrap4.css">
+<link rel="stylesheet" href="CSS/Custom.css">
+<div style ="height: 160px">
+<footer class = "container-fluid p-0 pt-3 position-absolute" style = "background:linear-gradient(360deg, rgba(198,182,197,0.6667) 30%, rgba(255,255,255,1) 100%); bottom: 0">
+    <div class ="row">
+        <div class ="col-2">
+            <img class = "position-relative custom-horizontal-center" src="Image/LogoIcon.png" style = "height: 80px; width: 80px">   
+            <br>    <div class = "d-inline-block position-relative custom-horizontal-center h2" style = "font-family: cursive"> 
+            Articloke
+            </div>
+        </div>
+        <div class ="col-2">
+              <div class="d-inline-block custom-center position-relative" >
             Copyright © 2022 StarCi da Philospher
             <br>
             Cookies are used by this site
         </div>
-    </div>
-    <div style = "top: 0; left: 300px; width: 300px; height: 150px">
-        <div class = "center" style = "width: 280px">
-            PHONE NUMBER: 0828.678.897  
+        </div>
+          <div class ="col-4">
+            <div class = "custom-center d-inline-block position-relative">
+            Phone Number: 0828.678.897  
             <br>
-            EMAIL: cuongnvtse160875@fpt.edu.vn         
+            Email: cuongnvtse160875@fpt.edu.vn         
             <br>
-            ADDRESS: 53 Tan Lap 1, Hiep Phu, 9 District, Ho Chi Minh                        
+            Address: 53 Tan Lap 1, Hiep Phu, 9 District, Ho Chi Minh                        
             <br>
+        </div>
+        </div>
+          <div class ="col-2">
+              <div class ="h5 position-relative d-inline-block custom-horizontal-center" style = "top:15px"> Our Social Media</div>
+              <img src ="Image/FacebookIcon.png" class = "position-absolute" style ="height:40px;width:40px;bottom: 25px;left:15px">
+              <img src ="Image/InstagramIcon.png" class ="custom-horizontal-center position-absolute" style ="height:40px;width:40px; bottom: 25px">
+              <img src ="Image/TweeterIcon.png" class ="position-absolute" style ="height:40px;width:40px; bottom: 25px; right:15px">
+          </div>
+        <div class = "col-2"> <div class ="h5 position-relative d-inline-block custom-horizontal-center" style = "top:15px"> Our Sponsor</div>
+            <img src = "Image/SponsorLogoIcon.png" style = "width: 60px; height: 60px; bottom:15px" class = "d-inline-block position-absolute custom-horizontal-center">
         </div>
     </div>
-    <div style = "top: 0; right: 100px; width: 300px; height: 150px">
-        <div style = "top: 20px; font-size: 20px; width: 180px" class = "horizontal-center">
-            Our Social Media        
-        </div>
- 
-            <a href="">
-                <img src = "Image/NavigationFooter/InstagramIcon.png" style=" width: 40px; height: 40px; right: 60px; bottom: 40px">
-            </a>
-            <a href="">
-                <img src = "Image/NavigationFooter/FacebookIcon.png" style=" width: 40px; height: 40px; bottom: 40px" class = "horizontal-center">
-            </a>
-            <a href="">
-                <img src = "Image/NavigationFooter/TweeterIcon.png" style=" width: 40px; height: 40px;  left: 60px; bottom: 40px"> 
-            </a>
- 
-    </div>
-    <div style="top: 0; right: 0; width: 100px; height: 150px">
-        <div class ="horizontal-center" style = "top: 20px; font-size: 20px">
-            Sponsor                                
-        </div>
-            <a  href="https://www.facebook.com/javawebthatde">
-                <img style="bottom: 40px; width: 40px; height: 40px" class = "horizontal-center" src = "Image/NavigationFooter/SponsorLogoIcon.png">    
-            </a>                 
-        </div>
-    </div> 
+</footer>
 </div>
+
+

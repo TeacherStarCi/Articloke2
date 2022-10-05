@@ -19,7 +19,7 @@ public class MovePageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String URL = "Search_Bootstrap4.jsp";
+       String URL = "Search.jsp";
         try {
             String keyword = request.getParameter("keyword");
             String title = request.getParameter("title");

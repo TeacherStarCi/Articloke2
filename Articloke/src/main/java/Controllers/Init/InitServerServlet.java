@@ -32,7 +32,7 @@ public class InitServerServlet extends HttpServlet {
             List<TopicDTO> topics = null;
 
             try {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 7; i++) {
                     articles_byDate.add(ArticleDAO.getArticlesPublishedDate_FromLatestToOldest().get(i));
                 }
 

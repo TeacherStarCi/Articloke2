@@ -26,3 +26,21 @@ body{
 .custom-no-break{
   white-space: nowrap;
 }
+.custom-hover-container:hover .custom-hover-dislay-text{
+    opacity: 1;
+}
+.custom-hover-container:hover .custom-hover-hide-image{
+     opacity: 0.3;
+}
+.custom-hover-dislay-text{
+    position: absolute;
+    bottom:0;
+    opacity: 0;
+    width: 100%;
+}
+
+
+.custom-hover-hide-image{
+    position: relative;
+   
+}
