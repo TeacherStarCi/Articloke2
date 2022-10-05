@@ -28,6 +28,14 @@
         <servlet-name>ResetParamsServlet</servlet-name>
         <servlet-class>Controllers.SearchArticle.ResetParamsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignOutServlet</servlet-name>
+        <servlet-class>Controllers.Authenication.SignOutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeToSearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>ResetParamsServlet</servlet-name>
         <url-pattern>/ResetParamsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOutServlet</servlet-name>
+        <url-pattern>/SignOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeToSearchServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

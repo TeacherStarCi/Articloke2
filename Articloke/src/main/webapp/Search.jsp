@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class ="container-fluid p-0 position-absolute" style = "min-height: 100%">
-            <jsp:include page="Navigation_B.jsp" /> 
+            <jsp:include page="Navigation.jsp" /> 
             <div class ="container-fluid p-0 position-relative pb-4 pt-1" >  
                 <form id = "ShowArticleResultServlet" action = "ShowArticleResultServlet"> 
 

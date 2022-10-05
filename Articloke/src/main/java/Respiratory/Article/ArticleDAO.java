@@ -14,14 +14,14 @@ public class ArticleDAO implements Serializable {
 
     public static List<ArticleDTO> getArticles_FromSearchArticle(String keyword, String title, String author, String topic, String organization, String permission, String sortedBy)
             throws SQLException, ClassNotFoundException {
-       
-       List<ArticleDTO> list = SearchArticleUtils.keywordFilter(keyword);
-       List<ArticleDTO> list2 = SearchArticleUtils.titleAuthorFiler(title, author, list);
-       List<ArticleDTO> list3 = SearchArticleUtils.topicFilter(topic, list2);
-       List<ArticleDTO> list4 = SearchArticleUtils.permissionFilter(organization, permission, list3);
-       List<ArticleDTO> list5 = SearchArticleUtils.sortedByFilter(sortedBy, list4);
-       return list5;
-       
+
+        List<ArticleDTO> list = SearchArticleUtils.keywordFilter(keyword);
+        List<ArticleDTO> list2 = SearchArticleUtils.titleAuthorFiler(title, author, list);
+        List<ArticleDTO> list3 = SearchArticleUtils.topicFilter(topic, list2);
+        List<ArticleDTO> list4 = SearchArticleUtils.permissionFilter(organization, permission, list3);
+        List<ArticleDTO> list5 = SearchArticleUtils.sortedByFilter(sortedBy, list4);
+        return list5;
+
     }
 
     public static List<ArticleDTO> getArticlesPublishedDate_FromLatestToOldest() throws SQLException, ClassNotFoundException {

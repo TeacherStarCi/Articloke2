@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class ="container-fluid position-absolute p-0" style = "min-height: 100%">
-              <jsp:include page="Navigation_B.jsp" /> 
+              <jsp:include page="Navigation.jsp" /> 
             <div class ="container-fluid position-relative p-0" style = "width: 100%; height: 600px;overflow:hidden;">
                 <img class ="position-absolute" src = "Image/Art.gif" style = "width: 100%">
                 <div class = "position-absolute custom-center text-center">

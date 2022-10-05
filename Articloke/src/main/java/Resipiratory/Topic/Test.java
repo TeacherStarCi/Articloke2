@@ -4,6 +4,7 @@
  */
 package Resipiratory.Topic;
 
+import Respiratory.Article.ArticleDAO;
 import java.sql.SQLException;
 
 /**
@@ -12,6 +13,6 @@ import java.sql.SQLException;
  */
 public class Test {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        System.out.print(TopicDAO.getTopicsCount_FromHighToLow().size());
+        System.out.print(ArticleDAO.getArticles_FromSearchArticle("star", "","","All", "", "All", "None"));
     }
 }

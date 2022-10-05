@@ -1,5 +1,6 @@
 Respiratory\Article\ArticleDAO.class
 Respiratory\User\UserDAO.class
+Controllers\SearchArticle\ResetParamsServlet.class
 Resipiratory\Topic\Test.class
 Resipiratory\Topic\TopicDTO.class
 Respiratory\Article\SearchArticleUtils$2.class
@@ -20,6 +21,8 @@ Resipiratory\Topic\TopicPlusArticleCount.class
 Respiratory\Article\ArticlePlusReactionTotal.class
 Respiratory\Article\SearchArticleUtils$1.class
 Controllers\Authenication\SignInServlet.class
+Controllers\Authenication\SignOutServlet.class
+Controllers\SearchArticle\TransferFromHomeToSearchServlet.class
 Controllers\Authenication\GoogleSignIn\GoogleSignInServlet.class
 Controllers\Authenication\SignUp\SignUpServlet.class
 Respiratory\Article\ArticleDTO.class

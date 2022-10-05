@@ -18,7 +18,7 @@
     <body>
         
         <div class = "container-fluid p-0 position-absolute" style = "min-height: 140%">
-            <jsp:include page="Navigation_B.jsp" /> 
+            <jsp:include page="Navigation.jsp" /> 
             
             <div class ="position-absolute custom-center pb-3" style ="border: 1px solid;  width: 100%; max-width: 400px; top: 45%">
                 <div class = "text-center h3 mt-3"> Sign Up</div>
