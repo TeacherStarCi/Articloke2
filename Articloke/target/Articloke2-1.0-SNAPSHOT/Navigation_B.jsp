@@ -21,7 +21,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search on Articloke" aria-label="Search ">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search on Articloke" aria-label="Search ">
       <button class="btn btn-light my-2 my-sm-0" type="submit"><span class = "h5">Search</span></button>
     </form>
       <ul class="navbar-nav ml-5">

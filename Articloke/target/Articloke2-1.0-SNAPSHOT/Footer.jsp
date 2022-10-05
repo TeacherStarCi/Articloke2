@@ -28,12 +28,21 @@
         </div>
           <div class ="col-2">
               <div class ="h5 position-relative d-inline-block custom-horizontal-center" style = "top:15px"> Our Social Media</div>
-              <img src ="Image/FacebookIcon.png" class = "position-absolute" style ="height:40px;width:40px;bottom: 25px;left:15px">
-              <img src ="Image/InstagramIcon.png" class ="custom-horizontal-center position-absolute" style ="height:40px;width:40px; bottom: 25px">
+              <a href="https://www.facebook.com/starciphilosopher">
+                  <img src ="Image/FacebookIcon.png" class = "position-absolute" style ="height:40px;width:40px;bottom: 25px;left:15px">
+              </a>
+              <a href="">
+                  <img src ="Image/InstagramIcon.png" class ="custom-horizontal-center position-absolute" style ="height:40px;width:40px; bottom: 25px">
+              </a>
+              <a href="">
+                  <img src ="Image/TweeterIcon.png" class ="position-absolute" style ="height:40px;width:40px; bottom: 25px; right:15px">
+              </a>
               <img src ="Image/TweeterIcon.png" class ="position-absolute" style ="height:40px;width:40px; bottom: 25px; right:15px">
           </div>
         <div class = "col-2"> <div class ="h5 position-relative d-inline-block custom-horizontal-center" style = "top:15px"> Our Sponsor</div>
-            <img src = "Image/SponsorLogoIcon.png" style = "width: 60px; height: 60px; bottom:15px" class = "d-inline-block position-absolute custom-horizontal-center">
+            <a href="https://www.facebook.com/javawebthatde">
+                 <img src = "Image/SponsorLogoIcon.png" style = "width: 60px; height: 60px; bottom:15px" class = "d-inline-block position-absolute custom-horizontal-center">
+            </a>
         </div>
     </div>
 </footer>
