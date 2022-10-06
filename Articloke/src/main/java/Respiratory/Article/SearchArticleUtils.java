@@ -15,8 +15,9 @@ import java.util.List;
 public class SearchArticleUtils implements Serializable {
 
     public static List<ArticleDTO> keywordFilter(String keyword) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT * FROM Article WHERE\n"
-                + "title LIKE ? OR username LIKE ? OR description LIKE ?";
+        String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
+                + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
+                + "WHERE title LIKE ? OR username LIKE ? OR description LIKE ?";
         List<ArticleDTO> articles = null;
         Connection con = null;
         PreparedStatement pre = null;
@@ -162,40 +163,40 @@ public class SearchArticleUtils implements Serializable {
 
     }
 
-    public static List<ArticleDTO> sortedByFilter(String sortedBy, List<ArticleDTO> articles){
+    public static List<ArticleDTO> sortedByFilter(String sortedBy, List<ArticleDTO> articles) {
         List<ArticleDTO> articlesAfterFilting = articles;
         if (sortedBy.equals("Alphabet")) {
-                    Collections.sort(articlesAfterFilting, new Comparator<ArticleDTO>() {
-                        @Override
-                        public int compare(ArticleDTO a1, ArticleDTO a2) {
-                            if (a1.getTitle().compareTo(a2.getTitle()) > 0) {
-                                return 1;
-                            } else {
-                                if (a1.getTitle().equals(a2.getTitle())) {
-                                    return 0;
-                                } else {
-                                    return -1;
-                                }
-                            }
+            Collections.sort(articlesAfterFilting, new Comparator<ArticleDTO>() {
+                @Override
+                public int compare(ArticleDTO a1, ArticleDTO a2) {
+                    if (a1.getTitle().compareTo(a2.getTitle()) > 0) {
+                        return 1;
+                    } else {
+                        if (a1.getTitle().equals(a2.getTitle())) {
+                            return 0;
+                        } else {
+                            return -1;
                         }
-                    });
-                } else if (sortedBy.equals("Published Date")) {
-                    Collections.sort(articlesAfterFilting, new Comparator<ArticleDTO>() {
-                        @Override
-                        public int compare(ArticleDTO a1, ArticleDTO a2) {
-                            if (a2.getPublishedDate().compareTo(a1.getPublishedDate()) < 0) {
-                                return 1;
-                            } else {
-                                if (a1.getPublishedDate().equals(a2.getPublishedDate())) {
-                                    return 0;
-                                } else {
-                                    return -1;
-                                }
-                            }
-                        }
-                    });
-
+                    }
                 }
-     return articlesAfterFilting;
-    } 
+            });
+        } else if (sortedBy.equals("Published Date")) {
+            Collections.sort(articlesAfterFilting, new Comparator<ArticleDTO>() {
+                @Override
+                public int compare(ArticleDTO a1, ArticleDTO a2) {
+                    if (a2.getPublishedDate().compareTo(a1.getPublishedDate()) < 0) {
+                        return 1;
+                    } else {
+                        if (a1.getPublishedDate().equals(a2.getPublishedDate())) {
+                            return 0;
+                        } else {
+                            return -1;
+                        }
+                    }
+                }
+            });
+
+        }
+        return articlesAfterFilting;
+    }
 }

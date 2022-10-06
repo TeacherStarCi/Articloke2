@@ -49,7 +49,7 @@
             <img class="rounded-circle" src ="${sessionScope.user.picture}" style = "height: 40px; width: 40px">
         </a>
           <div class="dropdown-menu position-absolute" style ="left:-100px" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="ViewMyProfileServlet">Profile</a>
           <a class="dropdown-item" href="SignOutServlet">Sign Out</a>
    
         </div>

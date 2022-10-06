@@ -60,6 +60,10 @@
         <servlet-name>TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-name>
         <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewMyProfileServlet</servlet-name>
+        <servlet-class>Controllers.Profile.ViewMyProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-name>
         <url-pattern>/TransferFromHomeTopic_cel2_col3ToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewMyProfileServlet</servlet-name>
+        <url-pattern>/ViewMyProfileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

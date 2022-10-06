@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class TransferFromHomeToSearchServlet extends HttpServlet {
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

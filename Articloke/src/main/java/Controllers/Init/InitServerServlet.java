@@ -1,11 +1,10 @@
 package Controllers.Init;
 
-import Resipiratory.Topic.TopicDAO;
-import Resipiratory.Topic.TopicDTO;
-import Resipiratory.Topic.TopicPlusArticleCount;
+import Respiratory.Topic.TopicDAO;
+import Respiratory.Topic.TopicDTO;
+import Respiratory.Topic.TopicPlusArticleCount;
 import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
-import Respiratory.Article.ArticlePlusReactionTotal;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -27,7 +26,7 @@ public class InitServerServlet extends HttpServlet {
         try {
 
             List<ArticleDTO> articles_byDate = new ArrayList<>();
-            List<ArticlePlusReactionTotal> articles_byReaction = new ArrayList<>();
+
             List<TopicPlusArticleCount> topics_byCount = new ArrayList<>();
             List<TopicDTO> topics = null;
 
@@ -38,28 +37,13 @@ public class InitServerServlet extends HttpServlet {
 
             } catch (SQLException | ClassNotFoundException ex) {
             }
-
-            try {
-                for (int i = 0; i < 3; i++) {
-                    articles_byReaction.add(ArticleDAO.getArticlesReaction_FromHighToLow().get(i));
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-            }
-
-            try {
-                for (int i = 0; i < 6; i++) {
-                    topics_byCount.add(TopicDAO.getTopicsCount_FromHighToLow().get(i));
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-            }
-            
+      
               try {
                topics = TopicDAO.getTopics();
             } catch (SQLException | ClassNotFoundException ex) { }  
 
             HttpSession session = request.getSession();
             session.setAttribute("articles_byDate", articles_byDate);
-            session.setAttribute("articles_byReaction", articles_byReaction);
             session.setAttribute("topics_byCount", topics_byCount);
             session.setAttribute("topics", topics);
         } finally {

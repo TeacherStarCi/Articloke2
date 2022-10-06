@@ -122,118 +122,91 @@
                         </div>
                     </div>
                 </div>
-                <div class = "container position-relative mt-3">
+
+                <div class = "container position-relative mt-5">
                     <span class = "h3"> Popular Topics</span>
+  
                     <div class ="custom-horizontal-line"> </div>
 
-                    <div class ="row">
+                    <div class ="row mt-3">
                         <div class ="col-4">
 
-                            <div class = "mt-5 p-2 "  style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">     
-                                <form id="TransferFromHomeTopic_cel1_col1ToSearchServlet" action="TransferFromHomeTopic_cel1_col1ToSearchServlet" method="post">
-                                </form>
-                                <button form="TransferFromHomeTopic_cel1_col1ToSearchServlet" class="border-0" style="background-color: #ece7ec">
-                                    <img  src = "${sessionScope.topics_byCount.get(0).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
 
-                                    <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1 position-relative d-inline-block">  ${sessionScope.topics_byCount.get(0).topic.topic}  </span>
-                                        ${sessionScope.topics_byCount.get(0).count} article<c:if test = "${sessionScope.topics_byCount.get(0).count > 1}">s</c:if>
-                                        </div>    
-                                        <input form="TransferFromHomeTopic_cel1_col1ToSearchServlet" type="hidden" name="topic" value="${sessionScope.topics_byCount.get(0).topic.topic}" >          
-                                    <input form="TransferFromHomeTopic_cel1_col1ToSearchServlet" type ="hidden" name ="organization" value =""> 
-                                </button>                         
-                            </div>
 
-                            <div class = "mt-5 p-2 " style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
-                                <form id="TransferFromHomeTopic_cel2_col1ToSearchServlet" action="TransferFromHomeTopic_cel2_col1ToSearchServlet" method="post">
-                                </form>
-                                <button form="TransferFromHomeTopic_cel2_col1ToSearchServlet" class="border-0" style="background-color: #fdfdfd">
+
+
+
+
+
+                            <div class = "p-2 custom-hover-topic" onclick = "TransferFromTopicToSearchServlet()" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
+                                <img  src = "${sessionScope.topics_byCount.get(0).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
+                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1">  ${sessionScope.topics_byCount.get(0).topic.topic}  </span>
+                                    ${sessionScope.topics_byCount.get(0).count} article<c:if test = "${sessionScope.topics_byCount.get(0).count > 1}">s</c:if>                                      
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class = "mt-3 p-2 custom-hover-topic" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
                                     <img  src = "${sessionScope.topics_byCount.get(3).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
-
-                                    <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1 position-relative d-inline-block">  ${sessionScope.topics_byCount.get(3).topic.topic}  </span>
-                                        ${sessionScope.topics_byCount.get(3).count} article<c:if test = "${sessionScope.topics_byCount.get(3).count > 1}">s</c:if>                                      
-                                        </div>
-                                        <input form="TransferFromHomeTopic_cel2_col1ToSearchServlet" type="hidden" name="topic" value="${sessionScope.topics_byCount.get(3).topic.topic}" >          
-                                    <input form="TransferFromHomeTopic_cel2_col1ToSearchServlet" type ="hidden" name ="organization" value =""> 
-                                </button>                 
+                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1">  ${sessionScope.topics_byCount.get(3).topic.topic}  </span>
+                                    ${sessionScope.topics_byCount.get(3).count} article<c:if test = "${sessionScope.topics_byCount.get(3).count > 1}">s</c:if>                                      
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
 
 
-                        <div class ="col-4"> 
-                            <div class = "mt-5 p-2 " style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
-                                <form id="TransferFromHomeTopic_cel1_col2ToSearchServlet" action="TransferFromHomeTopic_cel1_col2ToSearchServlet" method="post">
-                                </form>
-                                <button form="TransferFromHomeTopic_cel1_col2ToSearchServlet" class="border-0" style="background-color: #ece7ec">
+                            <div class ="col-4 "> 
+                                <div class = "p-2 custom-hover-topic" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
                                     <img  src = "${sessionScope.topics_byCount.get(1).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
-
-                                    <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1 position-relative d-inline-block">  ${sessionScope.topics_byCount.get(1).topic.topic}  </span>
-
-                                        ${sessionScope.topics_byCount.get(1).count} article<c:if test = "${sessionScope.topics_byCount.get(1).count > 1}">s</c:if> </div>
-                                        <input form="TransferFromHomeTopic_cel1_col2ToSearchServlet" type="hidden" name="topic" value="${sessionScope.topics_byCount.get(1).topic.topic}" >          
-                                    <input form="TransferFromHomeTopic_cel1_col2ToSearchServlet" type ="hidden" name ="organization" value =""> 
-                                    </button>       
+                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1">  ${sessionScope.topics_byCount.get(1).topic.topic}  </span>
+                                    ${sessionScope.topics_byCount.get(1).count} article<c:if test = "${sessionScope.topics_byCount.get(1).count > 1}">s</c:if>  
+                                    </div>
                                 </div>
-                                <div class = "mt-5 p-2 " style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
-                                    <form id="TransferFromHomeTopic_cel2_col2ToSearchServlet" action="TransferFromHomeTopic_cel2_col2ToSearchServlet" method="post">
-                                </form>
-                                    <button form="TransferFromHomeTopic_cel2_col2ToSearchServlet" class="border-0" style="background-color: #fdfdfd">   
+                                <div class = "mt-3 p-2 custom-hover-topic" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
                                     <img  src = "${sessionScope.topics_byCount.get(4).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
-
-                                    <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1 position-relative d-inline-block">  ${sessionScope.topics_byCount.get(4).topic.topic}  </span>
-
-                                    ${sessionScope.topics_byCount.get(4).count} article<c:if test = "${sessionScope.topics_byCount.get(4).count > 1}">s</c:if> </div>
-                                    <input form="TransferFromHomeTopic_cel2_col2ToSearchServlet" type="hidden" name="topic" value="${sessionScope.topics_byCount.get(4).topic.topic}" >          
-                                    <input form="TransferFromHomeTopic_cel2_col2ToSearchServlet" type ="hidden" name ="organization" value =""> 
-                                    </button>       
+                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1">  ${sessionScope.topics_byCount.get(4).topic.topic}  </span>
+                                    ${sessionScope.topics_byCount.get(4).count} article<c:if test = "${sessionScope.topics_byCount.get(4).count > 1}">s</c:if>  
+                                    </div>
                                 </div>
-
-
-
-
-                            </div>
+                            </div>    
                             <div class ="col-4">
-                                <div class = "mt-5 p-2 " style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
-                                    <form id="TransferFromHomeTopic_cel1_col3ToSearchServlet" action="TransferFromHomeTopic_cel1_col3ToSearchServlet" method="post">
-                                </form>
-                                <button form="TransferFromHomeTopic_cel1_col3ToSearchServlet" class="border-0" style="background-color: #ece7ec">
+                                <div class = "p-2 custom-hover-topic" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
                                     <img  src = "${sessionScope.topics_byCount.get(2).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
-
-                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1 position-relative d-inline-block">  ${sessionScope.topics_byCount.get(2).topic.topic}  </span>
-
-                                    ${sessionScope.topics_byCount.get(2).count} article<c:if test = "${sessionScope.topics_byCount.get(2).count > 3}">s</c:if> </div>
-                                    <input form="TransferFromHomeTopic_cel1_col3ToSearchServlet" type="hidden" name="topic" value="${sessionScope.topics_byCount.get(2).topic.topic}" >          
-                                    <input form="TransferFromHomeTopic_cel1_col3ToSearchServlet" type ="hidden" name ="organization" value =""> 
-                                </button>  
+                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1">  ${sessionScope.topics_byCount.get(2).topic.topic}  </span>
+                                    ${sessionScope.topics_byCount.get(2).count} article<c:if test = "${sessionScope.topics_byCount.get(2).count > 1}">s</c:if>  
+                                    </div>
                                 </div>
-                                <div class = "mt-5 p-2 " style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
-                                    <form id="TransferFromHomeTopic_cel2_col3ToSearchServlet" action="TransferFromHomeTopic_cel2_col3ToSearchServlet" method="post">
-                                </form>    
-                                <button form="TransferFromHomeTopic_cel2_col3ToSearchServlet" class="border-0" style="background-color: #fdfdfd">
+                                <div class = "mt-3 p-2 custom-hover-topic" style = " border: 2px solid; border-radius: 15px; box-shadow: 2px 2px 1px 1px black">
                                     <img  src = "${sessionScope.topics_byCount.get(5).topic.picture}" style = "height: 60px; width: 60px " class = "mr-2 d-inline-block">  
+                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1">  ${sessionScope.topics_byCount.get(5).topic.topic}  </span>
+                                    ${sessionScope.topics_byCount.get(5).count} article<c:if test = "${sessionScope.topics_byCount.get(5).count > 1}">s</c:if>  
+                                    </div> 
 
-                                <div class = "d-inline-block position-relative" style ="top: 10px" ><span class = "h3 ml-1 position-relative d-inline-block">  ${sessionScope.topics_byCount.get(5).topic.topic}  </span>
 
-                                    ${sessionScope.topics_byCount.get(5).count} article<c:if test = "${sessionScope.topics_byCount.get(5).count > 3}">s</c:if> </div>
-                                    <input form="TransferFromHomeTopic_cel2_col3ToSearchServlet" type="hidden" name="topic" value="${sessionScope.topics_byCount.get(5).topic.topic}" >          
-                                    <input form="TransferFromHomeTopic_cel2_col3ToSearchServlet" type ="hidden" name ="organization" value =""> 
-                                </button> 
-                                </div> 
-                                
+                                </div>
 
                             </div>
-                        </div>
-
-
-                    </div>                                       
 
 
 
 
 
 
-                </div>                                          
-
+                        </div>   
+                    </div>                                          
+                </div>   
             <jsp:include page="Footer.jsp" />                                            
         </div>
     </body>

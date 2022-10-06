@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="CSS/Bootstrap4.css">
 <link rel="stylesheet" href="CSS/Custom.css">
 <div style ="height: 170px">
-<footer class = "container-fluid p-0 pt-3 position-absolute" style = "border-top: 1px solid; bottom: 0">
+<footer class = "container-fluid pt-3 position-absolute" style = "border-top: 1px solid; bottom: 0">
     <div class ="row">
         <div class ="col-2">
             <img class = "position-relative custom-horizontal-center" src="Image/LogoIcon.png" style = "height: 80px; width: 80px">   
