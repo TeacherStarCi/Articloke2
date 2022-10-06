@@ -36,6 +36,30 @@
         <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
         <servlet-class>Controllers.SearchArticle.TransferFromHomeToSearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeTopic_cel1_col1ToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel1_col1ToSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeTopic_cel2_col1ToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col1ToSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeTopic_cel1_col2ToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel1_col2ToSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeTopic_cel2_col2ToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col2ToSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeTopic_cel1_col3ToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel1_col3ToSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
@@ -71,6 +95,30 @@
     <servlet-mapping>
         <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
         <url-pattern>/TransferFromHomeToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeTopic_cel1_col1ToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeTopic_cel1_col1ToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeTopic_cel2_col1ToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeTopic_cel2_col1ToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeTopic_cel1_col2ToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeTopic_cel1_col2ToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeTopic_cel2_col2ToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeTopic_cel2_col2ToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeTopic_cel1_col3ToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeTopic_cel1_col3ToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeTopic_cel2_col3ToSearchServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
