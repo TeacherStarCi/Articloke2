@@ -4,6 +4,9 @@
  */
 package Controllers.Init;
 
+import Respiratiory.Interaction.InteractionDAO;
+import Respiratory.Article.ArticleDAO;
+import Respiratory.Article.ArticleDTO;
 import Respiratory.Paper.PaperDAO;
 import Respiratory.Paper.PaperDTO;
 import Respiratory.User.UserDTO;
@@ -17,7 +20,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-
 /**
  *
  * @author tucuo
@@ -27,31 +29,43 @@ public class InitMyProfileServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-     String URL = "MyProfile.jsp";
-     try{
-        HttpSession session = request.getSession(false);
-        UserDTO user = null;
-        if (session!= null){
-            user = (UserDTO)session.getAttribute("user");
-        }
-        
-        String username = null;
-        if (user != null){
-            username = user.getUsername();
-        }
-        List<PaperDTO> papers = null;   
+        String URL = "MyProfile.jsp";
         try {
-               papers = PaperDAO.getPapersUsername(username);
-            } catch (SQLException | ClassNotFoundException ex) {     }
-        request.setAttribute("papers", papers);
-         
-         
-         
-         
-     }finally{
-         RequestDispatcher rd = request.getRequestDispatcher(URL);
-         rd.forward(request, response);
-     }
+            HttpSession session = request.getSession(false);
+            UserDTO user = null;
+            if (session != null) {
+                user = (UserDTO) session.getAttribute("user");
+            }
+
+            String username = null;
+            if (user != null) {
+                username = user.getUsername();
+            }
+            List<PaperDTO> papers = null;
+            List<ArticleDTO> articles = null;
+            int totalCount = 0;
+            try {
+                papers = PaperDAO.getPapersUsernameSortedByModifiedDate_FromLastedToOldest(username);
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+
+            try {
+                articles = ArticleDAO.getArticlesUsernameSortedByPublishedDate_FromLatestToOldest(username);
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+            
+             try {
+               totalCount = InteractionDAO.getTotalReaction(username);
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+            
+            request.setAttribute("papers", papers);
+            request.setAttribute("articles", articles);
+            request.setAttribute("totalCount", totalCount);
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher(URL);
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class Test {
     public static void main(String[] args) {
           try {
-            List<PaperDTO> list = PaperDAO.getPapersUsername("starci");
+            List<PaperDTO> list = PaperDAO.getPapersUsernameSortedByModifiedDate_FromLastedToOldest("starci");
             for (PaperDTO p:list){
                 System.out.println(p);
             }

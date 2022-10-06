@@ -20,8 +20,17 @@ public class PaperDTO implements Serializable{
     private Date createdDate;
     private Date modifiedDate;
     private String username;
-    private boolean status;
+    private String publishedStatus;
 
+    public String getPublishedStatus() {
+        return publishedStatus;
+    }
+
+    public void setPublishedStatus(String publishedStatus) {
+        this.publishedStatus = publishedStatus;
+    }
+    private boolean status;
+ 
     @Override
     public String toString() {
         return "PaperDTO{" + "ID=" + ID + ", title=" + title + ", topic=" + topic + ", description=" + description + ", content=" + content + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", username=" + username + ", status=" + status + '}';
@@ -30,7 +39,10 @@ public class PaperDTO implements Serializable{
     public PaperDTO() {
     }
 
-    public PaperDTO(String ID, String title, String topic, String description, String content, Date createdDate, Date modifiedDate, String username, boolean status) {
+   
+
+
+    public PaperDTO(String ID, String title, String topic, String description, String content, Date createdDate, Date modifiedDate, String username,  String publishedStatus, boolean status) {
         this.ID = ID;
         this.title = title;
         this.topic = topic;
@@ -39,8 +51,11 @@ public class PaperDTO implements Serializable{
         this.createdDate = createdDate;
         this.modifiedDate = modifiedDate;
         this.username = username;
+        this.publishedStatus = publishedStatus;
         this.status = status;
+        
     }
+
 
     public String getID() {
         return ID;

@@ -13,8 +13,9 @@ import java.util.List;
 
 public class PaperDAO implements Serializable {
 
-    public static List<PaperDTO> getPapersUsername(String username_) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT * FROM Paper WHERE username = ?";
+    public static List<PaperDTO> getPapersUsernameSortedByModifiedDate_FromLastedToOldest(String username_) throws SQLException, ClassNotFoundException {
+        String SQL = "SELECT * FROM Paper WHERE username = ? ORDER BY modifiedDate DESC";
+
         Connection con = null;
         PreparedStatement pre = null;
         ResultSet res = null;
@@ -34,13 +35,16 @@ public class PaperDAO implements Serializable {
                     Date createdDate = res.getDate("createdDate");
                     Date modifiedDate = res.getDate("modifiedDate");
                     String username = res.getString("username");
+                    String publishedStatus = res.getString("publishedStatus");     
+                   
                     boolean status = res.getBoolean("status");
-                    PaperDTO paper = new PaperDTO(ID, title, topic, description, content, createdDate, modifiedDate, username, status);
-                    if (papers == null){
+
+                    PaperDTO paper = new PaperDTO(ID, title, topic, description, content, createdDate, modifiedDate, username, publishedStatus, status);
+                    if (papers == null) {
                         papers = new ArrayList<>();
-                    }    
+                    }
                     papers.add(paper);
-                            }
+                }
             }
         } finally {
             if (con != null) {

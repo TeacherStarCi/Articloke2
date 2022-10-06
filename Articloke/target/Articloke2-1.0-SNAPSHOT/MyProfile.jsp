@@ -39,7 +39,7 @@
                                 Organization: ${sessionScope.user.organization} <br>
                                 Phone Number: ${sessionScope.user.organization} <br>
                                 <div class ="custom-horizontal-line"></div>
-                                <span class ="h4"> Artichoke Pendals: 999  <img src ="Image/Flower.png" class ="d-inline-block position-relative" style ="width: 20px; top: -2px"> 
+                                <span class ="h4"> Artichoke Pendals: ${requestScope.totalCount}  <img src ="Image/Flower.png" class ="d-inline-block position-relative mt-2" style ="width: 30px;top:-7px"> 
                                 </span>
                             </div>  
                         </div>
@@ -50,22 +50,22 @@
                             <div class ="container p-0" style = "border: 2px solid"> 
                                 <div class = "container-fluid p-0 custom-hover-topic" style = "height: 60px">
                                     <span class = "d-inline-block h4 position-relative custom-center ">
-                                     Edit Information &nbsp; <img src = "Image/EditInf.png" style = "width: 36px;">
-                                       
+                                        Edit Information &nbsp; <img src = "Image/EditInf.png" style = "width: 36px;">
+
                                     </span>
-                                
+
                                 </div>
-                            <div class = "container-fluid p-0 custom-hover-topic" style = "height: 60px">
+                                <div class = "container-fluid p-0 custom-hover-topic" style = "height: 60px">
                                     <span class = "d-inline-block h4 position-relative custom-center "> 
-                                         Change Password &nbsp; <img src = "Image/ChangePassword.png" style = "width: 36px;">
+                                        Change Password &nbsp; <img src = "Image/ChangePassword.png" style = "width: 36px;">
                                     </span>
-                                
+
                                 </div>
-                                    <div class = "container-fluid p-0 custom-hover-topic" style = "height: 60px">
+                                <div class = "container-fluid p-0 custom-hover-topic" style = "height: 60px">
                                     <span class = "d-inline-block h4 position-relative custom-center "> 
-                                       Authenticate Email &nbsp; <img src = "Image/EmailS.png" style = "width: 36px;">
+                                        Authenticate Email &nbsp; <img src = "Image/EmailS.png" style = "width: 36px;">
                                     </span>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -82,102 +82,73 @@
                     <div class = " row mt-3">
                         <div class ="col-6"> 
                             <span class = "position-relative d-inline-block h4" style ="color:#C6B6C5" > My Papers </span>
-                            <div class ="position-relative mt-2">
-                                <div class ="row">
-                                    <div class ="col-8">
-                                        <span class ="h4">${requestScope.papers.get(0).title}</span> 
-                                        <br>
-                                        Date Modified: 24h 18/03
-                                        <br>
 
+                            <c:if test = "${empty requestScope.papers}">
+                                <br>    <span class = "h4"> You have not created any paper. </span>
 
-                                        Content: Nguyen Van Tu Cuong la idol top top 100000k follow ...
+                            </c:if>
+
+                            <c:if test = "${not empty requestScope.papers}"> 
+                                <c:forEach items = "${requestScope.papers}" var = "paper" begin = "0" end = "4">
+                                    <div class ="position-relative mt-2">
+                                        <div class ="row">
+                                            <div class ="col-8">
+                                                <span class ="h4">${paper.title}</span> 
+                                                <br>
+                                                Date Modified: ${paper.modifiedDate}
+                                                <br>
+                                                Description: ${paper.description} <br>
+                                                Published Status: ${paper.publishedStatus}
+
+                                            </div>
+
+                                            <div class ="col-4">
+                                                <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class ="col-4">
-                                        <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class ="position-relative mt-3">
-                                <div class ="row">
-                                    <div class ="col-8">
-                                        <span class ="h4">Paper Name abcxyz</span> 
-                                        <br>
-                                        Date Modified: 24h 18/03
-                                        <br>
+                                </c:forEach>
+                                <span class = "position-relative d-inline-block mt-3"> Show more Papers </span>
+                            </c:if>
 
 
-                                        Content: Nguyen Van Tu Cuong la idol top top 100000k follow ...
-                                    </div>
-
-                                    <div class ="col-4">
-                                        <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <span class = "position-relative d-inline-block mt-3"> Show more Papers </span></div>     
+                        </div>     
                         <div class ="col-6"> 
+
                             <span class = "position-relative d-inline-block h4" style ="color:#C6B6C5" > My Articles </span>
-                            <div class ="position-relative mt-3">
-                                <div class ="row">
-                                    <div class ="col-3">
-                                        <img class = "d-inline-block p-relative img-fluid" src ="Image/Article/AR001.jpg"> 
+                            <c:if test = "${empty requestScope.articles}">
+                                <br> <span class = "h4"> You have no published article. </span>
 
-                                        <br>
+                            </c:if>
 
+                            <c:if test = "${not empty requestScope.articles}"> 
+                                <c:forEach var = "article" items = "${requestScope.articles}" begin = "0" end = "4" >
+                                    <div class ="position-relative mt-3">
+                                        <div class ="row">
+
+                                            <div class ="col-3">
+                                                <img class = "d-inline-block p-relative img-fluid" src ="${article.picture}"> 
+
+                                                <br>
+
+                                            </div>
+                                            <div class ="col-6">
+                                                <span class ="h4">${article.title}</span> <br>
+                                                Published Date: ${article.publishedDate} <br>
+                                                Downloaded: 9999 <br>
+                                                Artichoke Pendals Acheived: xyz
+                                            </div>  
+                                            <div class ="col-3">
+                                                <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class ="col-6">
-                                        <span class ="h4">Paper Name abcxyz</span> <br>
-                                        Date Created: 24h 18/03 <br>
-                                        Downloaded: 9999
-                                    </div>  
-                                    <div class ="col-3">
-                                        <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
-                                    </div>
-                                </div>
-                            </div>
+                                </c:forEach>
+                                <span class = "position-relative d-inline-block mt-3"> Show more Articles </span></div>    
+                            </c:if>
 
-                            <div class ="position-relative mt-3">
-                                <div class ="row">
-                                    <div class ="col-3">
-                                        <img class = "d-inline-block p-relative img-fluid" src ="Image/Article/AR001.jpg"> 
 
-                                        <br>
-
-                                    </div>
-                                    <div class ="col-6">
-                                        <span class ="h4">Paper Name abcxyz</span> <br>
-                                        Date Created: 24h 18/03 <br>
-                                        Downloaded: 9999
-                                    </div>  
-                                    <div class ="col-3">
-                                        <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class ="position-relative mt-3">
-                                <div class ="row">
-                                    <div class ="col-3">
-                                        <img class = "d-inline-block p-relative img-fluid" src ="Image/Article/AR001.jpg"> 
-
-                                        <br>
-
-                                    </div>
-                                    <div class ="col-6">
-                                        <span class ="h4">Paper Name abcxyz</span> <br>
-                                        Date Created: 24h 18/03 <br>
-                                        Downloaded: 9999
-                                    </div>  
-                                    <div class ="col-3">
-                                        <button type ="text" class = "btn btn-light border-dark position-relative custom-center"> Edit</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class = "position-relative d-inline-block mt-3"> Show more Papers </span></div>     
 
                     </div>          
 
@@ -187,7 +158,8 @@
 
 
             </div>
-            <jsp:include page="Footer.jsp" /> 
+            <jsp:include page="Footer.jsp" />           
         </div>
+                     
     </body>
 </html>
