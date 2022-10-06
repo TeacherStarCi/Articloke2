@@ -156,10 +156,11 @@
 
 
 
-
+  </div>
             </div>
+                           
             <jsp:include page="Footer.jsp" />           
-        </div>
-                     
+
+              
     </body>
 </html>
