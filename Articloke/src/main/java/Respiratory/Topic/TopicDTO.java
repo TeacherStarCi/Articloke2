@@ -30,5 +30,10 @@ public class TopicDTO implements Serializable  {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
+    @Override
+    public String toString() {
+        return "TopicDTO{" + "topic=" + topic + ", picture=" + picture + '}';
+    }
     
 }

@@ -1,5 +1,6 @@
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Article\SearchArticleUtils.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Article\ArticlePlusReactionTotal.java
+C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Paper\Test.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\SearchArticle\TransferFromHomeToSearchServlet.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Authenication\GoogleSignIn\GoogleSupport.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Authenication\SignInServlet.java
@@ -13,6 +14,7 @@ C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Authenicat
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Topic\TopicDAO.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Topic\TopicPlusArticleCount.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Article\ArticleDTO.java
+C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Paper\PaperDAO.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Authenication\GoogleSignIn\Constant.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Authenication\GoogleSignIn\GoogleSignInServlet.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Authenication\SignUp\SignUpServlet.java
@@ -23,6 +25,8 @@ C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Article\Ar
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\User\UserDAO.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\SearchArticle\MovePageServlet.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Support\Test.java
+C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Paper\PaperDTO.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Topic\TopicDTO.java
+C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\Init\InitMyProfileServlet.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Respiratory\Article\Test.java
 C:\Users\tucuo\Desktop\Articloke2\Articloke\src\main\java\Controllers\SearchArticle\ShowArticleResultServlet.java

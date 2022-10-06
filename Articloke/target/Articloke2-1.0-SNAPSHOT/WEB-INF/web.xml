@@ -36,33 +36,14 @@
         <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
         <servlet-class>Controllers.SearchArticle.TransferFromHomeToSearchServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>TransferFromHomeTopic_cel1_col1ToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel1_col1ToSearchServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TransferFromHomeTopic_cel2_col1ToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col1ToSearchServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TransferFromHomeTopic_cel1_col2ToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel1_col2ToSearchServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TransferFromHomeTopic_cel2_col2ToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col2ToSearchServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TransferFromHomeTopic_cel1_col3ToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel1_col3ToSearchServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-class>
-    </servlet>
+    
     <servlet>
         <servlet-name>ViewMyProfileServlet</servlet-name>
         <servlet-class>Controllers.Profile.ViewMyProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InitMyProfileServlet</servlet-name>
+        <servlet-class>Controllers.Init.InitMyProfileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
@@ -96,37 +77,11 @@
         <servlet-name>SignOutServlet</servlet-name>
         <url-pattern>/SignOutServlet</url-pattern>
     </servlet-mapping>
+  
+ 
     <servlet-mapping>
-        <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TransferFromHomeTopic_cel1_col1ToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeTopic_cel1_col1ToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TransferFromHomeTopic_cel2_col1ToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeTopic_cel2_col1ToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TransferFromHomeTopic_cel1_col2ToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeTopic_cel1_col2ToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TransferFromHomeTopic_cel2_col2ToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeTopic_cel2_col2ToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TransferFromHomeTopic_cel1_col3ToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeTopic_cel1_col3ToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TransferFromHomeTopic_cel2_col3ToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeTopic_cel2_col3ToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewMyProfileServlet</servlet-name>
-        <url-pattern>/ViewMyProfileServlet</url-pattern>
+        <servlet-name>InitMyProfileServlet</servlet-name>
+        <url-pattern>/InitMyProfileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

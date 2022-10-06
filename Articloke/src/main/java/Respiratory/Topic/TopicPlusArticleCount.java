@@ -29,6 +29,12 @@ public class TopicPlusArticleCount {
     public void setCount(int count) {
         this.count = count;
     }
-    
+
+    @Override
+    public String toString() {
+        return "TopicPlusArticleCount{" + "topic=" + topic + ", count=" + count + '}';
+    }
+
+   
     
 }

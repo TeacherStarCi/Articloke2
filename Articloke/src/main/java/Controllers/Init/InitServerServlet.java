@@ -42,6 +42,13 @@ public class InitServerServlet extends HttpServlet {
                topics = TopicDAO.getTopics();
             } catch (SQLException | ClassNotFoundException ex) { }  
 
+              try {
+                  for (int i = 0; i < 6; i++) {
+               topics_byCount = TopicDAO.getTopicsCount_FromHighToLow();
+                  }
+            } catch (SQLException | ClassNotFoundException ex) { }  
+              
+              
             HttpSession session = request.getSession();
             session.setAttribute("articles_byDate", articles_byDate);
             session.setAttribute("topics_byCount", topics_byCount);

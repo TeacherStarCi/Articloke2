@@ -85,7 +85,7 @@
                             <div class ="position-relative mt-2">
                                 <div class ="row">
                                     <div class ="col-8">
-                                        <span class ="h4">Paper Name abcxyz</span> 
+                                        <span class ="h4">${requestScope.papers.get(0).title}</span> 
                                         <br>
                                         Date Modified: 24h 18/03
                                         <br>
