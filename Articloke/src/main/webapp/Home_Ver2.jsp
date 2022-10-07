@@ -10,86 +10,93 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </head>
     <body>
+        <!-- Div Surround -->
+        <div class ="container-fluid position-absolute p-0" style = "min-height: 120%">
 
-        <jsp:include page="Navigation.jsp" />
-        <!-- Section 1 -->
-        <div class ="container-fluid position-relative p-0" style = "width: 100%; height: 600px; overflow:hidden;">
-            <img class ="position-absolute" src = "Image/Art.gif" style = "width: 100%">
-            <div class = "position-absolute custom-horizontal-center d-inline-block text-center" style = "top:15%"> 
-                <span style = "font-size: 7.5rem; font-weight: bolder; font-family: cursive"> 
-                    Articloke 
-                </span> 
-                <br>
-                <span class ="h5" style = "font-family: cursive"> 
-                    The garden where knowledge are planted 
-                </span>
+            <jsp:include page="Navigation.jsp" />
+            <!-- Section 1 -->
+            <div class ="container-fluid position-relative p-0" style = "width: 100%; height: 600px; overflow:hidden;">
+                <img class ="position-absolute" src = "Image/Art.gif" style = "width: 100%">
+                <div class = "position-absolute custom-horizontal-center d-inline-block text-center" style = "top:15%"> 
+                    <span style = "font-size: 7.5rem; font-weight: bolder; font-family: cursive"> 
+                        Articloke 
+                    </span> 
+                    <br>
+                    <span class ="h5" style = "font-family: cursive"> 
+                        The garden where knowledge are planted 
+                    </span>
+                </div>
             </div>
-        </div>
-        <!-- End Section 1 -->
-        <!-- Section 2 -->
-        <div class ="container position-relative">
-            <div class = "h3 mt-3"> Latest articles</div>
-            <div class ="custom-horizontal-line"> </div>
-            <div class ="row mt-3" >
+            <!-- End Section 1 -->
+            <!-- Section 2 -->
+            <div class ="container position-relative">
+                <div class = "h3 mt-3">
+                    Latest articles
+                </div>
+                <div class ="custom-horizontal-line"> 
+                </div>
+                <div class ="row mt-3" >
 
-                <c:forEach  begin = "0" end = "2" varStatus="status"> 
-                    <div class ="col-4 p-1 pointer">
-                        <div class = "custom-hover-container">
-                            <img class = "position-relative img-fluid custom-hover-hide-image" src = "${articlesLatestPublishedDate.get(status.index).picture}">
-                            <div class = "custom-hover-dislay-text">
-                                <div class = "p-3">
-                                    <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
-                                    Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}
+                    <c:forEach  begin = "0" end = "2" varStatus="status"> 
+                        <div class ="col-4 p-1 pointer">
+                            <div class = "custom-hover-container">
+                                <img class = "position-relative img-fluid custom-hover-hide-image" src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                <div class = "custom-hover-dislay-text">
+                                    <div class = "p-3">
+                                        <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
+                                        Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}
+                                    </div>
                                 </div>
-                            </div>
-                        </div>              
-                    </div>
+                            </div>              
+                        </div>
 
-                </c:forEach>
+                    </c:forEach>
 
-                <c:forEach  begin = "3" end = "6" varStatus="status"> 
-                    <div class ="col-3 position-relative p-1 pointer">
-                        <div class = "custom-hover-container">
-                            <img class = "position-relative img-fluid custom-hover-hide-image" src = "${articlesLatestPublishedDate.get(status.index).picture}">
-                            <div class = "custom-hover-dislay-text">
-                                <div class = "p-3">
-                                    <span class = "h5"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
-                                    Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}
+                    <c:forEach  begin = "3" end = "6" varStatus="status"> 
+                        <div class ="col-3 position-relative p-1 pointer">
+                            <div class = "custom-hover-container">
+                                <img class = "position-relative img-fluid custom-hover-hide-image" src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                <div class = "custom-hover-dislay-text">
+                                    <div class = "p-3">
+                                        <span class = "h5"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
+                                        Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </c:forEach> 
+                    </c:forEach> 
 
 
+                </div>
             </div>
-        </div>
-        <!-- End Section 2 -->
-
-        <!-- Section 3 -->
-        <div class = "container position-relative mt-5">
-            <div class = "h3 mt-3"> 
-                Popular topics
+            <!-- End Section 2 -->
+            <!-- Section 3 -->
+            <div class = "container position-relative mt-5">
+                <div class = "h3 mt-3"> 
+                    Popular topics
+                </div>
+                <div class ="custom-horizontal-line">              
+                </div>
+                <div class ="row">
+                    <c:forEach begin="0" end="5" varStatus="status" step = "2">
+                        <div class ="col-4 px-3 pointer">
+                            <c:forEach begin="0" end="1" varStatus="status2">
+                                <a class ="custom-no-hyperlink-display" href = "ForwardSearchHomeTopicServlet?topic=${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}"> 
+                                    <div class = "p-2 custom-hover-topic shadow custom-border mt-3"">
+                                        <img  src = "${sessionScope.topicMostCount.get(status.index + status2.index).topic.picture}" style = "height: 60px; width: 60px " class = "mr-3">  
+                                        <span class = "h3 ml-1">  ${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}  </span>
+                                        ${sessionScope.topicMostCount.get(status.index + status2.index).count} article<c:if test = "${sessionScope.topicMostCount.get(status.index + status2.index).count > 1}">s</c:if>                                      
+                                        </div>
+                                    </a>  
+                            </c:forEach>   
+                        </div>
+                    </c:forEach>            
+                </div>   
             </div>
-            <div class ="custom-horizontal-line"></div>
-            <div class ="row">
-                <c:forEach begin="0" end="5" varStatus="status" step = "2">
-                    <div class ="col-4 px-3 pointer">
-                        <c:forEach begin="0" end="1" varStatus="status2">
-                            <a class ="custom-no-hyperlink-display" href = "ForwardSearchHomeTopicServlet?topic=${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}"> 
-                                <div class = "p-2 custom-hover-topic shadow custom-border mt-3"">
-                                <img  src = "${sessionScope.topicMostCount.get(status.index + status2.index).topic.picture}" style = "height: 60px; width: 60px " class = "mr-3">  
-                                <span class = "h3 ml-1">  ${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}  </span>
-                                ${sessionScope.topicMostCount.get(status.index + status2.index).count} article<c:if test = "${sessionScope.topicMostCount.get(status.index + status2.index).count > 1}">s</c:if>                                      
-                                </div>
-                            </a>  
-                        </c:forEach>   
-                    </div>
-                </c:forEach>            
-            </div>   
-        </div>
-        <!-- End Section 3 -->
-        <jsp:include page="Footer.jsp" />
+            <!-- End Section 3 -->
+            <jsp:include page="Footer.jsp" />
 
+        </div>
+        <!-- End Div Surround -->
     </body>
 </html>

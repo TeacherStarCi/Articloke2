@@ -1,5 +1,7 @@
 Respiratory\Article\ArticleDAO.class
+Controllers\Init\InitMyProfileServlet.class
 Respiratory\User\UserDAO.class
+Respiratory\Paper\PaperDTO.class
 Respiratory\Topic\TopicPlusArticleCount.class
 Controllers\SearchArticle\ResetParamsServlet.class
 Respiratory\Topic\Test.class
@@ -23,8 +25,11 @@ Respiratory\Topic\TopicDTO.class
 Controllers\Authenication\SignInServlet.class
 Controllers\Authenication\SignOutServlet.class
 Controllers\SearchArticle\TransferFromHomeToSearchServlet.class
+Respiratory\Paper\PaperDAO.class
 Controllers\Authenication\GoogleSignIn\GoogleSignInServlet.class
+Respiratiory\Interaction\InteractionDAO.class
 Controllers\Authenication\SignUp\SignUpServlet.class
 Respiratory\Topic\TopicDAO.class
+Respiratory\Paper\Test.class
 Respiratory\Article\ArticleDTO.class
 Respiratory\Article\Test.class
