@@ -13,7 +13,7 @@ import java.util.List;
 
 public class PaperDAO implements Serializable {
 
-    public static List<PaperDTO> getPapersUsernameSortedByModifiedDate_FromLastedToOldest(String username_) throws SQLException, ClassNotFoundException {
+    public static List<PaperDTO> getPapersUsernameLastedModifiedDate(String username_) throws SQLException, ClassNotFoundException {
         String SQL = "SELECT * FROM Paper WHERE username = ? ORDER BY modifiedDate DESC";
 
         Connection con = null;

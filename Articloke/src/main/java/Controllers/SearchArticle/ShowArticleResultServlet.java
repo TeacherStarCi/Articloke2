@@ -2,6 +2,7 @@ package Controllers.SearchArticle;
 
 import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
+import Respiratory.Article.ReactionDownloadDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class ShowArticleResultServlet extends HttpServlet {
 
@@ -36,23 +38,48 @@ public class ShowArticleResultServlet extends HttpServlet {
 
             List<ArticleDTO> articles = null;
             try {
-                articles = ArticleDAO.getArticles_FromSearchArticle(keyword, title, author, topic, organization, permission, sortedBy);
+                articles = ArticleDAO.getArticlesSearch(keyword, title, author, topic, organization, permission, sortedBy);
             } catch (SQLException | ClassNotFoundException ex) {
             }
 
             request.setAttribute("articles", articles);
-            request.setAttribute("minIndex", 0);
-            request.setAttribute("maxIndex", 4);
-            request.setAttribute("currentPage", 1);
+            
+             Map<String, ReactionDownloadDTO> articlesReactionDownload = null;
+            try {
+                articlesReactionDownload  = ArticleDAO.getArticlesReactionDownload();
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
 
+            request.setAttribute("articlesReactionDownload", articlesReactionDownload);
+            
+            
+            request.setAttribute("minIndexRow1", 0);
+            int maxIndexRow1 = articles.size() - 1;
+
+            if (maxIndexRow1 > 3) {
+                maxIndexRow1 = 3;
+                request.setAttribute("existRow2", true);
+                request.setAttribute("minIndexRow2", 4);
+                int maxIndexRow2 = articles.size() - 1;
+                if (maxIndexRow2 > 7) {
+                    maxIndexRow2 = 7;
+                }
+                request.setAttribute("maxIndexRow2", maxIndexRow2);
+
+            }
+            request.setAttribute("maxIndexRow1", maxIndexRow1);
+
+            request.setAttribute("currentPage", 1);
             int maxPage;
             if (articles == null || articles.isEmpty()) {
                 maxPage = 1;
             } else {
-                int residual = articles.size() % 5;
+                int residual = articles.size() % 8;
                 if (residual == 0) {
-                    maxPage = articles.size() / 5;
-                } else { maxPage = articles.size()/5 + 1;}
+                    maxPage = articles.size() / 8;
+                } else {
+                    maxPage = articles.size() / 8 + 1;
+                }
 
             }
 

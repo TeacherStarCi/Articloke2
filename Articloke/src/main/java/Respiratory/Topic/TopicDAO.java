@@ -50,7 +50,7 @@ public class TopicDAO implements Serializable {
         return list;
     }
 
-    public static List<TopicPlusArticleCount> getTopicsCount_FromHighToLow()
+    public static List<TopicPlusArticleCount> getTopicsMostCount()
             throws SQLException, ClassNotFoundException {
         String SQL = "SELECT t.topic, picture, count FROM\n"
                 + "(SELECT t.topic, COUNT(a.ID) as count FROM Topic t left join Paper a ON t.topic = a.topic\n"

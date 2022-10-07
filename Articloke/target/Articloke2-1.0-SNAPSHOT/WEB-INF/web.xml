@@ -33,17 +33,16 @@
         <servlet-class>Controllers.Authenication.SignOutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.TransferFromHomeToSearchServlet</servlet-class>
-    </servlet>
-    
-    <servlet>
         <servlet-name>ViewMyProfileServlet</servlet-name>
         <servlet-class>Controllers.Profile.ViewMyProfileServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InitMyProfileServlet</servlet-name>
         <servlet-class>Controllers.Init.InitMyProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FowardNavigationSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.FowardNavigationSearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
@@ -62,10 +61,6 @@
         <url-pattern>/InitServerServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
-        <url-pattern>/TransferFromHomeToSearchServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ShowArticleResultServlet</servlet-name>
         <url-pattern>/ShowArticleResultServlet</url-pattern>
     </servlet-mapping>
@@ -81,11 +76,13 @@
         <servlet-name>SignOutServlet</servlet-name>
         <url-pattern>/SignOutServlet</url-pattern>
     </servlet-mapping>
-  
- 
     <servlet-mapping>
         <servlet-name>InitMyProfileServlet</servlet-name>
         <url-pattern>/InitMyProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FowardNavigationSearchServlet</servlet-name>
+        <url-pattern>/FowardNavigationSearchServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="CSS/Bootstrap4.css">
-<link rel="stylesheet" href="CSS/Custom2.css">
+<link rel="stylesheet" href="CSS/Custom.css">
 <div style ="height: 170px">
 <footer class = "container-fluid pt-3 position-absolute" style = "border-top: 1px solid; bottom: 0">
     <div class ="row">

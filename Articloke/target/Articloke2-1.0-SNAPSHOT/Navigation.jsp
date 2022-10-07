@@ -1,10 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="CSS/Bootstrap4.css">
-<link rel="stylesheet" href="CSS/Custom2.css">
+<link rel="stylesheet" href="CSS/Custom.css">
  
 <div style = "height: 60px">
 <nav class ="navbar navbar-nav navbar-expand-lg fixed-top" style = "border-bottom: 1px grey solid; height: 60px; background: #C6B6C5;">    
-     
     <a class="navbar-brand" style ="width: 60px" href="Home.jsp">
         <img src="Image/LogoIcon.png" class ="position-relative" style = "height: 50px; width: 50px; left: 5px">
         <div class="d-inline-block position-relative h3 ml-2 " style = "font-family: cursive; color: #212529;top: 7px; "> Articloke </div>
@@ -22,7 +21,7 @@
       </li>
     </ul>
      
-    <form class="form-inline my-2 my-lg-0" action = "TransferFromHomeToSearchServlet">
+    <form class="form-inline my-2 my-lg-0" action = "FowardNavigationSearchServlet">
         <input class="form-control mr-sm-2" type="text" name ="keyword" value ="${sessionScope.keywordFromHome}" placeholder="Search on Articloke" aria-label="Search">        
         <input type ="hidden" name ="organization" value ="">
         <button class="btn btn-light my-2 my-sm-0" type="submit"><span class = "h5">Search</span></button>    

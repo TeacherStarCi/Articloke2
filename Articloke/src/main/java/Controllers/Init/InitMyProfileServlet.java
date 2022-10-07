@@ -45,12 +45,12 @@ public class InitMyProfileServlet extends HttpServlet {
             List<ArticleDTO> articles = null;
             int totalCount = 0;
             try {
-                papers = PaperDAO.getPapersUsernameSortedByModifiedDate_FromLastedToOldest(username);
+                papers = PaperDAO.getPapersUsernameLastedModifiedDate(username);
             } catch (SQLException | ClassNotFoundException ex) {
             }
 
             try {
-                articles = ArticleDAO.getArticlesUsernameSortedByPublishedDate_FromLatestToOldest(username);
+                articles = ArticleDAO.getArticlesUsernameLatestDate(username);
             } catch (SQLException | ClassNotFoundException ex) {
             }
             

@@ -5,21 +5,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Search</title>
-        <link rel="stylesheet" href="CSS/Bootstrap4.css">
-        <link rel="stylesheet" href="CSS/Custom2.css">
+
+        <link rel="stylesheet" href="CSS/Custom.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     </head>
     <body>
-        <div class ="container-fluid p-0 position-absolute" style = "min-height: 100%">
+        <div class ="custom-big-container">
             <jsp:include page="Navigation.jsp" /> 
-            <div class ="container-fluid p-0 position-relative pb-4 pt-1" >  
+            <div class ="container-fluid position-relative pb-4 pt-1" >  
                 <form id = "ShowArticleResultServlet" action = "ShowArticleResultServlet"> 
-
                 </form>
-                <div class = "container p-0">
+                <div class = "container">
                     <div class = "h5 position-relative mt-4">Just give Articloke a keyword, then all matched results will be displayed </div>
                     <div class ="d-flex">
                         <div class="input-group p-relative mt-2" style ="max-width: 300px" >
@@ -33,7 +33,7 @@
                         <input  type ="hidden" form ="ShowArticleResultServlet" name = "organization" value = "${sessionScope.user.organization}">
                         <form id = "ResetParamsServlet" action = "ResetParamsServlet"> </form>
                         <input form = "ResetParamsServlet" type ="submit" value = "Reset" class = "mt-1 btn btn-light border-dark">
-                        
+
                         <input class ="ml-3 mt-1" form ="ShowArticleResultServlet" type ="image" src = "Image/SearchIcon.png" width = "40" height= "40" >
                     </div>
                     <div id="j1" class="collapse mt-3">
@@ -45,8 +45,8 @@
                                     </div>
                                     <input type="text" class="form-control" form ="ShowArticleResultServlet" placeholder="All" aria-label="Title" aria-describedby="2" name = "title" value = "${requestScope.title}">
                                 </div>        
-                           </div>
-                           <div class ="col-2">
+                            </div>
+                            <div class ="col-2">
                                 <div class="input-group position-relative">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="3">Author</span>
@@ -79,118 +79,147 @@
                                         <option <c:if test = "${requestScope.permission == 'Public'}"> selected</c:if> value = "Public"> Public</option>
                                         <option <c:if test = "${requestScope.permission == 'For Organization'}"> selected</c:if> value = "For Organization">For Organization</option>
                                         <option <c:if test = "${requestScope.permission == 'Private'}"> selected</c:if> value = "Private">Private</option>
-                                    </select>
-                                </div>        
-                            </div>     
-                            <div class ="col-3">
-                                <div class="input-group position-relative" >
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="6">Sorted By</span>
-                                    </div>
-                                    <select form ="ShowArticleResultServlet" name = "sortedBy" type="text" class="form-control" placeholder="Permission" aria-label="Permission" aria-describedby="5">
-                                        <option <c:if test = "${requestScope.sortedBy == 'None'}"> selected </c:if> value = "None"> None</option>
+                                        </select>
+                                    </div>        
+                                </div>     
+                                <div class ="col-3">
+                                    <div class="input-group position-relative" >
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="6">Sorted By</span>
+                                        </div>
+                                        <select form ="ShowArticleResultServlet" name = "sortedBy" type="text" class="form-control" placeholder="Permission" aria-label="Permission" aria-describedby="5">
+                                            <option <c:if test = "${requestScope.sortedBy == 'None'}"> selected </c:if> value = "None"> None</option>
                                         <option <c:if test = "${requestScope.sortedBy == 'Published Date'}"> selected </c:if> value = "Published Date"> Published Date (Oldest - Latest)</option>
                                         <option <c:if test = "${requestScope.sortedBy == 'Alphabet'}"> selected </c:if> value = "Alphabet"> Alphabet (A-Z)</option>
 
-                                    </select>
-                                </div>        
-                            </div>    
+                                        </select>
+                                    </div>        
+                                </div>    
+                            </div>
                         </div>
-                    </div>
-                </div>  
-            </div>
-                                
-            <div class =" container p-0 position-relative mt-5 ">
-                
+                    </div>  
+                </div>
+
+                <div class ="container mt-3">
+
                 <c:if test = "${not empty requestScope.articles}"> 
                     <span class = "h5"> All Results (${requestScope.articles.size()}) </span>
-                       
-                <div class ="custom-horizontal-line mb-3"> </div>
-                <table style ="border: 2px solid black" class ="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope = "col">ID </th>
-                            <th scope = "col">Image</th>
-                            <th scope = "col">Title</th>
-                            <th scope = "col">Author</th>
-                            <th scope = "col">Description</th>
-                            <th scope = "col"><span class = "custom-no-break"> Published Date </span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items = "${requestScope.articles}" var = "article" begin = "${requestScope.minIndex}" end = "${requestScope.maxIndex}">
-                            <tr>
-                                <td scope="col" > ${article.ID}</td>
-                                <td  style = "text-align: left; width: 200px;" > 
 
-                                    <img class ="position-relative" src ="${article.picture}" style = "width: 300px;">
-                                </td>
-                                <td class = "h5">  ${article.title}</td>
-                                <td>  ${article.username}</td>
-                                <td> ${article.description}</td>
-                                <td> ${article.publishedDate}</td>
-                            </tr>
-                        </c:forEach> 
+                    <div class ="custom-horizontal-line"> </div>
+                    <div class ="row mt-3"> 
+                        <c:forEach begin = "${requestScope.minIndexRow1}" end = "${requestScope.maxIndexRow1}" varStatus = "status" >
+                            <div class ="col-3 p-3">
+                                <div style = "border: 1px solid" class = "shadow">
+                                    <div class = "p-3"> 
+                                        <div class = "custom-square-container"> 
+                                            <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
+                                        </div>
+                                        <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
+                                        <div class ="mt-1"> ID: ${requestScope.articles.get(status.index).ID}</div>
+                                        <div class ="mt-1"> Author: ${requestScope.articles.get(status.index).username}</div>
+                                        <div class ="mt-1"> Topic: ${requestScope.articles.get(status.index).topic}</div>
+                                        <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
+                                        <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                    </tbody>
-                </table>
-            </c:if>
+                                        <div class ="mt-1 font-weight-bold"> Artichoke Pendals: ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).reactionTotal} <img src="Image/Flower.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+                                        <div class ="mt-1 font-weight-bold"> Downloads:   ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).downloadTotal}</div>
+
+                                    </div>
+                                </div>
+                            </div> 
+
+
+                        </c:forEach>
+                    </div>
+                    <c:if test = "${requestScope.existRow2}">
+                        <div class ="row mt-3"> 
+                            <c:forEach begin = "${requestScope.minIndexRow2}" end = "${requestScope.maxIndexRow2}" varStatus = "status" >
+                                <div class ="col-3 p-3">
+                                    <div style = "border: 1px solid" class = "shadow">
+                                        <div class = "p-3"> 
+                                            <div class = "custom-square-container"> 
+                                                <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
+                                            </div>
+                                            <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
+                                            <div class ="mt-1"> ID: ${requestScope.articles.get(status.index).ID}</div>
+                                            <div class ="mt-1"> Author: ${requestScope.articles.get(status.index).username}</div>
+                                            <div class ="mt-1"> Topic: ${requestScope.articles.get(status.index).topic}</div>
+                                            <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
+                                            <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
+
+                                            <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
+                                                ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).reactionTotal}
+
+
+                                                <img src="Image/Flower.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+                                            <div class ="mt-1 font-weight-bold"> Downloads:  
+                                                ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).downloadTotal} </div>
+                              
+                                        </div>
+                                    </div>
+                                </div> 
+
+                            </c:forEach>
+
+                        </div>
+                    </c:if> 
+                </c:if>
                 <c:if test = "${empty requestScope.articles && requestScope.searchEmpty}">
                     <span class = "h2">No result found </span>
                     &nbsp; Please edit your search query to find results
-                 
-                    </c:if>
-                    <c:if test = "${!requestScope.searchEmpty}">
-                        <span class = "h2 ">Explore scientific, technical, and medical research</span> 
-                        <br>
-                        <img src ="Image/Fancy.png" class ="mt-3 position-relative" style = "width: 40%">
-                      
-                    </c:if>
-                        </div>
-           
-         
-                                    <c:if test = "${not empty requestScope.articles}">
-            <div class = "container p-0 position-relative mt-3">
-                <form id ="MovePageServlet" action = "MovePageServlet"></form>
-                <input form ="MovePageServlet" type = "hidden" name = "keyword" value = "${requestScope.keyword}">
-                <input form ="MovePageServlet" type = "hidden" name = "title" value = "${requestScope.title}">
-                <input form ="MovePageServlet" type = "hidden" name = "author" value = "${requestScope.author}">
-                <input form ="MovePageServlet" type = "hidden" name = "topic" value = "${requestScope.topic}">
-                <input form ="MovePageServlet" type = "hidden" name = "organization" value = "${sessionScope.user.organization}">
-                <input form ="MovePageServlet" type = "hidden" name = "permission" value = "${requestScope.permission}">
-                <input form ="MovePageServlet" type = "hidden" name = "sortedBy" value = "${requestScope.sortedBy}">
-                <input form ="MovePageServlet" type = "hidden" name = "currentPage" value = "${requestScope.currentPage}">
-                <input form ="MovePageServlet"type = "hidden" name = "minIndex" value = "${requestScope.minIndex}">
-                <input form ="MovePageServlet" type = "hidden" name = "maxIndex" value = "${requestScope.maxIndex}">
-                <input form ="MovePageServlet" type = "hidden" name = "maxPage" value = "${requestScope.maxPage}">
-                <c:if test="${requestScope.currentPage > 1}" >
-                    <input form ="MovePageServlet" type = "submit" class ="d-inline-block btn btn-light border-dark mr-3 position-relative"   name = "action" value = "Previous">
-                </c:if>
-                <div  class = "d-inline-block position-relative h5" style = "top:4px">
-                    Page 
-                    <c:if test = "${not empty requestScope.currentPage}">
-                        ${requestScope.currentPage}     
-                    </c:if>
-                    <c:if test = "${empty requestScope.currentPage}">
-                        1
-                    </c:if>
-                    of 
-                    <c:if test = "${not empty requestScope.maxPage}">
-                        ${requestScope.maxPage}    
-                    </c:if>
-                    <c:if test = "${empty requestScope.maxPage}">
-                        1
-                    </c:if>
 
-                </div>
-                <c:if test="${requestScope.currentPage < requestScope.maxPage}" >
-                    <input form ="MovePageServlet" type = "submit" name = "action" value = "Next" class = "d-inline-block ml-3 btn btn-light border-dark position-relative">
+                </c:if>
+                <c:if test = "${!requestScope.searchEmpty}">
+                    <span class = "h2 ">Explore scientific, technical, and medical research</span> 
+                    <br>
+                    <img src ="Image/Fancy.png" class ="mt-3 position-relative" style = "width: 40%">
+
                 </c:if>
             </div>
-                </c:if>
-                                <jsp:include page="Footer.jsp" /> 
+
+
+            <c:if test = "${not empty requestScope.articles}">
+                <div class = "container position-relative mt-3">
+                    <form id ="MovePageServlet" action = "MovePageServlet"></form>
+                    <input form ="MovePageServlet" type = "hidden" name = "keyword" value = "${requestScope.keyword}">
+                    <input form ="MovePageServlet" type = "hidden" name = "title" value = "${requestScope.title}">
+                    <input form ="MovePageServlet" type = "hidden" name = "author" value = "${requestScope.author}">
+                    <input form ="MovePageServlet" type = "hidden" name = "topic" value = "${requestScope.topic}">
+                    <input form ="MovePageServlet" type = "hidden" name = "organization" value = "${sessionScope.user.organization}">
+                    <input form ="MovePageServlet" type = "hidden" name = "permission" value = "${requestScope.permission}">
+                    <input form ="MovePageServlet" type = "hidden" name = "sortedBy" value = "${requestScope.sortedBy}">
+                    <input form ="MovePageServlet" type = "hidden" name = "currentPage" value = "${requestScope.currentPage}">
+                    <input form ="MovePageServlet"type = "hidden" name = "minIndex" value = "${requestScope.minIndex}">
+                    <input form ="MovePageServlet" type = "hidden" name = "maxIndex" value = "${requestScope.maxIndex}">
+                    <input form ="MovePageServlet" type = "hidden" name = "maxPage" value = "${requestScope.maxPage}">
+                    <c:if test="${requestScope.currentPage > 1}" >
+                        <input form ="MovePageServlet" type = "submit" class ="d-inline-block btn btn-light border-dark mr-3 position-relative"   name = "action" value = "Previous">
+                    </c:if>
+                    <div  class = "d-inline-block position-relative h5" style = "top:4px">
+                        Page 
+                        <c:if test = "${not empty requestScope.currentPage}">
+                            ${requestScope.currentPage}     
+                        </c:if>
+                        <c:if test = "${empty requestScope.currentPage}">
+                            1
+                        </c:if>
+                        of 
+                        <c:if test = "${not empty requestScope.maxPage}">
+                            ${requestScope.maxPage}    
+                        </c:if>
+                        <c:if test = "${empty requestScope.maxPage}">
+                            1
+                        </c:if>
+
+                    </div>
+                    <c:if test="${requestScope.currentPage < requestScope.maxPage}" >
+                        <input form ="MovePageServlet" type = "submit" name = "action" value = "Next" class = "d-inline-block ml-3 btn btn-light border-dark position-relative">
+                    </c:if>
+                </div>
+            </c:if>
+            <jsp:include page="Footer.jsp" /> 
         </div> 
- 
+
 
     </body>
 </html>

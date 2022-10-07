@@ -43,7 +43,7 @@ public class MovePageServlet extends HttpServlet {
 
             List<ArticleDTO> articles = null;
             try {
-                articles = ArticleDAO.getArticles_FromSearchArticle(keyword, title, author, topic, organization, permission, sortedBy);
+                articles = ArticleDAO.getArticlesSearch(keyword, title, author, topic, organization, permission, sortedBy);
             } catch (SQLException | ClassNotFoundException ex) {
             }
             

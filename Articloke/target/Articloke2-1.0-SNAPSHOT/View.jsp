@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="CSS/Bootstrap4.css" />
-         <link rel="stylesheet" href="CSS/Custom2.css" />
+         <link rel="stylesheet" href="CSS/Custom.css" />
         <title>View</title>
     </head>
     <body>

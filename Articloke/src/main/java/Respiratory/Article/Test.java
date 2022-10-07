@@ -9,7 +9,7 @@ public class Test {
             throws SQLException, ClassNotFoundException{
     
         
-            System.out.println(InteractionDAO.getTotalReaction("oclozz"));
+            System.out.println( ArticleDAO.getArticlesSearch("star", "", "", "All", "", "All", "None").size());
         
     }
     

@@ -21,7 +21,7 @@ public class InitServerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = "Home_Ver2.jsp";
+        String URL = "Home.jsp";
 
         try {
 
@@ -32,7 +32,7 @@ public class InitServerServlet extends HttpServlet {
 
             try {
                 for (int i = 0; i < 7; i++) {
-                    articlesLatestPublishedDate.add(ArticleDAO.getArticlesPublishedDate_FromLatestToOldest().get(i));
+                    articlesLatestPublishedDate.add(ArticleDAO. getArticlesLastedPublishDate().get(i));
                 }
 
             } catch (SQLException | ClassNotFoundException ex) {
@@ -44,7 +44,7 @@ public class InitServerServlet extends HttpServlet {
 
               try {
                   for (int i = 0; i < 6; i++) {
-              topicMostCount = TopicDAO.getTopicsCount_FromHighToLow();
+              topicMostCount = TopicDAO.getTopicsMostCount();
                   }
             } catch (SQLException | ClassNotFoundException ex) { }  
               

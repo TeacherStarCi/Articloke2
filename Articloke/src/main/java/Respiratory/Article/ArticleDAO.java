@@ -8,11 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ArticleDAO implements Serializable {
 
-    public static List<ArticleDTO> getArticles_FromSearchArticle(String keyword, String title, String author, String topic, String organization, String permission, String sortedBy)
+    public static List<ArticleDTO> getArticlesSearch(String keyword, String title, String author, String topic, String organization, String permission, String sortedBy)
             throws SQLException, ClassNotFoundException {
 
         List<ArticleDTO> list = SearchArticleUtils.keywordFilter(keyword);
@@ -24,8 +26,8 @@ public class ArticleDAO implements Serializable {
 
     }
 
-    public static List<ArticleDTO> getArticlesUsernameSortedByPublishedDate_FromLatestToOldest(String username_) throws SQLException, ClassNotFoundException{
-            String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
+    public static List<ArticleDTO> getArticlesUsernameLatestDate(String username_) throws SQLException, ClassNotFoundException {
+        String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
                 + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
                 + "WHERE username = ? \n"
                 + "ORDER BY publishedDate DESC";
@@ -37,7 +39,7 @@ public class ArticleDAO implements Serializable {
             con = DatabaseConnector.makeConnection();
             if (con != null) {
                 pre = con.prepareStatement(SQL);
-                pre.setString(1,username_);
+                pre.setString(1, username_);
                 res = pre.executeQuery();
                 while (res.next()) {
                     String ID = res.getString("ID");
@@ -78,10 +80,8 @@ public class ArticleDAO implements Serializable {
         }
         return articles;
     }
-    
-    
-    
-    public static List<ArticleDTO> getArticlesPublishedDate_FromLatestToOldest() throws SQLException, ClassNotFoundException {
+
+    public static List<ArticleDTO> getArticlesLastedPublishDate() throws SQLException, ClassNotFoundException {
         String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
                 + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
                 + "WHERE permission = 'public'\n"
@@ -135,6 +135,48 @@ public class ArticleDAO implements Serializable {
         return articles;
     }
 
- 
+    public static Map<String, ReactionDownloadDTO> getArticlesReactionDownload() throws SQLException, ClassNotFoundException {
+        String SQL = "SELECT ar.ID, COUNT(reaction) as reactionTotal,\n"
+                + "COUNT(download) as downloadTotal\n"
+                + "FROM Article ar \n"
+                + "LEFT JOIN Interaction it \n"
+                + "ON ar.ID = it.ID GROUP BY ar.ID;";
+        Map<String, ReactionDownloadDTO> articlesReactionDownload = null;
+        Connection con = null;
+        PreparedStatement pre = null;
+        ResultSet res = null;
+        try {
+            con = DatabaseConnector.makeConnection();
+            if (con != null) {
+                pre = con.prepareStatement(SQL);
+                res = pre.executeQuery();
+                while (res.next()) {
+                    String ID = res.getString("ID");
+                  
+                    int reactionTotal = res.getInt("reactionTotal");
+                    int downloadTotal = res.getInt("downloadTotal");
+                    ReactionDownloadDTO reactionDownload = new ReactionDownloadDTO(reactionTotal, downloadTotal);
+                    if (articlesReactionDownload == null) {
+                        articlesReactionDownload = new HashMap<>();
+                    }
+                    articlesReactionDownload.put(ID, reactionDownload);
+                }
+            }
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+
+            if (pre != null) {
+                pre.close();
+            }
+
+            if (res != null) {
+                res.close();
+            }
+
+        }
+        return articlesReactionDownload;
+    }
 
 }
