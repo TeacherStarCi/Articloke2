@@ -62,6 +62,10 @@
         <url-pattern>/InitServerServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>TransferFromHomeToSearchServlet</servlet-name>
+        <url-pattern>/TransferFromHomeToSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ShowArticleResultServlet</servlet-name>
         <url-pattern>/ShowArticleResultServlet</url-pattern>
     </servlet-mapping>
