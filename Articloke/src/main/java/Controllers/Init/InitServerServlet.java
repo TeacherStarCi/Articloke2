@@ -21,18 +21,18 @@ public class InitServerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = "Home.jsp";
+        String URL = "Home_Ver2.jsp";
 
         try {
 
-            List<ArticleDTO> articles_byDate = new ArrayList<>();
+            List<ArticleDTO> articlesLatestPublishedDate = new ArrayList<>();
 
-            List<TopicPlusArticleCount> topics_byCount = new ArrayList<>();
+            List<TopicPlusArticleCount> topicMostCount = new ArrayList<>();
             List<TopicDTO> topics = null;
 
             try {
                 for (int i = 0; i < 7; i++) {
-                    articles_byDate.add(ArticleDAO.getArticlesPublishedDate_FromLatestToOldest().get(i));
+                    articlesLatestPublishedDate.add(ArticleDAO.getArticlesPublishedDate_FromLatestToOldest().get(i));
                 }
 
             } catch (SQLException | ClassNotFoundException ex) {
@@ -44,14 +44,14 @@ public class InitServerServlet extends HttpServlet {
 
               try {
                   for (int i = 0; i < 6; i++) {
-               topics_byCount = TopicDAO.getTopicsCount_FromHighToLow();
+              topicMostCount = TopicDAO.getTopicsCount_FromHighToLow();
                   }
             } catch (SQLException | ClassNotFoundException ex) { }  
               
               
             HttpSession session = request.getSession();
-            session.setAttribute("articles_byDate", articles_byDate);
-            session.setAttribute("topics_byCount", topics_byCount);
+            session.setAttribute("articlesLatestPublishedDate", articlesLatestPublishedDate);
+            session.setAttribute("topicMostCount", topicMostCount);
             session.setAttribute("topics", topics);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);

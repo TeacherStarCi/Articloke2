@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="CSS/Bootstrap4.css">
-<link rel="stylesheet" href="CSS/Custom.css">
+<link rel="stylesheet" href="CSS/Custom2.css">
  
 <div style = "height: 60px">
 <nav class ="navbar navbar-nav navbar-expand-lg fixed-top" style = "border-bottom: 1px grey solid; height: 60px; background: #C6B6C5;">    

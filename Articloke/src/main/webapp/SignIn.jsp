@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sign In</title>
         <link rel="stylesheet" href="CSS/Bootstrap4.css">
-        <link rel="stylesheet" href="CSS/Custom.css">
+        <link rel="stylesheet" href="CSS/Custom2.css">
     </head>
     <body>
         <div class = "container-fluid p-0 position-absolute" style = "min-height: 120%">
