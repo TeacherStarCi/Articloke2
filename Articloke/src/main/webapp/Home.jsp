@@ -14,70 +14,70 @@
                 <jsp:include page="Navigation.jsp"/>
                 <!-- Section 1 -->
                 <div class="container-fluid position-relative p-0" style="width: 100%; height: 600px; overflow:hidden;">
-                  <img class="position-absolute" src="Image/Art.gif" style="width: 100%">
+                  <img class="position-absolute img-fluid" src="Image/Art.gif" style="width: 100%">
                     <div class="position-absolute custom-horizontal-center d-inline-block text-center" style="top:15%">
                       <span style="font-size: 7.5rem; font-weight: bolder; font-family: cursive">
                         Articloke
                       </span>
-                      <br>
-                        <span class="h5" style="font-family: cursive">
-                          The garden where knowledge are planted
-                        </span>
-                      </div>
+                    </br>
+                    <span class="h5" style="font-family: cursive">
+                      The garden where knowledge are planted
+                    </span>
+                  </div>
+                </div>
+                <!-- End Section 1 -->
+                <!-- Section 2 -->
+                <div class="container-fluid p-0" style="background: linear-gradient(180deg, rgba(198,182,197,1) 30%, rgba(255,255,255,1) 100%)">
+                  <div class="container position-relative">
+                    <div class="h3">
+                      Latest Articles
                     </div>
-                    <!-- End Section 1 -->
-                    <!-- Section 2 -->
-                    <div class="container-fluid p-0" style="background: linear-gradient(180deg, rgba(198,182,197,1) 30%, rgba(255,255,255,1) 100%)">
-                      <div class="container position-relative">
-                        <div class="h3">
-                          Latest Articles
-                        </div>
-                        <div class="custom-horizontal-line"></div>
-                        <div class="row mt-3">
+                    <div class="custom-horizontal-line"></div>
+                    <div class="row mt-3">
 
-                          <c:forEach begin="0" end="2" varStatus="status">
-                            <div class="col-4 p-1 pointer">
-                              <jsp:include page="LatestArticleCard.jsp"/>
-                            </div>
-                          </c:forEach>
+                      <c:forEach begin="0" end="2" varStatus="status">
+                        <div class="col-4 p-1 pointer">
+                          <jsp:include page="LatestArticleCard.jsp"/>
                         </div>
-                        <div class="row mt-3">
-                          <c:forEach begin="3" end="6" varStatus="status">
-                            <div class="col-3 position-relative p-1 pointer">
-                              <jsp:include page="LatestArticleCard.jsp"/>
-                            </div>
-                          </c:forEach>
-                        </div>
-                      </div>
+                      </c:forEach>
                     </div>
-                    <!-- End Section 2 -->
-                    <!-- Section 3 -->
-                    <div class="container position-relative mt-5">
-                      <div class="h3 mt-3">
-                        Popular Topics
-                      </div>
-                      <div class="custom-horizontal-line"></div>
-                      <div class="row">
-                        <c:forEach begin="0" end="5" varStatus="status" step="2">
-                          <div class="col-4 px-3 pointer">
-                            <c:forEach begin="0" end="1" varStatus="status2">
-                              <a class="custom-no-hyperlink-display" href="ForwardSearchHomeTopicServlet?topic=${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}">
-                                <div class="p-2 custom-hover-topic shadow custom-border mt-3">
-                                  <img src="${sessionScope.topicMostCount.get(status.index + status2.index).topic.picture}" style="height: 60px; width: 60px " class="mr-3">
-                                    <span class="h3 ml-1">
-                                      ${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}
-                                    </span>
-                                    ${sessionScope.topicMostCount.get(status.index + status2.index).count} article
-                                    <c:if test="${sessionScope.topicMostCount.get(status.index + status2.index).count > 1}"></c:if>
-                                  </div>
-                                </a>
-                              </c:forEach>
-                            </div>
+                    <div class="row mt-3">
+                      <c:forEach begin="3" end="6" varStatus="status">
+                        <div class="col-3 position-relative p-1 pointer">
+                          <jsp:include page="LatestArticleCard.jsp"/>
+                        </div>
+                      </c:forEach>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Section 2 -->
+                <!-- Section 3 -->
+                <div class="container position-relative mt-5">
+                  <div class="h3 mt-3">
+                    Popular Topics
+                  </div>
+                  <div class="custom-horizontal-line"></div>
+                  <div class="row">
+                    <c:forEach begin="0" end="5" varStatus="status" step="2">
+                      <div class="col-4 px-3 pointer">
+                        <c:forEach begin="0" end="1" varStatus="status2">
+                          <a class="custom-no-hyperlink-display" href="ForwardSearchHomeTopicServlet?topic=${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}">
+                            <div class="p-2 custom-hover-topic shadow custom-border mt-3">
+                              <img src="${sessionScope.topicMostCount.get(status.index + status2.index).topic.picture}" style="height: 60px; width: 60px " class="mr-3">
+                                <span class="h3 ml-1">
+                                  ${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}
+                                </span>
+                                ${sessionScope.topicMostCount.get(status.index + status2.index).count} article
+                                <c:if test="${sessionScope.topicMostCount.get(status.index + status2.index).count > 1}"></c:if>
+                              </div>
+                            </a>
                           </c:forEach>
                         </div>
-                      </div>
-                      <!-- End Section 3 -->
-                      <jsp:include page="Footer.jsp"/>
+                      </c:forEach>
                     </div>
-                  </body>
-                </html>
+                  </div>
+                  <!-- End Section 3 -->
+                  <jsp:include page="Footer.jsp"/>
+                </div>
+              </body>
+            </html>

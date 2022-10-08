@@ -14,7 +14,7 @@
                 <!-- Div Surround -->
                 <jsp:include page="Navigation.jsp"/>
                 <!-- Section 1 -->
-                <div class="position-absolute p-0 custom-center" style="border: 1px solid;  width: 100%; max-width: 600px; top: 45%">
+                <div class="position-absolute p-0 custom-center" style="border: 1px solid;  width: 100%; max-width: 600px; top: 45%; border-radius: 10px">
                   <div class="text-center h3 mt-3">
                     Sign In
                   </div>
@@ -40,7 +40,9 @@
                             </div>
 
                             <div class="position-relative float-right" style="right: 0">
-                              Forget Password?
+                              <a href="#">
+                                Forget Password?
+                              </a>
                             </div>
                           </div>
 

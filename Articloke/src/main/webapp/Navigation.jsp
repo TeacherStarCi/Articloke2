@@ -4,17 +4,17 @@
 
       <div style="height: 60px">
         <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="border-bottom: 1px grey solid; height: 60px; background: #C6B6C5;">
+          <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="border-bottom: 1px grey solid; height: 60px; background: #C6B6C5">
             <a class="navbar-brand" style="width: 60px" href="Home.jsp">
               <img src="Image/LogoIcon.png" class="position-relative" style="height: 50px; width: 50px; left: 5px">
-                <div class="d-inline-block position-relative h3 ml-2 " style="font-family: cursive; color: #212529;top: 7px; ">
+                <div class="d-inline-block position-relative h3 ml-2 " style="font-family: cursive; color: #212529; top: 7px">
                   Articloke
                 </div>
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                 <span class="navbar-toggler-icon"></span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colNav">
+                <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <div class="collapse navbar-collapse" id="colNav">
                 <ul class="navbar-nav ml-auto mr-5">
                   <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -46,25 +46,25 @@
                           </button>
                         </form>
                       </li>
-                      <c:if test="${empty sessionScope.user}">
-                        <ul class="navbar-nav">
-                          <li class="nav-item">
-                            <a class="nav-link" href="SignIn.jsp">
-                              <span style="color: black" class="h5">
-                                Sign In
-                              </span>
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="SignUp.jsp">
-                              <span style="color: black" class="h5">
-                                Sign Up
-                              </span>
-                            </a>
-                          </li>
-                        </ul>
-                      </c:if>
                     </ul>
+                    <c:if test="${empty sessionScope.user}">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="SignIn.jsp">
+                            <span style="color: black" class="h5">
+                              Sign In
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="SignUp.jsp">
+                            <span style="color: black" class="h5">
+                              Sign Up
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </c:if>
                     <c:if test="${not empty sessionScope.user}">
                       <div class="nav-item dropdown ml-5">
                         <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
