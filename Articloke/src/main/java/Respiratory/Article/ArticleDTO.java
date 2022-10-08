@@ -19,11 +19,15 @@ public class ArticleDTO implements Serializable {
     private String organzation;
     private float price;
     
+    private int totalReaction;
+    private int totalDownload;
+    
     private boolean status;
+   
     public ArticleDTO() {
     }
 
-    public ArticleDTO(String ID, String picture, String title, String username, String topic, String description, String link, String linkDemo, Date publishedDate, String permission, String organzation, float price, boolean status) {
+    public ArticleDTO(String ID, String picture, String title, String username, String topic, String description, String link, String linkDemo, Date publishedDate, String permission, String organzation, float price, int totalReaction, int totalDownload, boolean status) {
         this.ID = ID;
         this.picture = picture;
         this.title = title;
@@ -36,12 +40,10 @@ public class ArticleDTO implements Serializable {
         this.permission = permission;
         this.organzation = organzation;
         this.price = price;
+        this.totalReaction = totalReaction;
+        this.totalDownload = totalDownload;
+   
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "ArticleDTO{" + "ID=" + ID + ", picture=" + picture + ", title=" + title + ", username=" + username + ", topic=" + topic + ", description=" + description + ", link=" + link + ", linkDemo=" + linkDemo + ", publishedDate=" + publishedDate + ", permission=" + permission + ", organzation=" + organzation + ", price=" + price + ", status=" + status + '}';
     }
 
     public String getID() {
@@ -140,6 +142,22 @@ public class ArticleDTO implements Serializable {
         this.price = price;
     }
 
+    public int getTotalReaction() {
+        return totalReaction;
+    }
+
+    public void setTotalReaction(int totalCount) {
+        this.totalReaction = totalCount;
+    }
+
+    public int getTotalDownload() {
+        return totalDownload;
+    }
+
+    public void setTotalDownload(int totalDownload) {
+        this.totalDownload = totalDownload;
+    }
+
     public boolean isStatus() {
         return status;
     }
@@ -148,6 +166,8 @@ public class ArticleDTO implements Serializable {
         this.status = status;
     }
 
+    
+   
     
     
     

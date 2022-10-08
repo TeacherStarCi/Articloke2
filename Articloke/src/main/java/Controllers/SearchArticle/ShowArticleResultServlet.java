@@ -2,7 +2,6 @@ package Controllers.SearchArticle;
 
 import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
-import Respiratory.Article.ReactionDownloadDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 public class ShowArticleResultServlet extends HttpServlet {
 
@@ -43,14 +41,6 @@ public class ShowArticleResultServlet extends HttpServlet {
             }
 
             request.setAttribute("articles", articles);
-            
-             Map<String, ReactionDownloadDTO> articlesReactionDownload = null;
-            try {
-                articlesReactionDownload  = ArticleDAO.getArticlesReactionDownload();
-            } catch (SQLException | ClassNotFoundException ex) {
-            }
-
-            request.setAttribute("articlesReactionDownload", articlesReactionDownload);
             
             
             request.setAttribute("minIndexRow1", 0);

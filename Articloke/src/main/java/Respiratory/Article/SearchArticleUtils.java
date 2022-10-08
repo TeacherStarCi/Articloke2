@@ -15,9 +15,17 @@ import java.util.List;
 public class SearchArticleUtils implements Serializable {
 
     public static List<ArticleDTO> keywordFilter(String keyword) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
-                + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
-                + "WHERE title LIKE ? OR username LIKE ? OR description LIKE ?";
+        String SQL = "SELECT cuong.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission,\n" +
+"organization, price, totalReaction,totalDownload, cuong.status FROM\n" +
+"(SELECT ar.ID, COUNT(reaction) as totalReaction, \n" +
+"COUNT(download) as totalDownload\n" +
+"FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n" +
+"left join Interaction it ON ar.ID = it.ID\n" +
+"WHERE title LIKE ? OR pp.username LIKE ? \n" +
+"OR description LIKE ?\n" +
+"GROUP BY ar.ID) starci inner join \n" +
+"(SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status FROM Article ar inner join Paper pp ON ar.ID = pp.ID) cuong\n" +
+"ON starci.ID = cuong.ID";
         List<ArticleDTO> articles = null;
         Connection con = null;
         PreparedStatement pre = null;
@@ -45,9 +53,11 @@ public class SearchArticleUtils implements Serializable {
                     String permission = res.getString("permission");
                     String organization = res.getString("organization");
                     float price = res.getFloat("price");
+                    int totalReaction = res.getInt("totalReaction");
+                    int totalDownload = res.getInt("totalDownload");
                     boolean status = res.getBoolean("status");
 
-                    ArticleDTO article = new ArticleDTO(ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, status);
+                    ArticleDTO article = new ArticleDTO(ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, totalReaction, totalDownload, status);
                     if (articles == null) {
                         articles = new ArrayList<>();
                     }

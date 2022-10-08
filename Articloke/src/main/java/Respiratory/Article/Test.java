@@ -9,7 +9,9 @@ public class Test {
             throws SQLException, ClassNotFoundException{
     
         
-            System.out.println( ArticleDAO.getArticlesSearch("star", "", "", "All", "", "All", "None").size());
+            for(ArticleDTO acc: ArticleDAO.getArticlesSearch("star", "", "", "All", "", "All", "None")){
+                System.out.print(acc.getTotalReaction());
+            }
         
     }
     

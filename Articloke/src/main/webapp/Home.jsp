@@ -38,33 +38,46 @@
 
                         <c:forEach  begin = "0" end = "2" varStatus="status"> 
                             <div class ="col-4 p-1 pointer">
-                                <div class = "custom-hover-container">
-                                    <img class = "position-relative img-fluid custom-hover-hide-image" src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                <div class = "custom-hover-container ">
+                                    <img class = "position-relative img-fluid custom-hover-hide-image " src = "${articlesLatestPublishedDate.get(status.index).picture}">
                                     <div class = "custom-hover-dislay-text">
                                         <div class = "p-3">
                                             <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
-                                            Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}
+
+                                            <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
+                                            <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
+                                            <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
+                                            <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
+                                                ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction} <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+                                            <div class ="mt-1 font-weight-bold"> Downloads:        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload}</div>
                                         </div>
                                     </div>
                                 </div>              
                             </div>
 
                         </c:forEach>
-
+                    </div>
+                    <div class ="row mt-3" >
                         <c:forEach  begin = "3" end = "6" varStatus="status"> 
                             <div class ="col-3 position-relative p-1 pointer">
                                 <div class = "custom-hover-container">
-                                    <img class = "position-relative img-fluid custom-hover-hide-image" src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                    <div class = "custom-square-container custom-hover-hide-image">
+                                    <img class = "position-absolute img-fluid " src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                   </div>
                                     <div class = "custom-hover-dislay-text">
                                         <div class = "p-3">
-                                            <span class = "h5"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
-                                            Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}
+                                            <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
+                                            <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
+                                            <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
+                                            <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
+                                            <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
+                                                ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction} <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+                                            <div class ="mt-1 font-weight-bold"> Downloads:        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </c:forEach> 
-
 
                     </div>
                 </div>

@@ -27,10 +27,18 @@ public class ArticleDAO implements Serializable {
     }
 
     public static List<ArticleDTO> getArticlesUsernameLatestDate(String username_) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
-                + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
-                + "WHERE username = ? \n"
-                + "ORDER BY publishedDate DESC";
+        String SQL = " SELECT tu.ID, picture, title, username, topic, description, link, linkDemo,\n" +
+"  publishedDate, permission, organization, price, totalReaction, totalDownload, tu.status \n" +
+"  FROM\n" +
+"  (SELECT ar.ID, COUNT(reaction) as totalReaction, COUNT(download) as totalDownload\n" +
+"			FROM Article ar inner join Paper pp ON ar.ID = pp.ID\n" +
+"             left join Interaction it ON ar.ID = it.ID\n" +
+"			 WHERE pp.username = ?\n" +
+"             GROUP BY ar.ID) cuong\n" +
+"			 inner join (SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, \n" +
+"			 publishedDate, permission, organization, price, ar.status FROM Article ar inner join Paper pp ON ar.ID = pp.ID)\n" +
+"			 tu ON cuong.ID = tu.ID\n" +
+"			 ORDER BY publishedDate DESC";
         List<ArticleDTO> articles = null;
         Connection con = null;
         PreparedStatement pre = null;
@@ -55,9 +63,11 @@ public class ArticleDAO implements Serializable {
                     String permission = res.getString("permission");
                     String organzation = res.getString("organization");
                     float price = res.getFloat("price");
+                    int totalReaction = res.getInt("totalReaction");
+                    int totalDownload = res.getInt("totalDownload");
                     boolean status = res.getBoolean("status");
 
-                    ArticleDTO article = new ArticleDTO(ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organzation, price, status);
+                    ArticleDTO article = new ArticleDTO(ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organzation, price, totalReaction, totalDownload, status);
                     if (articles == null) {
                         articles = new ArrayList<>();
                     }
@@ -82,10 +92,17 @@ public class ArticleDAO implements Serializable {
     }
 
     public static List<ArticleDTO> getArticlesLastedPublishDate() throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status\n"
-                + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
-                + "WHERE permission = 'public'\n"
-                + "ORDER BY publishedDate DESC";
+           String SQL = "SELECT tu.ID, picture, title, username, topic, description, link, linkDemo,\n" +
+"  publishedDate, permission, organization, price, totalReaction, totalDownload, tu.status \n" +
+"  FROM\n" +
+"  (SELECT ar.ID, COUNT(reaction) as totalReaction, COUNT(download) as totalDownload\n" +
+"			FROM Article ar inner join Paper pp ON ar.ID = pp.ID\n" +
+"             left join Interaction it ON ar.ID = it.ID\n" +
+"             GROUP BY ar.ID) cuong\n" +
+"			 inner join (SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, \n" +
+"			 publishedDate, permission, organization, price, ar.status FROM Article ar inner join Paper pp ON ar.ID = pp.ID)\n" +
+"			 tu ON cuong.ID = tu.ID\n" +
+"			 ORDER BY publishedDate DESC";
         List<ArticleDTO> articles = null;
         Connection con = null;
         PreparedStatement pre = null;
@@ -109,9 +126,11 @@ public class ArticleDAO implements Serializable {
                     String permission = res.getString("permission");
                     String organzation = res.getString("organization");
                     float price = res.getFloat("price");
+                    int totalReaction = res.getInt("totalReaction");
+                    int totalDownload = res.getInt("totalDownload");
                     boolean status = res.getBoolean("status");
 
-                    ArticleDTO article = new ArticleDTO(ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organzation, price, status);
+                    ArticleDTO article = new ArticleDTO(ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organzation, price, totalReaction, totalDownload, status);
                     if (articles == null) {
                         articles = new ArrayList<>();
                     }
@@ -133,50 +152,6 @@ public class ArticleDAO implements Serializable {
 
         }
         return articles;
-    }
-
-    public static Map<String, ReactionDownloadDTO> getArticlesReactionDownload() throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT ar.ID, COUNT(reaction) as reactionTotal,\n"
-                + "COUNT(download) as downloadTotal\n"
-                + "FROM Article ar \n"
-                + "LEFT JOIN Interaction it \n"
-                + "ON ar.ID = it.ID GROUP BY ar.ID;";
-        Map<String, ReactionDownloadDTO> articlesReactionDownload = null;
-        Connection con = null;
-        PreparedStatement pre = null;
-        ResultSet res = null;
-        try {
-            con = DatabaseConnector.makeConnection();
-            if (con != null) {
-                pre = con.prepareStatement(SQL);
-                res = pre.executeQuery();
-                while (res.next()) {
-                    String ID = res.getString("ID");
-                  
-                    int reactionTotal = res.getInt("reactionTotal");
-                    int downloadTotal = res.getInt("downloadTotal");
-                    ReactionDownloadDTO reactionDownload = new ReactionDownloadDTO(reactionTotal, downloadTotal);
-                    if (articlesReactionDownload == null) {
-                        articlesReactionDownload = new HashMap<>();
-                    }
-                    articlesReactionDownload.put(ID, reactionDownload);
-                }
-            }
-        } finally {
-            if (con != null) {
-                con.close();
-            }
-
-            if (pre != null) {
-                pre.close();
-            }
-
-            if (res != null) {
-                res.close();
-            }
-
-        }
-        return articlesReactionDownload;
     }
 
 }

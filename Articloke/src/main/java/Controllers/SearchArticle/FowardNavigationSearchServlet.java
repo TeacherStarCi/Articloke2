@@ -6,13 +6,11 @@ package Controllers.SearchArticle;
 
 import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
-import Respiratory.Article.ReactionDownloadDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -39,14 +37,6 @@ public class FowardNavigationSearchServlet extends HttpServlet {
             }
 
             request.setAttribute("articles", articles);
-
-            Map<String, ReactionDownloadDTO> articlesReactionDownload = null;
-            try {
-                articlesReactionDownload = ArticleDAO.getArticlesReactionDownload();
-            } catch (SQLException | ClassNotFoundException ex) {
-            }
-
-            request.setAttribute("articlesReactionDownload", articlesReactionDownload);
 
             request.setAttribute("minIndexRow1", 0);
             int maxIndexRow1 = articles.size() - 1;

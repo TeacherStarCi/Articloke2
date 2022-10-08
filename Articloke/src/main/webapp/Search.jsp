@@ -121,9 +121,9 @@
                                         <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
                                         <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                        <div class ="mt-1 font-weight-bold"> Artichoke Pendals: ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).reactionTotal} <img src="Image/Flower.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-                                        <div class ="mt-1 font-weight-bold"> Downloads:   ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).downloadTotal}</div>
-
+                                        <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
+                                             ${requestScope.articles.get(status.index).totalReaction} <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+                                        <div class ="mt-1 font-weight-bold"> Downloads:        ${requestScope.articles.get(status.index).totalDownload}</div>
                                     </div>
                                 </div>
                             </div> 
@@ -148,12 +148,12 @@
                                             <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
                                             <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
-                                                ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).reactionTotal}
+                                            ${requestScope.articles.get(status.index).totalReaction}
 
 
-                                                <img src="Image/Flower.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+                                                <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
                                             <div class ="mt-1 font-weight-bold"> Downloads:  
-                                                ${requestScope.articlesReactionDownload.get(requestScope.articles.get(status.index).ID).downloadTotal} </div>
+                                                   ${requestScope.articles.get(status.index).totalDownload} </div>
                               
                                         </div>
                                     </div>

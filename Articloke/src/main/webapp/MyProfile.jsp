@@ -42,7 +42,7 @@
                                 Organization: ${sessionScope.user.organization} <br>
                                 Phone Number: ${sessionScope.user.organization} <br>
                                 <div class ="custom-horizontal-line"></div>
-                                <span class ="h4"> Artichoke Pendals: ${requestScope.totalCount}  <img src ="Image/Flower.png" class ="d-inline-block position-relative mt-2" style ="width: 30px;top:-7px"> 
+                                <span class ="h4"> Artichoke Pendals: ${requestScope.totalCount}  <img src ="Image/FlowerIcon.png" class ="d-inline-block position-relative mt-2" style ="width: 30px;top:-7px"> 
                                 </span>
                             </div>  
                         </div>
