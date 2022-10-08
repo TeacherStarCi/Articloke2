@@ -21,7 +21,7 @@
                 </div>
             
                   <div class = "horizontal-center no-break" style = "height: 40px; top: 370px; font-size: 20px">
-                    Articloke Pendals : ${requestScope.artichoke} <img style ="display:inline; width: 28px; height: 28px; margin-left: 10px" src = "Image/FlowerIcon.png">
+                    Articloke Pendals : ${requestScope.artichoke} <img style ="display:inline; width: 28px; height: 28px; margin-left: 10px" src = "Image/HeartIcon.png">
                 </div>
                   <div  class = "horizontal-center" style = "height: 40px;  top: 580px; font-size: 20px">
                  DOB : ${requestScope.user.DOB}

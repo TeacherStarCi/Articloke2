@@ -47,9 +47,17 @@
                                             <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
                                             <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
                                             <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
-                                            <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
-                                                ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction} <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-                                            <div class ="mt-1 font-weight-bold"> Downloads:        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload}</div>
+                                            
+                                         <div class ="d-flex mt-2 "> 
+                                                <div>  ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction}
+
+
+                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+
+                                                <div class = "ml-3">   ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload} 
+                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>              
@@ -70,9 +78,16 @@
                                             <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
                                             <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
                                             <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
-                                            <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
-                                                ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction} <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-                                            <div class ="mt-1 font-weight-bold"> Downloads:        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload}</div>
+                                        <div class ="d-flex mt-2 "> 
+                                                <div>  ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction}
+
+
+                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+
+                                                <div class = "ml-3">   ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload} 
+                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

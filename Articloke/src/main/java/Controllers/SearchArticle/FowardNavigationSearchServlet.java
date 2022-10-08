@@ -14,8 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
-
 public class FowardNavigationSearchServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -24,13 +22,19 @@ public class FowardNavigationSearchServlet extends HttpServlet {
         String URL = "Search.jsp";
         try {
             String keyword = request.getParameter("keyword");
-            
+
             String organization = request.getParameter("organization");
 
             request.setAttribute("keyword", keyword);
 
+            if (keyword.equals("")) {
+                throw new Exception();
+            }
+
             List<ArticleDTO> articles = null;
-            if (organization == null){organization = "None";}
+            if (organization == null) {
+                organization = "None";
+            }
             try {
                 articles = ArticleDAO.getArticlesSearch(keyword, "", "", "All", organization, "All", "None");
             } catch (SQLException | ClassNotFoundException ex) {
@@ -71,6 +75,7 @@ public class FowardNavigationSearchServlet extends HttpServlet {
             request.setAttribute("maxPage", maxPage);
             request.setAttribute("searchEmpty", true);
 
+        } catch (Exception e) {
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);

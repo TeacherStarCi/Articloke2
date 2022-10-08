@@ -121,9 +121,16 @@
                                         <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
                                         <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                        <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
-                                             ${requestScope.articles.get(status.index).totalReaction} <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-                                        <div class ="mt-1 font-weight-bold"> Downloads:        ${requestScope.articles.get(status.index).totalDownload}</div>
+                                         <div class ="d-flex mt-2 "> 
+                                                <div>  ${requestScope.articles.get(status.index).totalReaction}
+
+
+                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+
+                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload} 
+                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div> 
@@ -147,16 +154,18 @@
                                             <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
                                             <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                            <div class ="mt-1 font-weight-bold"> Artichoke Pendals: 
-                                            ${requestScope.articles.get(status.index).totalReaction}
+                                            <div class ="d-flex mt-2 "> 
+                                                <div>  ${requestScope.articles.get(status.index).totalReaction}
 
 
-                                                <img src="Image/FlowerIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-                                            <div class ="mt-1 font-weight-bold"> Downloads:  
-                                                   ${requestScope.articles.get(status.index).totalDownload} </div>
-                              
+                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
+
+                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload} 
+                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div> 
 
                             </c:forEach>
