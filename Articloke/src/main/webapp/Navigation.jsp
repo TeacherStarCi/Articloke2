@@ -11,10 +11,10 @@
                   Articloke
                 </div>
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto mr-5">
                   <li class="nav-item">
                     <a class="nav-link" href="#">

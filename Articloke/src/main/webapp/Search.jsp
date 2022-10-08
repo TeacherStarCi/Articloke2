@@ -15,9 +15,9 @@
     </head>
     <body>
         <div class ="custom-big-container">
-            <jsp:include page="Navigation.jsp" /> 
-            <div class ="container-fluid position-relative pb-4 pt-1" >  
-                <form id = "ShowArticleResultServlet" action = "ShowArticleResultServlet"> 
+            <jsp:include page="Navigation.jsp" />
+            <div class ="container-fluid position-relative pb-4 pt-1" >
+                <form id = "ShowArticleResultServlet" action = "ShowArticleResultServlet">
                 </form>
                 <div class = "container">
                     <div class = "h5 position-relative mt-4">Just give Articloke a keyword, then all matched results will be displayed </div>
@@ -28,7 +28,7 @@
                             </div>
                             <input type="text" class="form-control" form ="ShowArticleResultServlet" placeholder="All" aria-label="Keyword" name ="keyword" value ="${requestScope.keyword}" aria-describedby="1">
                         </div>
-                        <button class ="btn btn-light  mx-3 mt-1 position-relative border-dark" data-toggle="collapse" data-target="#j1">Advanced Search</button>   
+                        <button class ="btn btn-light  mx-3 mt-1 position-relative border-dark" data-toggle="collapse" data-target="#j1">Advanced Search</button>
 
                         <input  type ="hidden" form ="ShowArticleResultServlet" name = "organization" value = "${sessionScope.user.organization}">
                         <form id = "ResetParamsServlet" action = "ResetParamsServlet"> </form>
@@ -44,7 +44,7 @@
                                         <span class="input-group-text" id="2">Title</span>
                                     </div>
                                     <input type="text" class="form-control" form ="ShowArticleResultServlet" placeholder="All" aria-label="Title" aria-describedby="2" name = "title" value = "${requestScope.title}">
-                                </div>        
+                                </div>
                             </div>
                             <div class ="col-2">
                                 <div class="input-group position-relative">
@@ -52,8 +52,8 @@
                                         <span class="input-group-text" id="3">Author</span>
                                     </div>
                                     <input type="text" form ="ShowArticleResultServlet" class="form-control" placeholder="All" aria-label="Author" aria-describedby="3" name = "author" value = "${requestScope.author}">
-                                </div>        
-                            </div>    
+                                </div>
+                            </div>
                             <div class ="col-2">
                                 <div class="input-group position-relative" >
                                     <div class="input-group-prepend">
@@ -66,8 +66,8 @@
                                         </c:forEach>
 
                                     </select>
-                                </div>        
-                            </div>    
+                                </div>
+                            </div>
 
                             <div class ="col-3">
                                 <div class="input-group position-relative" >
@@ -80,8 +80,8 @@
                                         <option <c:if test = "${requestScope.permission == 'For Organization'}"> selected</c:if> value = "For Organization">For Organization</option>
                                         <option <c:if test = "${requestScope.permission == 'Private'}"> selected</c:if> value = "Private">Private</option>
                                         </select>
-                                    </div>        
-                                </div>     
+                                    </div>
+                                </div>
                                 <div class ="col-3">
                                     <div class="input-group position-relative" >
                                         <div class="input-group-prepend">
@@ -93,25 +93,25 @@
                                         <option <c:if test = "${requestScope.sortedBy == 'Alphabet'}"> selected </c:if> value = "Alphabet"> Alphabet (A-Z)</option>
 
                                         </select>
-                                    </div>        
-                                </div>    
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
 
                 <div class ="container mt-3">
 
-                <c:if test = "${not empty requestScope.articles}"> 
+                <c:if test = "${not empty requestScope.articles}">
                     <span class = "h5"> All Results (${requestScope.articles.size()}) </span>
 
                     <div class ="custom-horizontal-line"> </div>
-                    <div class ="row mt-3"> 
+                    <div class ="row mt-3">
                         <c:forEach begin = "${requestScope.minIndexRow1}" end = "${requestScope.maxIndexRow1}" varStatus = "status" >
                             <div class ="col-3 p-3">
                                 <div style = "border: 1px solid" class = "shadow">
-                                    <div class = "p-3"> 
-                                        <div class = "custom-square-container"> 
+                                    <div class = "p-3">
+                                        <div class = "custom-square-container">
                                             <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
                                         </div>
                                         <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
@@ -121,30 +121,30 @@
                                         <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
                                         <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                         <div class ="d-flex mt-2 "> 
+                                         <div class ="d-flex mt-2 ">
                                                 <div>  ${requestScope.articles.get(status.index).totalReaction}
 
 
                                                     <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
 
-                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload} 
+                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload}
                                                     <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
                                                 </div>
                                             </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
 
 
                         </c:forEach>
                     </div>
                     <c:if test = "${requestScope.existRow2}">
-                        <div class ="row mt-3"> 
+                        <div class ="row mt-3">
                             <c:forEach begin = "${requestScope.minIndexRow2}" end = "${requestScope.maxIndexRow2}" varStatus = "status" >
                                 <div class ="col-3 p-3">
                                     <div style = "border: 1px solid" class = "shadow">
-                                        <div class = "p-3"> 
-                                            <div class = "custom-square-container"> 
+                                        <div class = "p-3">
+                                            <div class = "custom-square-container">
                                                 <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
                                             </div>
                                             <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
@@ -154,24 +154,24 @@
                                             <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
                                             <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                            <div class ="d-flex mt-2 "> 
+                                            <div class ="d-flex mt-2 ">
                                                 <div>  ${requestScope.articles.get(status.index).totalReaction}
 
 
                                                     <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
 
-                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload} 
+                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload}
                                                     <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
 
                             </c:forEach>
 
                         </div>
-                    </c:if> 
+                    </c:if>
                 </c:if>
                 <c:if test = "${empty requestScope.articles && requestScope.searchEmpty}">
                     <span class = "h2">No result found </span>
@@ -179,7 +179,7 @@
 
                 </c:if>
                 <c:if test = "${!requestScope.searchEmpty}">
-                    <span class = "h2 ">Explore scientific, technical, and medical research</span> 
+                    <span class = "h2 ">Explore scientific, technical, and medical research</span>
                     <br>
                     <img src ="Image/Fancy.png" class ="mt-3 position-relative" style = "width: 40%">
 
@@ -205,16 +205,16 @@
                         <input form ="MovePageServlet" type = "submit" class ="d-inline-block btn btn-light border-dark mr-3 position-relative"   name = "action" value = "Previous">
                     </c:if>
                     <div  class = "d-inline-block position-relative h5" style = "top:4px">
-                        Page 
+                        Page
                         <c:if test = "${not empty requestScope.currentPage}">
-                            ${requestScope.currentPage}     
+                            ${requestScope.currentPage}
                         </c:if>
                         <c:if test = "${empty requestScope.currentPage}">
                             1
                         </c:if>
-                        of 
+                        of
                         <c:if test = "${not empty requestScope.maxPage}">
-                            ${requestScope.maxPage}    
+                            ${requestScope.maxPage}
                         </c:if>
                         <c:if test = "${empty requestScope.maxPage}">
                             1
@@ -226,8 +226,8 @@
                     </c:if>
                 </div>
             </c:if>
-            <jsp:include page="Footer.jsp" /> 
-        </div> 
+            <jsp:include page="Footer.jsp" />
+        </div>
 
 
     </body>
