@@ -33,16 +33,28 @@
         <servlet-class>Controllers.Authenication.SignOutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewMyProfileServlet</servlet-name>
-        <servlet-class>Controllers.Profile.ViewMyProfileServlet</servlet-class>
+        <servlet-name>ForwardNavigationSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.ForwardNavigationSearchServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>InitMyProfileServlet</servlet-name>
-        <servlet-class>Controllers.Init.InitMyProfileServlet</servlet-class>
+        <servlet-name>ForwardHomeTopicSearchServlet</servlet-name>
+        <servlet-class>Controllers.SearchArticle.ForwardHomeTopicSearchServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>FowardNavigationSearchServlet</servlet-name>
-        <servlet-class>Controllers.SearchArticle.FowardNavigationSearchServlet</servlet-class>
+        <servlet-name>DisplayArticleServlet</servlet-name>
+        <servlet-class>Controllers.Display.DisplayArticleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReactionInteractServlet</servlet-name>
+        <servlet-class>Controllers.Display.ReactionInteractServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowMyProfileServlet</servlet-name>
+        <servlet-class>Controllers.Profile.ShowMyProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowMyRespiratoryServlet</servlet-name>
+        <servlet-class>Controllers.Profile.ShowMyRespiratoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
@@ -77,19 +89,33 @@
         <url-pattern>/SignOutServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>InitMyProfileServlet</servlet-name>
-        <url-pattern>/InitMyProfileServlet</url-pattern>
+        <servlet-name>ForwardNavigationSearchServlet</servlet-name>
+        <url-pattern>/ForwardNavigationSearchServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>FowardNavigationSearchServlet</servlet-name>
-        <url-pattern>/FowardNavigationSearchServlet</url-pattern>
+        <servlet-name>ForwardHomeTopicSearchServlet</servlet-name>
+        <url-pattern>/ForwardHomeTopicSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayArticleServlet</servlet-name>
+        <url-pattern>/DisplayArticleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReactionInteractServlet</servlet-name>
+        <url-pattern>/ReactionInteractServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowMyProfileServlet</servlet-name>
+        <url-pattern>/ShowMyProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowMyRespiratoryServlet</servlet-name>
+        <url-pattern>/ShowMyRespiratoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>120</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file> InitServerServlet </welcome-file>
+        <welcome-file>InitServerServlet</welcome-file>
     </welcome-file-list>
 </web-app>

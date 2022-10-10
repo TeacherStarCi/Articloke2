@@ -109,30 +109,32 @@
                     <div class ="row mt-3"> 
                         <c:forEach begin = "${requestScope.minIndexRow1}" end = "${requestScope.maxIndexRow1}" varStatus = "status" >
                             <div class ="col-3 p-3">
-                                <div style = "border: 1px solid" class = "shadow">
-                                    <div class = "p-3"> 
-                                        <div class = "custom-square-container"> 
-                                            <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
-                                        </div>
-                                        <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
-                                        <div class ="mt-1"> ID: ${requestScope.articles.get(status.index).ID}</div>
-                                        <div class ="mt-1"> Author: ${requestScope.articles.get(status.index).username}</div>
-                                        <div class ="mt-1"> Topic: ${requestScope.articles.get(status.index).topic}</div>
-                                        <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
-                                        <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
+                                <a class = "custom-no-hyperlink-display" href= "DisplayArticleServlet?ID=${requestScope.articles.get(status.index).ID}">
+                                    <div style = "border: 1px solid" class = "shadow custom-hover-topic">
+                                        <div class = "p-3"> 
+                                            <div class = "custom-square-container"> 
+                                                <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
+                                            </div>
+                                            <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
+                                            <div class ="mt-1"> ID: ${requestScope.articles.get(status.index).ID}</div>
+                                            <div class ="mt-1"> Author: ${requestScope.articles.get(status.index).username}</div>
+                                            <div class ="mt-1"> Topic: ${requestScope.articles.get(status.index).topic}</div>
+             
+                                            <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                         <div class ="d-flex mt-2 "> 
-                                                <div>  ${requestScope.articles.get(status.index).totalReaction}
+                                            <div class ="d-flex mt-2 "> 
+                                                <div>  
+                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                    ${requestScope.articles.get(status.index).totalReaction}
+                                                </div>
+                                                <div class = "ml-3">       <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                    ${requestScope.articles.get(status.index).totalDownload} 
 
-
-                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-
-                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload} 
-                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>                
                             </div> 
 
 
@@ -142,30 +144,31 @@
                         <div class ="row mt-3"> 
                             <c:forEach begin = "${requestScope.minIndexRow2}" end = "${requestScope.maxIndexRow2}" varStatus = "status" >
                                 <div class ="col-3 p-3">
-                                    <div style = "border: 1px solid" class = "shadow">
-                                        <div class = "p-3"> 
-                                            <div class = "custom-square-container"> 
-                                                <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
-                                            </div>
-                                            <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
-                                            <div class ="mt-1"> ID: ${requestScope.articles.get(status.index).ID}</div>
-                                            <div class ="mt-1"> Author: ${requestScope.articles.get(status.index).username}</div>
-                                            <div class ="mt-1"> Topic: ${requestScope.articles.get(status.index).topic}</div>
-                                            <div class ="mt-1"> Description: ${requestScope.articles.get(status.index).description}</div>
-                                            <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
+                                    <a class = "custom-no-hyperlink-display" href= "DisplayArticleServlet?ID=${requestScope.articles.get(status.index).ID}">
+                                        <div style = "border: 1px solid" class = "shadow custom-hover-topic">
+                                            <div class = "p-3"> 
+                                                <div class = "custom-square-container"> 
+                                                    <img src="${requestScope.articles.get(status.index).picture}" class = "position-absolute" style = "width: 100%"/>
+                                                </div>
+                                                <div class ="mt-3 h3"> ${requestScope.articles.get(status.index).title}</div>
+                                                <div class ="mt-1"> ID: ${requestScope.articles.get(status.index).ID}</div>
+                                                <div class ="mt-1"> Author: ${requestScope.articles.get(status.index).username}</div>
+                                                <div class ="mt-1"> Topic: ${requestScope.articles.get(status.index).topic}</div>
+                                  
+                                                <div class ="mt-1"> Published Date: ${requestScope.articles.get(status.index).publishedDate}</div>
 
-                                            <div class ="d-flex mt-2 "> 
-                                                <div>  ${requestScope.articles.get(status.index).totalReaction}
+                                                <div class ="d-flex mt-2 "> 
+                                                    <div>  <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                        ${requestScope.articles.get(status.index).totalReaction} </div>
 
+                                                    <div class = "ml-3">  <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                        ${requestScope.articles.get(status.index).totalDownload} 
 
-                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-
-                                                <div class = "ml-3">   ${requestScope.articles.get(status.index).totalDownload} 
-                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div> 
+                                        </div> 
+                                    </a>
                                 </div> 
 
                             </c:forEach>
@@ -198,8 +201,10 @@
                     <input form ="MovePageServlet" type = "hidden" name = "permission" value = "${requestScope.permission}">
                     <input form ="MovePageServlet" type = "hidden" name = "sortedBy" value = "${requestScope.sortedBy}">
                     <input form ="MovePageServlet" type = "hidden" name = "currentPage" value = "${requestScope.currentPage}">
-                    <input form ="MovePageServlet"type = "hidden" name = "minIndex" value = "${requestScope.minIndex}">
-                    <input form ="MovePageServlet" type = "hidden" name = "maxIndex" value = "${requestScope.maxIndex}">
+                    <input form ="MovePageServlet"type = "hidden" name = "minIndexRow1" value = "${requestScope.minIndexRow1}">
+                    <input form ="MovePageServlet" type = "hidden" name = "maxIndexRow1" value = "${requestScope.maxIndexRow1}">
+                    <input form ="MovePageServlet"type = "hidden" name = "minIndexRow2" value = "${requestScope.minIndexRow2}">
+                    <input form ="MovePageServlet" type = "hidden" name = "maxIndexRow2" value = "${requestScope.maxIndexRow2}">
                     <input form ="MovePageServlet" type = "hidden" name = "maxPage" value = "${requestScope.maxPage}">
                     <c:if test="${requestScope.currentPage > 1}" >
                         <input form ="MovePageServlet" type = "submit" class ="d-inline-block btn btn-light border-dark mr-3 position-relative"   name = "action" value = "Previous">

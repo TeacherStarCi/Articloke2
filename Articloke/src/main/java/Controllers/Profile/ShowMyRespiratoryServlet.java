@@ -1,18 +1,53 @@
-
 package Controllers.Profile;
 
+import Respiratory.Article.ArticleDAO;
+import Respiratory.Article.ArticleDTO;
+import Respiratory.Paper.PaperDAO;
+import Respiratory.Paper.PaperDTO;
+import Respiratory.User.UserDTO;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
-public class ViewMyProfileServlet extends HttpServlet {
+public class ShowMyRespiratoryServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        String URL = "MyRespiratory.jsp";
+        try {
+            HttpSession session = request.getSession(false);
+            UserDTO user = null;
+            String username = null;
+            if (session != null) {
+                user = (UserDTO) session.getAttribute("user");
+                if (user != null) {
+                    username = user.getUsername();
+                }
+            }
+
+            List<PaperDTO> papers = null;
+            List<ArticleDTO> articles = null;
+            try {
+                papers = PaperDAO.getPapersUsernameLastedModifiedDate(username);
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+            try {
+                articles = ArticleDAO.getArticlesUsernameLatestDate(username);
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+            request.setAttribute("papers", papers);
+            request.setAttribute("articles", articles);
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher(URL);
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

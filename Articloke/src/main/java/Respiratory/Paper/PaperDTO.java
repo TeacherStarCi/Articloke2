@@ -14,6 +14,7 @@ import java.sql.Date;
 public class PaperDTO implements Serializable{
     private String ID;
     private String title;
+    private String picture;
     private String topic;
     private String description;
     private String content;
@@ -31,20 +32,25 @@ public class PaperDTO implements Serializable{
     }
     private boolean status;
  
-    @Override
-    public String toString() {
-        return "PaperDTO{" + "ID=" + ID + ", title=" + title + ", topic=" + topic + ", description=" + description + ", content=" + content + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", username=" + username + ", status=" + status + '}';
+   
+    public PaperDTO() {
     }
 
-    public PaperDTO() {
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
    
 
 
-    public PaperDTO(String ID, String title, String topic, String description, String content, Date createdDate, Date modifiedDate, String username,  String publishedStatus, boolean status) {
+    public PaperDTO(String ID, String title, String picture, String topic, String description, String content, Date createdDate, Date modifiedDate, String username,  String publishedStatus, boolean status) {
         this.ID = ID;
         this.title = title;
+        this.picture = picture;
         this.topic = topic;
         this.description = description;
         this.content = content;

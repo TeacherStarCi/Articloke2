@@ -15,17 +15,21 @@ import java.util.List;
 public class SearchArticleUtils implements Serializable {
 
     public static List<ArticleDTO> keywordFilter(String keyword) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT cuong.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission,\n" +
-"organization, price, totalReaction,totalDownload, cuong.status FROM\n" +
-"(SELECT ar.ID, COUNT(reaction) as totalReaction, \n" +
-"COUNT(download) as totalDownload\n" +
-"FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n" +
-"left join Interaction it ON ar.ID = it.ID\n" +
-"WHERE title LIKE ? OR pp.username LIKE ? \n" +
-"OR description LIKE ?\n" +
-"GROUP BY ar.ID) starci inner join \n" +
-"(SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status FROM Article ar inner join Paper pp ON ar.ID = pp.ID) cuong\n" +
-"ON starci.ID = cuong.ID";
+        String SQL = "SELECT cuong.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission,\n"
+                + "organization, price, totalReaction,totalDownload, cuong.status FROM\n"
+                + "(SELECT chidori.ID, totalReaction, totalDownload FROM \n"
+                + "(SELECT ar.ID, COUNT(it.ID) as totalReaction\n"
+                + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
+                + "left join Reaction it ON ar.ID = it.ID \n"
+                + "WHERE title LIKE ? OR pp.username LIKE ?\n"
+                + "OR description LIKE ? GROUP BY ar.ID) chidori INNER JOIN\n"
+                + "(SELECT ar.ID, COUNT(downloadedDate) as totalDownload\n"
+                + "FROM Paper pp inner join Article ar ON pp.ID = ar.ID\n"
+                + "left join Download dl ON ar.ID = dl.ID GROUP BY ar.ID\n"
+                + ") kakashi ON chidori.ID = kakashi.ID\n"
+                + ") starci inner join\n"
+                + "(SELECT ar.ID, picture, title, username, topic, description, link, linkDemo, publishedDate, permission, organization, price, ar.status FROM Article ar inner join Paper pp ON ar.ID = pp.ID) cuong\n"
+                + "ON starci.ID = cuong.ID";
         List<ArticleDTO> articles = null;
         Connection con = null;
         PreparedStatement pre = null;
@@ -133,7 +137,7 @@ public class SearchArticleUtils implements Serializable {
 
                 for (ArticleDTO ar : articles) {
                     if (ar.getPermission().equals("For Organization") || ar.getPermission().equals("Private")) {
-                        if (ar.getOrganzation().equals(organization)) {
+                        if (ar.getOrganization().equals(organization)) {
 
                             articlesAfterFilting.add(ar);
                         }
@@ -150,7 +154,7 @@ public class SearchArticleUtils implements Serializable {
             } else if (permission.equals("For Organization")) {
                 for (ArticleDTO ar : articles) {
                     if (ar.getPermission().equals("For Organization")) {
-                        if (ar.getOrganzation().equals(organization)) {
+                        if (ar.getOrganization().equals(organization)) {
                             articlesAfterFilting.add(ar);
                         }
 
@@ -159,7 +163,7 @@ public class SearchArticleUtils implements Serializable {
             } else {
                 for (ArticleDTO ar : articles) {
                     if (ar.getPermission().equals("Private")) {
-                        if (ar.getOrganzation().equals(organization)) {
+                        if (ar.getOrganization().equals(organization)) {
 
                             articlesAfterFilting.add(ar);
                         }

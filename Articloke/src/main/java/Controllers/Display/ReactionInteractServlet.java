@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package Controllers.Init;
+package Controllers.Display;
 
-import Respiratiory.Interaction.InteractionDAO;
+import Respiratiory.Reaction.ReactionDAO;
 import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
-import Respiratory.Paper.PaperDAO;
-import Respiratory.Paper.PaperDTO;
 import Respiratory.User.UserDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,59 +10,54 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import static jakarta.xml.ws.RespectBindingFeature.ID;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-/**
- *
- * @author tucuo
- */
-public class InitMyProfileServlet extends HttpServlet {
+public class ReactionInteractServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = "MyProfile.jsp";
+        String URL = "DisplayArticle.jsp";
         try {
-            HttpSession session = request.getSession(false);
+
+            String ID = request.getParameter("ID");
             UserDTO user = null;
+            HttpSession session = request.getSession(false);
             if (session != null) {
                 user = (UserDTO) session.getAttribute("user");
             }
+            String username = user.getUsername();
+            String action = request.getParameter("action");
 
-            String username = null;
-            if (user != null) {
-                username = user.getUsername();
-            }
-            List<PaperDTO> papers = null;
-            List<ArticleDTO> articles = null;
-            int totalCount = 0;
-            try {
-                papers = PaperDAO.getPapersUsernameLastedModifiedDate(username);
-            } catch (SQLException | ClassNotFoundException ex) {
+            if (action.equals("Love")) {
+                request.setAttribute("reactionStatus", true);
+                try {
+                    ReactionDAO.addReaction(ID, username);
+                } catch (SQLException | ClassNotFoundException ex) {
+                }
+            } else {
+                request.setAttribute("reactionStatus", false);
+                try {
+                    ReactionDAO.deleteReaction(ID, username);
+                } catch (SQLException | ClassNotFoundException ex) {
+                }
             }
 
+            ArticleDTO article = null;
             try {
-                articles = ArticleDAO.getArticlesUsernameLatestDate(username);
+                article = ArticleDAO.getArticle(ID);
             } catch (SQLException | ClassNotFoundException ex) {
             }
-            
-             try {
-               totalCount = InteractionDAO.getTotalReaction(username);
-            } catch (SQLException | ClassNotFoundException ex) {
-            }
-            
-            request.setAttribute("papers", papers);
-            request.setAttribute("articles", articles);
-            request.setAttribute("totalCount", totalCount);
+            request.setAttribute("article", article);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

@@ -1,7 +1,7 @@
 
 package Respiratory.Article;
 
-import Respiratiory.Interaction.InteractionDAO;
+
 import java.sql.SQLException;
 
 public class Test {
@@ -9,10 +9,10 @@ public class Test {
             throws SQLException, ClassNotFoundException{
     
         
-            for(ArticleDTO acc: ArticleDAO.getArticlesSearch("star", "", "", "All", "", "All", "None")){
-                System.out.print(acc.getTotalReaction());
-            }
-        
+        //    for(ArticleDTO acc: SearchArticleUtils.keywordFilter("star")){
+         //       System.out.print(acc.getTotalReaction());
+         //   }
+        System.out.println(ArticleDAO.getArticlesUsernameLatestDate("starci"));
     }
     
 }

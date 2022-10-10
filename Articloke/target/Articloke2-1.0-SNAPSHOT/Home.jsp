@@ -7,7 +7,9 @@
         <title>Home</title>
         <link rel="stylesheet" href="CSS/Custom.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>  
         <div class ="custom-big-container">  
@@ -37,30 +39,33 @@
                     <div class ="row mt-3" >
 
                         <c:forEach  begin = "0" end = "2" varStatus="status"> 
+
                             <div class ="col-4 p-1 pointer">
-                                <div class = "custom-hover-container ">
-                                    <img class = "position-relative img-fluid custom-hover-hide-image " src = "${articlesLatestPublishedDate.get(status.index).picture}">
-                                    <div class = "custom-hover-dislay-text">
-                                        <div class = "p-3">
-                                            <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
+                                <a href = "DisplayArticleServlet?ID=${sessionScope.articlesLatestPublishedDate.get(status.index).ID}" class ="custom-no-hyperlink-display">
+                                    <div class = "custom-hover-container ">
+                                        <img class = "position-relative img-fluid custom-hover-hide-image " src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                        <div class = "custom-hover-dislay-text">
+                                            <div class = "p-3">
+                                                <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
 
-                                            <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
-                                            <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
-                                            <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
-                                            
-                                         <div class ="d-flex mt-2 "> 
-                                                <div>  ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction}
+                                                <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
+                                                <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
+                                                <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
 
+                                                <div class ="d-flex mt-2 "> 
+                                                    <div>  
+                                                        <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction}
+                                                    </div>
+                                                    <div class = "ml-3">   <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload} 
 
-                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-
-                                                <div class = "ml-3">   ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload} 
-                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>              
+                                    </div>     
+                                </a>
                             </div>
 
                         </c:forEach>
@@ -68,29 +73,32 @@
                     <div class ="row mt-3" >
                         <c:forEach  begin = "3" end = "6" varStatus="status"> 
                             <div class ="col-3 position-relative p-1 pointer">
-                                <div class = "custom-hover-container">
-                                    <div class = "custom-square-container custom-hover-hide-image">
-                                    <img class = "position-absolute img-fluid " src = "${articlesLatestPublishedDate.get(status.index).picture}">
-                                   </div>
-                                    <div class = "custom-hover-dislay-text">
-                                        <div class = "p-3">
-                                            <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
-                                            <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
-                                            <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
-                                            <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
-                                        <div class ="d-flex mt-2 "> 
-                                                <div>  ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction}
+                                <a href = "DisplayArticleServlet?ID=${sessionScope.articlesLatestPublishedDate.get(status.index).ID}" class ="custom-no-hyperlink-display">
+                                    <div class = "custom-hover-container">
+                                        <div class = "custom-square-container custom-hover-hide-image">
+                                            <img class = "position-absolute img-fluid " src = "${articlesLatestPublishedDate.get(status.index).picture}">
+                                        </div>
+                                        <div class = "custom-hover-dislay-text">
+                                            <div class = "p-3">
+                                                <span class = "h4"> ${sessionScope.articlesLatestPublishedDate.get(status.index).title} </span> <br>
+                                                <div class ="mt-1"> Author: ${sessionScope.articlesLatestPublishedDate.get(status.index).username}</div>
+                                                <div class ="mt-1"> Topic: ${sessionScope.articlesLatestPublishedDate.get(status.index).topic}</div>
+                                                <div class ="mt-1"> Published Date: ${sessionScope.articlesLatestPublishedDate.get(status.index).publishedDate}</div>
+                                                <div class ="d-flex mt-2 "> 
+                                                    <div> 
+                                                        <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalReaction}
+                                                    </div>
 
-
-                                                    <img src="Image/HeartIcon.png" class ="position-relative" width="20px" style = "top:-2px"></div>
-
-                                                <div class = "ml-3">   ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload} 
-                                                    <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                    <div class = "ml-3"> 
+                                                        <img src="Image/DownloadIcon.png" class ="position-relative" width="20px" style = "top:-2px">
+                                                        ${sessionScope.articlesLatestPublishedDate.get(status.index).totalDownload} 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </c:forEach> 
 
@@ -109,7 +117,7 @@
                     <c:forEach begin="0" end="5" varStatus="status" step = "2">
                         <div class ="col-4 px-3 pointer">
                             <c:forEach begin="0" end="1" varStatus="status2">
-                                <a class ="custom-no-hyperlink-display" href = "ForwardSearchHomeTopicServlet?topic=${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}"> 
+                                <a class ="custom-no-hyperlink-display" href = "ForwardHomeTopicSearchServlet?topic=${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}"> 
                                     <div class = "p-2 custom-hover-topic shadow custom-border mt-3"">
                                         <img  src = "${sessionScope.topicMostCount.get(status.index + status2.index).topic.picture}" style = "height: 60px; width: 60px " class = "mr-3">  
                                         <span class = "h3 ml-1">  ${sessionScope.topicMostCount.get(status.index + status2.index).topic.topic}  </span>

@@ -1,81 +1,49 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package Controllers.SearchArticle;
 
+package Controllers.Display;
+
+import Respiratiory.Reaction.ReactionDAO;
 import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
+import Respiratory.User.UserDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
-public class FowardNavigationSearchServlet extends HttpServlet {
+
+public class DisplayArticleServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = "Search.jsp";
+        String URL = "DisplayArticle.jsp";
         try {
-            String keyword = request.getParameter("keyword");
 
-            String organization = request.getParameter("organization");
-
-            request.setAttribute("keyword", keyword);
-
-            if (keyword.equals("")) {
-                throw new Exception();
+            String ID = request.getParameter("ID");
+            UserDTO user = null;
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                user = (UserDTO) session.getAttribute("user");
+                if (user != null) {
+                    String username = user.getUsername();
+                    boolean reactionStatus = false;
+                    try {
+                        reactionStatus = ReactionDAO.checkReaction(ID, username);
+                    } catch (ClassNotFoundException | SQLException ex) {
+                    }
+                    request.setAttribute("reactionStatus", reactionStatus);
+                }
             }
 
-            List<ArticleDTO> articles = null;
-            if (organization == null) {
-                organization = "None";
-            }
+            ArticleDTO article = null;
             try {
-                articles = ArticleDAO.getArticlesSearch(keyword, "", "", "All", organization, "All", "None");
+                article = ArticleDAO.getArticle(ID);
             } catch (SQLException | ClassNotFoundException ex) {
             }
-
-            request.setAttribute("articles", articles);
-
-            request.setAttribute("minIndexRow1", 0);
-            int maxIndexRow1 = articles.size() - 1;
-
-            if (maxIndexRow1 > 3) {
-                maxIndexRow1 = 3;
-                request.setAttribute("existRow2", true);
-                request.setAttribute("minIndexRow2", 4);
-                int maxIndexRow2 = articles.size() - 1;
-                if (maxIndexRow2 > 7) {
-                    maxIndexRow2 = 7;
-                }
-                request.setAttribute("maxIndexRow2", maxIndexRow2);
-
-            }
-            request.setAttribute("maxIndexRow1", maxIndexRow1);
-
-            request.setAttribute("currentPage", 1);
-            int maxPage;
-            if (articles == null || articles.isEmpty()) {
-                maxPage = 1;
-            } else {
-                int residual = articles.size() % 8;
-                if (residual == 0) {
-                    maxPage = articles.size() / 8;
-                } else {
-                    maxPage = articles.size() / 8 + 1;
-                }
-
-            }
-
-            request.setAttribute("maxPage", maxPage);
-            request.setAttribute("searchEmpty", true);
-
-        } catch (Exception e) {
+            request.setAttribute("article", article);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);

@@ -1,6 +1,6 @@
 package Respiratory.Paper;
 
-import Respiratory.User.UserDTO;
+
 import Support.DatabaseConnector;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -29,6 +29,7 @@ public class PaperDAO implements Serializable {
                 while (res.next()) {
                     String ID = res.getString("ID");
                     String title = res.getString("title");
+                    String picture = res.getString("picture");
                     String topic = res.getString("topic");
                     String description = res.getString("description");
                     String content = res.getString("content");
@@ -39,7 +40,7 @@ public class PaperDAO implements Serializable {
                    
                     boolean status = res.getBoolean("status");
 
-                    PaperDTO paper = new PaperDTO(ID, title, topic, description, content, createdDate, modifiedDate, username, publishedStatus, status);
+                    PaperDTO paper = new PaperDTO(ID, title, picture, topic, description, content, createdDate, modifiedDate, username, publishedStatus, status);
                     if (papers == null) {
                         papers = new ArrayList<>();
                     }

@@ -21,7 +21,7 @@
       </li>
     </ul>
      
-    <form class="form-inline my-2 my-lg-0" action = "FowardNavigationSearchServlet">
+    <form class="form-inline my-2 my-lg-0" action = "ForwardNavigationSearchServlet">
         <input class="form-control mr-sm-2" type="text" name ="keyword" value ="${sessionScope.keywordFromHome}" placeholder="Search on Articloke" aria-label="Search">        
         <input type ="hidden" name ="organization" value ="">
         <button class="btn btn-light my-2 my-sm-0" type="submit"><span class = "h5">Search</span></button>    
@@ -48,7 +48,7 @@
             <img class="rounded-circle" src ="${sessionScope.user.picture}" style = "height: 40px; width: 40px">
         </a>
           <div class="dropdown-menu position-absolute" style ="left:-100px" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="InitMyProfileServlet">Profile</a>
+          <a class="dropdown-item" href="ShowMyProfileServlet">Profile</a>
           <a class="dropdown-item" href="SignOutServlet">Sign Out</a>
    
         </div>

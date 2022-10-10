@@ -16,7 +16,7 @@ public class ArticleDTO implements Serializable {
     private String linkDemo;
     private Date publishedDate;
     private String permission;
-    private String organzation;
+    private String organization;
     private float price;
     
     private int totalReaction;
@@ -27,7 +27,14 @@ public class ArticleDTO implements Serializable {
     public ArticleDTO() {
     }
 
-    public ArticleDTO(String ID, String picture, String title, String username, String topic, String description, String link, String linkDemo, Date publishedDate, String permission, String organzation, float price, int totalReaction, int totalDownload, boolean status) {
+    @Override
+    public String toString() {
+        return "ArticleDTO{" + "ID=" + ID + ", picture=" + picture + ", title=" + title + ", username=" + username + ", topic=" + topic + ", description=" + description + ", link=" + link + ", linkDemo=" + linkDemo + ", publishedDate=" + publishedDate + ", permission=" + permission + ", organzation=" + organization + ", price=" + price + ", totalReaction=" + totalReaction + ", totalDownload=" + totalDownload + ", status=" + status + '}';
+    }
+
+    
+    
+    public ArticleDTO(String ID, String picture, String title, String username, String topic, String description, String link, String linkDemo, Date publishedDate, String permission, String organization, float price, int totalReaction, int totalDownload, boolean status) {
         this.ID = ID;
         this.picture = picture;
         this.title = title;
@@ -38,7 +45,7 @@ public class ArticleDTO implements Serializable {
         this.linkDemo = linkDemo;
         this.publishedDate = publishedDate;
         this.permission = permission;
-        this.organzation = organzation;
+        this.organization = organization;
         this.price = price;
         this.totalReaction = totalReaction;
         this.totalDownload = totalDownload;
@@ -126,12 +133,12 @@ public class ArticleDTO implements Serializable {
         this.permission = permission;
     }
 
-    public String getOrganzation() {
-        return organzation;
+    public String getOrganization() {
+        return organization;
     }
 
-    public void setOrganzation(String organzation) {
-        this.organzation = organzation;
+    public void setOrganization(String organization) {
+        this.organization = organization;
     }
 
     public float getPrice() {
