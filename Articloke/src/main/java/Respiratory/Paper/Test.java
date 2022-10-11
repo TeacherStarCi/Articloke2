@@ -6,6 +6,6 @@ public class Test {
      public static void main(String[] args) 
             throws SQLException, ClassNotFoundException{
 
-        System.out.println(PaperDAO.getPapersKeyword("starci", "Environment"));
+        System.out.println(PaperDAO.getPapersKeywordTopic("starci", "","All"));
     }
 }

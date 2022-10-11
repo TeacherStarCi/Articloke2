@@ -5,6 +5,7 @@ import Respiratory.Article.ArticleDAO;
 import Respiratory.Article.ArticleDTO;
 import Respiratory.Paper.PaperDAO;
 import Respiratory.Paper.PaperDTO;
+import Respiratory.Topic.TopicDAO;
 import Respiratory.User.UserDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class ShowMyProfileServlet extends HttpServlet {
 
@@ -35,6 +37,8 @@ public class ShowMyProfileServlet extends HttpServlet {
             }
             List<PaperDTO> papers = null;
             List<ArticleDTO> articles = null;
+            Map<String, Integer> topics = null;
+            
             int totalCount = 0;
             try {
                 papers = PaperDAO.getPapersUsernameLastedModifiedDate(username);
@@ -50,10 +54,12 @@ public class ShowMyProfileServlet extends HttpServlet {
                totalCount = ReactionDAO.getTotalReaction(username);
             } catch (SQLException | ClassNotFoundException ex) {
             }
+      
             
             request.setAttribute("papers", papers);
             request.setAttribute("articles", articles);
             request.setAttribute("totalCount", totalCount);
+            
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);

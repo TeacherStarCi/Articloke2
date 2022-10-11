@@ -29,26 +29,38 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div id="paper" class="container tab-pane active p-0"><br>
+                    <div id="paper" class="container tab-pane p-0 active"><br>
                         <div class ="row ">
                             <div class ="col-3">
-                                <span class ="h4 d-inline-block position-relative" style = "left: 12px">
+                                <div class ="h4 d-inline-block position-relative" style = "left: 12px; color: #C6B6C5">
                                     Search 
-                                </span>  
+                                </div>  
                                 <form action="SearchRespiratoryServlet">
-                                    <div class ="d-flex">           
+                                    <div class ="d-flex">  
+                                        <input type ="hidden" name ="currentTopic" value = "${requestScope.currentTopic}">
+
                                         <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "keyword" value = "${requestScope.keyword}">
                                         <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
                                     </div>   
                                 </form>                                   
-                                        
-                                    <c:forEach items = "${requestScope.topics}" var = "topic">
-                                        <span class ="h5 d-inline-block position-relative mt-3" style = "left: 12px; color: #C6B6C5">
-                                            ${topic.key} (${topic.value})
-                                            <br>
-                                        </span>
-                                    </c:forEach>
-                                              
+                                <div class ="h4 d-inline-block position-relative mt-5" style = "color: #C6B6C5 ;left: 12px">
+                                    Topic 
+                                </div> 
+                                <br>
+                                <a href = "ClassifyTopicServlet?keyword=${requestScope.keyword}&currentTopic=All" class = "custom-no-hyperlink-display">  
+                                    <div class = "h5 d-inline-block p-3 position-relative" style ="width: 250px;<c:if test = "${requestScope.currentTopic == 'All'}"> background: #C6B6C5</c:if>">
+                                            All        
+                                        </div>
+                                    </a>  
+                                <c:forEach items = "${requestScope.topics}" var = "topic">
+
+                                    <a href = "ClassifyTopicServlet?keyword=${requestScope.keyword}&currentTopic=${topic.key}" class = "custom-no-hyperlink-display">  
+                                        <div class = "h5 d-inline-block p-3" style ="width: 250px; <c:if test = "${topic.key == requestScope.currentTopic}"> background: #C6B6C5</c:if>">
+                                            ${topic.key} (${topic.value})         
+                                        </div>
+                                    </a>   
+                                </c:forEach>
+
                             </div>
 
                             <div class ="col-9">

@@ -22,6 +22,9 @@ public class SearchRespiratoryServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String URL = "MyRespiratory.jsp";
         try {
+
+            String currentTopic = request.getParameter("currentTopic");
+
             HttpSession session = request.getSession(false);
             UserDTO user = null;
             String username = null;
@@ -32,21 +35,25 @@ public class SearchRespiratoryServlet extends HttpServlet {
                 }
             }
             String keyword = request.getParameter("keyword");
-            
+
             List<PaperDTO> papers = null;
-            Map<String, Integer> topics = null;          
+            Map<String, Integer> topics = null;
+
             try {
-                papers = PaperDAO.getPapersKeyword(username, keyword);
+                papers = PaperDAO.getPapersKeywordTopic(username, keyword, currentTopic);
             } catch (SQLException | ClassNotFoundException ex) {
-            }        
+            }
             try {
-                topics = TopicDAO.getTopicsUsername(username);
+                topics = TopicDAO.getTopicsUsername(username, keyword);
             } catch (SQLException | ClassNotFoundException ex) {
-            }     
+            }
             request.setAttribute("keyword", keyword);
             request.setAttribute("papers", papers);
             request.setAttribute("topics", topics);
-        }catch(Exception e){
+            if (topics == null || !topics.containsKey(currentTopic)) {
+                currentTopic = "All";
+            }
+            request.setAttribute("currentTopic", currentTopic);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);
