@@ -7,7 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TopicDAO implements Serializable {
 
@@ -95,4 +98,48 @@ public class TopicDAO implements Serializable {
         }
         return list;
     }
+
+    public static Map<String, Integer> getTopicsUsername(String username) throws SQLException, ClassNotFoundException {
+        String SQL = "SELECT tp.topic, COUNT(tp.topic) as totalTopic FROM Topic tp inner join\n"
+                + "                 Paper pp ON tp.topic = pp.topic\n"
+                + "                 inner join Article ar ON pp.ID = ar.ID\n"
+                + "                 WHERE username = ?\n"
+                + "               GROUP BY tp.topic";
+        Map<String, Integer> map = null;
+        Connection con = null;
+        PreparedStatement pre = null;
+        ResultSet res = null;
+        try {
+            con = DatabaseConnector.makeConnection();
+            if (con != null) {
+                pre = con.prepareStatement(SQL);
+                pre.setString(1, username);
+                res = pre.executeQuery();
+                while (res.next()) {
+                    String topic = res.getString("topic");
+                    int totalTopic = res.getInt("totalTopic");
+
+                    if (map == null) {
+                        map = new HashMap<>();
+                    }
+                    map.put(topic, totalTopic);
+                }
+            }
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+
+            if (pre != null) {
+                pre.close();
+            }
+
+            if (res != null) {
+                res.close();
+            }
+
+        }
+        return map;
+    }
+
 }

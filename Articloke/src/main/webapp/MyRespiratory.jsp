@@ -32,16 +32,26 @@
                     <div id="paper" class="container tab-pane active p-0"><br>
                         <div class ="row ">
                             <div class ="col-3">
-                                <span class ="h4 d-inline-block position-relative" style = "left: 12px"> Search </span>  
-                                <div class ="d-flex"> 
-                                    <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "" value = "">
-
-                                    <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
-
-                                </div>   
+                                <span class ="h4 d-inline-block position-relative" style = "left: 12px">
+                                    Search 
+                                </span>  
+                                <form action="SearchRespiratoryServlet">
+                                    <div class ="d-flex">           
+                                        <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "keyword" value = "${requestScope.keyword}">
+                                        <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
+                                    </div>   
+                                </form>                                   
+                                        
+                                    <c:forEach items = "${requestScope.topics}" var = "topic">
+                                        <span class ="h5 d-inline-block position-relative mt-3" style = "left: 12px; color: #C6B6C5">
+                                            ${topic.key} (${topic.value})
+                                            <br>
+                                        </span>
+                                    </c:forEach>
+                                              
                             </div>
-                            <div class ="col-9">
 
+                            <div class ="col-9">
 
                                 <c:if test = "${not empty requestScope.papers}">
 
@@ -76,8 +86,6 @@
                                                     <br>
                                                 </div>
                                                 <div class ="col-4 position-relative">
-
-
                                                     ${paper.description}
                                                 </div>
                                                 <div class ="col-1 h4 position-relative" style = "color:#C6B6C5"> 
@@ -93,17 +101,20 @@
                         </div>
 
                     </div>
-                    
+
                     <div id="article" class ="container tab-pane fade p-0"><br>
                         <div class="row">
                             <div class="col-3">
                                 <span class ="h4 d-inline-block position-relative" style = "left: 12px">
                                     Search 
-                                </span>  
-                                <div class ="d-flex"> 
-                                    <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "" value = "">
-                                    <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
-                                </div>  
+                                </span>
+                                <!-- comment -->
+                                <form action="">
+                                    <div class ="d-flex"> 
+                                        <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "keyword" value = "">
+                                        <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
+                                    </div> 
+                                </form>
                             </div>
                             <div class="col-9 position-relative">
                                 <c:if test="${not empty requestScope.articles}">
@@ -128,7 +139,7 @@
                                                     <img src ="${articles.picture}" class = "position-absolute custom-center" style = "width: 140px">
                                                 </div>
                                                 <div class ="col-4 position-relative">
-                                                   <span class = "h3"> ${articles.title} </span>
+                                                    <span class = "h3"> ${articles.title} </span>
                                                     <br>
                                                     ID: ${articles.ID} <br>
                                                     Topic: ${articles.topic}<br>
@@ -138,30 +149,31 @@
                                                     <img class="ml-4"style="width: 20px; height: 20px" src="Image/DownloadIcon.png"> 
                                                     ${articles.totalDownload}<br>
                                                     <br>
-                                                    
+
                                                 </div>
                                                 <div class ="col-4 position-relative">
                                                     ${articles.description}
                                                 </div>
-                                                 <div class ="col-1 position-relative">
-                                                     <span class="position-absolute custom-center h5">
-                                                         ${articles.price}$
-                                                     </span>
+                                                <div class ="col-1 position-relative">
+                                                    <span class="position-absolute custom-center h5">
+                                                        ${articles.price}$
+                                                    </span>
                                                 </div>
                                             </div> 
                                         </c:forEach>
                                     </div>
-                                </c:if>                            
+                                </c:if>                                 
                             </div>
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
 
             <!-- End Section 1 -->
             <jsp:include page="Footer.jsp" />   
         </div>
+
     </body>
 </html>

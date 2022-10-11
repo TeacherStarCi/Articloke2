@@ -88,11 +88,14 @@
                 <span class ="position-relative d-inline-block h3" >
                     Respiratory
                 </span>
+                <a href="ShowMyRespiratoryServlet" class ="position-relative d-inline-block ml-5" style="color: #000">           
+                        Show More 
+                </a>
                 <div class = " row mt-3">
                     <div class ="col-6"> 
                         <div class = "">
-                        <span class = "position-relative d-inline-block h4" style ="color:#C6B6C5" > My Papers  </span>
-                        <span class = "position-relative d-inline-block ml-5"> Show More </span>  
+                            <span class = "position-relative d-inline-block h4" style ="color:#C6B6C5" > My Papers  </span>
+
                         </div>
                         <c:if test = "${empty requestScope.papers}">
                             <br>    <span class = "h4"> You have not created any paper. </span>
@@ -119,7 +122,7 @@
                                 </div>
 
                             </c:forEach>
-                          
+
                         </c:if>
 
 
@@ -127,7 +130,7 @@
                     <div class ="col-6"> 
 
                         <span class = "position-relative d-inline-block h4" style ="color:#C6B6C5" > My Articles </span>
-                          <span class = "position-relative d-inline-block ml-5"> Show More </span>  
+
                         <c:if test = "${empty requestScope.articles}">
                             <br> <span class = "h4"> You have no published article. </span>
                         </c:if>
@@ -162,7 +165,7 @@
                                     </div>
                                 </div>
                             </c:forEach>
-                          
+
                         </c:if>
 
 

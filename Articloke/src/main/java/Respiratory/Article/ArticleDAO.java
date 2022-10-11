@@ -1,5 +1,6 @@
 package Respiratory.Article;
 
+import Respiratory.Paper.PaperDTO;
 import Support.DatabaseConnector;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -228,6 +229,5 @@ public class ArticleDAO implements Serializable {
 
         }
         return article;
-    }
-
+    }  
 }

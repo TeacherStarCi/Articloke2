@@ -56,6 +56,10 @@
         <servlet-name>ShowMyRespiratoryServlet</servlet-name>
         <servlet-class>Controllers.Profile.ShowMyRespiratoryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchRespiratoryServlet</servlet-name>
+        <servlet-class>Controllers.Profile.SearchRespiratoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/SignInServlet</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>ShowMyRespiratoryServlet</servlet-name>
         <url-pattern>/ShowMyRespiratoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchRespiratoryServlet</servlet-name>
+        <url-pattern>/SearchRespiratoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>120</session-timeout>
