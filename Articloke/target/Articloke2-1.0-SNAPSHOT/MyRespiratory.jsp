@@ -22,8 +22,8 @@
                     <li class="nav-item">
                         <a class="nav-link h5" style ="color: #000" data-toggle="tab" href="#paper">My Papers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link h5" style ="color: #000" data-toggle="tab" href="#article">My Articles</a>
+                    <li class="nav-item ">                        
+                       <a class="nav-link h5" style ="color: #000" data-toggle="tab" href="#article">My Articles</a>                    
                     </li>
                 </ul>
 
@@ -32,30 +32,30 @@
                     <div id="paper" class="container tab-pane p-0 active"><br>
                         <div class ="row ">
                             <div class ="col-3">
-                                <div class ="h4 d-inline-block position-relative" style = "left: 12px; color: #C6B6C5">
+                                <div class ="h4 d-inline-block position-relative ml-1" style = "left: 12px; color: #C6B6C5">
                                     Search 
                                 </div>  
                                 <form action="SearchRespiratoryServlet">
-                                    <div class ="d-flex">  
+                                    <div class ="d-flex ml-1">  
                                         <input type ="hidden" name ="currentTopic" value = "${requestScope.currentTopic}">
 
                                         <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "keyword" value = "${requestScope.keyword}">
                                         <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
                                     </div>   
                                 </form>                                   
-                                <div class ="h4 d-inline-block position-relative mt-5" style = "color: #C6B6C5 ;left: 12px">
+                                <div class ="h4 d-inline-block position-relative mt-5 ml-1" style = "color: #C6B6C5 ;left: 12px">
                                     Topic 
                                 </div> 
                                 <br>
                                 <a href = "ClassifyTopicServlet?keyword=${requestScope.keyword}&currentTopic=All" class = "custom-no-hyperlink-display">  
-                                    <div class = "h5 d-inline-block p-3 position-relative" style ="width: 250px;<c:if test = "${requestScope.currentTopic == 'All'}"> background: #C6B6C5</c:if>">
+                                    <div class = "h5 d-inline-block p-3 position-relative ml-1" style ="width: 250px;<c:if test = "${requestScope.currentTopic == 'All'}"> background: #C6B6C5</c:if>">
                                             All        
                                         </div>
                                     </a>  
                                 <c:forEach items = "${requestScope.topics}" var = "topic">
 
                                     <a href = "ClassifyTopicServlet?keyword=${requestScope.keyword}&currentTopic=${topic.key}" class = "custom-no-hyperlink-display">  
-                                        <div class = "h5 d-inline-block p-3" style ="width: 250px; <c:if test = "${topic.key == requestScope.currentTopic}"> background: #C6B6C5</c:if>">
+                                        <div class = "h5 d-inline-block p-3 ml-1" style ="width: 250px; <c:if test = "${topic.key == requestScope.currentTopic}"> background: #C6B6C5</c:if>">
                                             ${topic.key} (${topic.value})         
                                         </div>
                                     </a>   
@@ -113,20 +113,19 @@
                         </div>
 
                     </div>
-
+                                  
                     <div id="article" class ="container tab-pane fade p-0"><br>
                         <div class="row">
                             <div class="col-3">
-                                <span class ="h4 d-inline-block position-relative" style = "left: 12px">
+                                <span class ="h4 d-inline-block position-relative ml-1" style = "left: 12px; color: #C6B6C5">
                                     Search 
                                 </span>
-                                <!-- comment -->
-                                <form action="">
-                                    <div class ="d-flex"> 
+                                
+                                    <div class ="d-flex ml-1"> 
                                         <input style = "width: 60%" placeholder = "Keyword" class = "form-control" type = "text" name = "keyword" value = "">
                                         <input type ="image" src ="Image/SearchIcon.png" style = "width: 40px; height: 40px" class = "position-relative ml-2"> 
                                     </div> 
-                                </form>
+                             
                             </div>
                             <div class="col-9 position-relative">
                                 <c:if test="${not empty requestScope.articles}">
@@ -178,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-
+        
 
                 </div>
             </div>

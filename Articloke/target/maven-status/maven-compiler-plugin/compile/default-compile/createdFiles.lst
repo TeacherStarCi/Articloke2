@@ -4,11 +4,13 @@ Respiratory\User\UserDAO.class
 Respiratory\Paper\PaperDTO.class
 Respiratory\Topic\TopicPlusArticleCount.class
 Controllers\SearchArticle\ResetParamsServlet.class
+Respiratory\Topic\Test.class
 Respiratory\Article\SearchArticleUtils$2.class
 Controllers\Authenication\GoogleSignIn\GoogleSupport.class
 Respiratory\Article\SearchArticleUtils.class
 Respiratory\User\UserDTO.class
 Controllers\Authenication\GoogleSignIn\Constant.class
+Controllers\Profile\ShowMyProfileServlet.class
 Controllers\SearchArticle\ShowArticleResultServlet.class
 Respiratory\User\Test.class
 Controllers\SearchArticle\ForwardNavigationSearchServlet.class
@@ -19,10 +21,12 @@ Controllers\Authenication\GoogleSignIn\GoogleDTO.class
 Controllers\Init\InitServerServlet.class
 Respiratiory\Reaction\ReactionDAO.class
 Controllers\Authenication\SignUp\ErrorMessage.class
+Controllers\Profile\SearchRespiratoryServlet.class
 Support\DatabaseConnector.class
 Respiratory\Article\SearchArticleUtils$1.class
 Respiratory\Topic\TopicDTO.class
 Controllers\Authenication\SignInServlet.class
+Controllers\Profile\ClassifyTopicServlet.class
 Respiratiory\Reaction\Test.class
 Controllers\Authenication\SignOutServlet.class
 Respiratory\Paper\PaperDAO.class
@@ -30,5 +34,7 @@ Controllers\Authenication\GoogleSignIn\GoogleSignInServlet.class
 Controllers\Authenication\SignUp\SignUpServlet.class
 Controllers\Display\ReactionInteractServlet.class
 Respiratory\Topic\TopicDAO.class
+Respiratory\Paper\Test.class
+Controllers\Profile\ShowMyRespiratoryServlet.class
 Respiratory\Article\ArticleDTO.class
 Respiratory\Article\Test.class
