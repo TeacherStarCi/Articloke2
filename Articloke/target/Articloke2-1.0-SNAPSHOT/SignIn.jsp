@@ -5,86 +5,71 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sign In</title>
-        <link rel="stylesheet" href="CSS/Custom.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="Asset/CSS/StarCiCSS.css"/>    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://kit.fontawesome.com/9689277209.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class = "custom-big-container">
-        <!-- Div Surround -->
-            <jsp:include page="Navigation.jsp" />
-            <!-- Section 1 -->
-            <div class ="position-absolute p-0 custom-center" style ="border: 1px solid;  width: 100%; max-width: 600px; top: 45%">
-                <div class = "text-center h3 mt-3"> 
+        <div class = "starci-full-container">
+            <div class ="position-absolute starci-center shadow p-5 starci-rounded" style ="border: 1px solid; width: 800px">
+                <div class = "text-center h1 starci-font-alteration"> 
                     Sign In
                 </div>
-                
+
                 <div class = "row">
-                    <!-- SignIn by article account -->
-                    <div class = "col-lg-6 pb-3">
-                        <form action = "SignInServlet" id = "SignInServlet" method = "post">                          
+                    <div class = "col-6 position-relative">
+                        <form action = "SignInServlet" id = "SignInServlet" method = "POST">                          
                         </form>
-                        
-                        <div class = "h5 text-center mt-3">
+                        <div class = "h3 starci-color text-center mt-3">
                             Articloke Account
                         </div>
-                        
-                        <div class = "px-4 mt-4"> 
-                            <div>
-                                Username
-                            </div>
-                            <input form ="SignInServlet" type="text" class="form-control mt-1" placeholder="Username" name = "username" value = "${requestScope.username}">
-                            
-                            <div class = "d-flex mt-1" style = "justify-content: space-between; align-items: center"> 
-                                <div>
-                                    Password
-                                </div>
-                                
-                                <div class = "position-relative float-right" style="right: 0">
-                                    Forget Password?
-                                </div>
-                            </div>   
+                            <div class = "h4 mb-0 mt-4">  Username* </div>
+                            <input form ="SignInServlet" type="text" class="form-control" placeholder="Username" name = "username" value = "${requestScope.username}">
 
-                            <input form ="SignInServlet" type="password" class="form-control mt-1" placeholder="Password" name = "password" value = "">
+                            <div class = "mt-3 mb-0 d-flex">
+                                <span class ="h4 mb-0"> Password*</span>
+                                <span style = "margin-left: auto; margin-top: auto"> 
+                                    <a href = '#' class = "starci-hyperlink">   
+                                        Forget Password?
+                                    </a>
+                                </span>
+
+                            </div>
+
+                            <input form ="SignInServlet" type="password" class="form-control" placeholder="Password" name = "password" value = "">
                             <c:if test = "${requestScope.signInError}">    
                                 <div class = "text-center" style = "color:red">
-                                    Incorrect username or password 
+                                    Incorrect Username or Password.
                                 </div>
                             </c:if>
-                        </div>     
-                        <input form ="SignInServlet" type ="submit" class ="position-relative custom-horizontal-center mt-4 btn btn-light border-dark" value = "Sign In">
-                        
+   
+                        <button form ="SignInServlet" class ="btn btn-lg btn-light starci-background position-relative mt-3 starci-horizontal-center"> <span class = "h4"> Sign In </span></button>
+
                         <div class = "mt-3 text-center">
                             Do not have an account?
-                            <a href = "SignUp.jsp" style ="color: black">
+                            <a href = "SignUp.jsp" class = "starci-hyperlink">
                                 Sign Up
                             </a>   
                         </div>
                     </div>
-                    <!-- End SignIn by article account -->
-                    <!-- SignIn by google account -->
-                    <div class ="col-lg-6 pb-3">
-                        <div class = "h5 text-center mt-3">
+
+                    <div class ="col-6 position-relative">
+                        <div class = "h3 text-center mt-3 starci-color">
                             Google Account
                         </div> 
-                        
-                        <a class = "position-absolute custom-horizontal-center" style ="top: 30%" href="https://accounts.google.com/o/oauth2/auth?scope=email profile&redirect_uri=http://localhost:8080/Articloke/GoogleSignInServlet&response_type=code
-                           &client_id=52738076021-1bvsa3fq1vg3ktl82ghicqd9c8k3vet9.apps.googleusercontent.com&approval_prompt=force">
-                            <div class = "horizontal-center hover-white-image" style = "top: 80px; width: 80px; height: 80px;"> 
-                                <img style ="width: 100%; height: 100%" src = "Image/GoogleIcon.png"> 
-                            </div>
-                        </a>
-                        
-                        <div class = "position-absolute" style = "bottom: 15px"> By Continuing with Google , you are agreeing to our Terms
+                        <div class = "starci-center position-absolute" style = "width: 80px; height: 80px; top: 45%"> 
+                            <a href="https://accounts.google.com/o/oauth2/auth?scope=email profile&redirect_uri=http://localhost:8080/Articloke/GoogleSignInServlet&response_type=code
+                               &client_id=52738076021-1bvsa3fq1vg3ktl82ghicqd9c8k3vet9.apps.googleusercontent.com&approval_prompt=force">
+                                <img class ="img-fluid" src = "Asset/Image/Application/GoogleIcon.png"> 
+                            </a>
+                        </div>
+                        <div class = "position-absolute text-center" style ="bottom: 0" > By Continuing with Google , you are agreeing to our Terms
                             & Conditions.</div>
                     </div>
-                    <!-- End SignIn by google account -->
                 </div>
 
             </div>           
-            <!-- End Section 1 -->
-            <jsp:include page="Footer.jsp" />
-        <!-- End Div Surround -->
         </div>
     </body>
 </html>

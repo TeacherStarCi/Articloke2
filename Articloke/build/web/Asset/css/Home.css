@@ -1,0 +1,52 @@
+.Layer1{
+    top:60px;
+    left: 0px;
+    position:absolute;
+    height: 400px;
+    width: 100%;
+}
+.Layer1-Content{
+    background-color: #D5E6BD;
+
+    top: 150px;
+    left:  calc(50% - 400px);
+    position:absolute;
+    height:200px;
+    width: 800px;
+    border: #000 3px solid;
+}
+.Layer1-Content-Left{
+    top: 0px;
+
+    left: 0px;
+    position:absolute;
+    height:200px;
+    width: 400px;
+    
+}
+.Layer1-Content-Right{
+
+    top:0px;
+    right: 0px;
+    position:absolute;
+    height:200px;
+    width: 400px;
+}
+.Layer1-Img{
+    
+    overflow: hidden;
+    top:0px;
+    left: 0px;
+    border-bottom:3px solid;
+    position: absolute;
+    height:250px;
+    width: 100%;
+    display:inline-block;
+}
+.Home{
+    width:100%;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    height:1200px;
+}

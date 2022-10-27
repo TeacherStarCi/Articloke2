@@ -1,0 +1,80 @@
+input[type = text], input[type = password], select{
+  border: 1.5px solid #114918;
+  border-radius: 4px;
+  color: #114918;
+  font-size: 16px;
+
+}
+input[type = text].cc, input[type = password].cc, select.cc{
+  border: 1.5px solid #114918;
+  border-radius: 4px;
+  color: #114918;
+  font-size: 16px;
+  padding-right: -5px;
+}
+
+.profileOptimize{
+    border-radius: 100%;
+}
+.needhover:hover{
+    background-color: #bfcfaa;
+
+}
+
+input[type = submit] {
+    background-color: gainsboro;
+    padding: 5px 10px 5px 10px;
+    border: 1.5px solid #114918;
+    border-radius: 4px;
+    color:#114918;
+    background-color: #D5E6BD; 
+    font-size:24px;
+}
+input[type = submit].a{
+    font-size:20px;
+    padding: 3px 6px 3px 6px;
+}
+input[type = text].a, input[type = password].a{
+    border: 1.5px solid #114918;
+    padding: 3px 16px 3px 16px;
+    border-radius: 4px;
+  color: #114918;
+  font-size: 16px;
+}
+
+input[type = submit]:hover{
+    background-color:  #114918;
+    color: #D5E6BD;
+}
+input[type = text].b, input[type = password].b{
+  border: 1.5px solid #114918;
+    padding: 3px 3px 3px 3px;
+    border-radius: 4px;
+  color: #114918;
+  font-size: 16px;
+}
+.smallfix:hover{
+    background-color: #bfcfaa;
+    border-bottom: 3px solid #114918;
+}
+.textbox{
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+.custom-table th{
+    color: #114918;
+    font-size:20px;
+}
+.custom-table td{
+    color: #114918;
+    font-size:16px;
+}
+a:hover{
+    text-decoration: underline;
+}
+a{
+text-decoration: none;
+color: #114918;
+}

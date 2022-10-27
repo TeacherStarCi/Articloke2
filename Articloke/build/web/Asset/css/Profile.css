@@ -1,0 +1,131 @@
+.Profile{
+    width:100%;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    height:1200px;
+}
+.LeftComponent{
+    width:300px;
+    position:absolute;
+    top: 120px;
+    left: 160px;
+    height:700px;  
+   border:3px solid;
+   border-radius: 15px;
+   background-color:  #D5E6BD; 
+}
+.LeftComponent-PictureUsername{
+    width:150px;
+    position:absolute;
+    top: 40px;
+    left: 75px;
+    height:150px;  
+}
+.LeftComponent-Navigation{
+    width: 250px;
+    position:absolute;
+    top: 280px;
+    left: 25px;
+    height:120px;  
+    border: 2px solid;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+.LeftComponent-Navigation-InfoTab{
+    width: 250px;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    height:60px;  
+}.LeftComponent-Navigation-SecurityTab{
+    width: 250px;
+    position:absolute;
+    top: 60px;
+    left: 0px;
+    height:60px;  
+}
+.LeftComponent-daBOX{
+    width: 280px;
+    position:absolute;
+    top: 400px;
+    left: 10px;
+    height:300px;  
+}
+.LeftComponent-daBOX-daBoxIcon{
+    width: 100px;
+    position:absolute;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%,0);
+    height:100px; 
+}
+.LeftComponent-daBOX-daBoxIcon:hover{
+    border: 3px solid;
+    border-radius: 10px;
+    background-color: #c9dfab;
+}
+.RightComponent{
+    width:800px;
+    position:absolute;
+    top: 170px;
+    right: 160px;
+    height: 600px;  
+    border:3px solid;
+}
+.RightComponent-Content{
+    width: 700px;
+    position:absolute;
+    top: 50px;
+    right: 50px;
+    height: 300px;  
+    border:3px solid; 
+}
+.RightComponent-Content-1st{
+    width: 250px;
+    position: absolute;
+    top: 60px;
+    left: 100px;
+    height: 30px;  
+  
+}
+.RightComponent-Content-2st{
+    width: 250px;
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    height: 30px;  
+  
+}
+.RightComponent-Content-3st{
+    width: 250px;
+    position: absolute;
+    top: 110px;
+    left: 100px;
+    height: 30px;  
+   
+}
+.RightComponent-Content-4st{
+    width: 250px;
+    position: absolute;
+    top: 110px;
+    right: 50px;
+    height: 30px;  
+ 
+}
+.RightComponent-Content-5st{
+    width: 250px;
+    position: absolute;
+    top: 160px;
+    left: 100px;
+    height: 30px;  
+ 
+}
+.RightComponent-Content-6st{
+    width: 250px;
+    position: absolute;
+    top: 160px;
+    right: 50px;
+    height: 30px;  
+}

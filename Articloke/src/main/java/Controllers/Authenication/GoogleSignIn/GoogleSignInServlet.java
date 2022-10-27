@@ -1,8 +1,7 @@
-
 package Controllers.Authenication.GoogleSignIn;
 
-import Respiratory.User.UserDAO;
-import Respiratory.User.UserDTO;
+import Repository.User.UserDAO;
+import Repository.User.UserDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -10,35 +9,46 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GoogleSignInServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         String URL = "Home.jsp";
         try {
-              String code = request.getParameter("code");
-              String accessToken = GoogleSupport.getToken(code);
-              GoogleDTO userToken = GoogleSupport.getUserInfo(accessToken);
-              String username = userToken.getId();
-              String email = userToken.getEmail();
-              String firstName = userToken.getGiven_name();
-              String lastName = userToken.getFamily_name();
-              String picture = userToken.getPicture();
-            
-            UserDTO user = new UserDTO(username, email, null,
-                    firstName,lastName, picture, "User", null, null, null, null, true);
-            try {
-                UserDAO.addUser(user);
-            } catch (SQLException | ClassNotFoundException ex) {  }
-            
-            HttpSession session = request.getSession(true);
-            session.setAttribute("user", user);
+            if (request.getSession(false).getAttribute("user") == null) {
+                String code = request.getParameter("code");
+                String accessToken = GoogleSupport.getToken(code);
+                GoogleDTO userToken = GoogleSupport.getUserInfo(accessToken);
+                String username = userToken.getId();
+                
+                UserDTO user = null;    
+       
+                try {             
+                    user = UserDAO.getUserUsername(username);
+                } catch (SQLException | ClassNotFoundException ex) {
+                }
+                if (user == null){
+                String email = userToken.getEmail();
+                String firstName = userToken.getGiven_name();
+                String lastName = userToken.getFamily_name();
+                String picture = userToken.getPicture();
 
+                user = new UserDTO(username, email, null,
+                        firstName, lastName, picture, "User", null, null, null, null, true);
+                try {
+                    UserDAO.addUser(user);
+                } catch (SQLException | ClassNotFoundException ex) {
+                }
+                }
+
+                HttpSession session = request.getSession(true);
+                session.setAttribute("user", user);
+            }
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);

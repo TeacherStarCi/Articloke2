@@ -1,0 +1,96 @@
+body {
+font-family: cursive;   
+font-size: 16px;
+
+}
+input[type = TEXT], input[type = PASSWORD], select{
+    padding: 3px;
+    font-size: 16px;
+    font-family: cursive;
+    border-radius: 5px;
+    border: 2px solid;
+    
+}
+input[type = SUBMIT].big{
+    padding: 15px 25px;
+    background-color: #D5E6BD; 
+    font-size: 32px;
+    font-family: cursive;   
+    border:2px solid;
+    border-radius: 10px;
+}
+.big:hover{
+    background-color:#c9dfab;
+}
+input[type = SUBMIT].quitebig{
+    padding: 8px 15px;
+    background-color: #D5E6BD; 
+    font-size: 24px;
+    font-family: cursive;   
+    border:2px solid;
+    border-radius: 8px;
+}
+.quitebig:hover{
+    background-color:#c9dfab;
+}
+.error{
+    color:red;
+}
+.imageHover:hover{
+     background-color:#c9dfab; 
+}
+::placeholder {
+   text-align: center; 
+}
+.none::placeholder {
+   text-align: left; 
+}
+.normalbold{
+font-weight: bold;
+}
+.medium{
+font-size: 20px; 
+font-weight: bold;
+}
+.large{
+font-size: 24px;  
+font-weight: bold;
+}
+.extreme-large{
+font-size: 32px;  
+font-weight: bold;
+}
+.flex{
+    display:flex;
+}
+.center{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+}
+.hover:hover{
+    background-color:#c9dfab;
+}
+.smallIcon{
+    display: inline-block;
+    height:16px;
+    width:16px;
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 8px;
+}
+a{
+    color:black;
+}
+a:link {
+   color:inherit;
+}
+input[type = SUBMIT].small{
+    padding: 5px 10px;
+    background-color: #D5E6BD; 
+    font-size: 16px;
+    font-family: cursive;   
+    border:2px solid;
+    border-radius: 10px;
+}
