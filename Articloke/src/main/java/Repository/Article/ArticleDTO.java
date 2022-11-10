@@ -1,7 +1,6 @@
 package Repository.Article;
-
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ArticleDTO implements Serializable {
 
@@ -14,9 +13,8 @@ public class ArticleDTO implements Serializable {
     
     private String link;
     private String linkDemo;
-    private Date publishedDate;
+    private Timestamp publishedDate;
     private String permission;
-    private String organization;
     private float price;
     
     private int totalReaction;
@@ -27,14 +25,8 @@ public class ArticleDTO implements Serializable {
     public ArticleDTO() {
     }
 
-    @Override
-    public String toString() {
-        return "ArticleDTO{" + "ID=" + ID + ", picture=" + picture + ", title=" + title + ", username=" + username + ", topic=" + topic + ", description=" + description + ", link=" + link + ", linkDemo=" + linkDemo + ", publishedDate=" + publishedDate + ", permission=" + permission + ", organzation=" + organization + ", price=" + price + ", totalReaction=" + totalReaction + ", totalDownload=" + totalDownload + ", status=" + status + '}';
-    }
-
     
-    
-    public ArticleDTO(String ID, String picture, String title, String username, String topic, String description, String link, String linkDemo, Date publishedDate, String permission, String organization, float price, int totalReaction, int totalDownload, boolean status) {
+    public ArticleDTO(String ID, String picture, String title, String username, String topic, String description, String link, String linkDemo, Timestamp publishedDate, String permission, float price, int totalReaction, int totalDownload, boolean status) {
         this.ID = ID;
         this.picture = picture;
         this.title = title;
@@ -45,7 +37,6 @@ public class ArticleDTO implements Serializable {
         this.linkDemo = linkDemo;
         this.publishedDate = publishedDate;
         this.permission = permission;
-        this.organization = organization;
         this.price = price;
         this.totalReaction = totalReaction;
         this.totalDownload = totalDownload;
@@ -117,11 +108,11 @@ public class ArticleDTO implements Serializable {
         this.linkDemo = linkDemo;
     }
 
-    public Date getPublishedDate() {
+    public Timestamp getPublishedDate() {
         return publishedDate;
     }
 
-    public void setPublishedDate(Date publishedDate) {
+    public void setPublishedDate(Timestamp publishedDate) {
         this.publishedDate = publishedDate;
     }
 
@@ -131,14 +122,6 @@ public class ArticleDTO implements Serializable {
 
     public void setPermission(String permission) {
         this.permission = permission;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(String organization) {
-        this.organization = organization;
     }
 
     public float getPrice() {

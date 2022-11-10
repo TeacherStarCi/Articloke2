@@ -1,8 +1,8 @@
 package Repository.Paper;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Test {
 
@@ -24,8 +24,19 @@ public class Test {
                 + "         Date date2 = null;\n"
                 + "   PaperDTO paper = new PaperDTO(PaperDAO.getNextID(), \"Zugi\", \"12\", \"Mathematics\", \"non\", \"non\", date1, null, \"starci\", \"ds\", true);\n"
                 + "//        System.out.println(PaperDAO.addPaper(paper));\n"
-                + "System.out.println(PaperDAO.addPaper(pap", date1, null, "starci", "ds", true);
-        System.out.println(PaperDAO.updatePaper(paper));
-//System.out.println(PaperDAO.addPaper(paper));
+                + "System.out.println(PaperDAO.addPaper(pap", date1, null, "starci", "ds", true,new Timestamp(0), true);
+    //    System.out.println(PaperDAO.updatePaper(paper));
+    //    System.out.println(PaperDAO.getPapersUsernameLastedModifiedDate("starci"));
+      //  System.out.println(PaperDAO.getPapersKeywordTopic("starci", "", "All").size());
+        List<PaperDTO> list = PaperDAO.papersKeywordFilter("a", "Pending");
+        System.out.println(PaperDAO.papersTopicFilter("Animal", list));
+        //System.out.println(PaperDAO.papersDisplayFilter("Latest", list));
+      for (PaperDTO paperTr : list){
+              System.out.println(paperTr.getID());
+          System.out.println(paperTr.getSubmittedDate());
+      }
+        System.out.println(PaperDAO.searchPaperWorkspace("c","Pending" ,"All", "All", true));
+    
     }
+    
 }

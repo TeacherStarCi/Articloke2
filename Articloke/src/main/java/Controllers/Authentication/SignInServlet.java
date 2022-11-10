@@ -1,4 +1,3 @@
-
 package Controllers.Authentication;
 
 import Repository.User.UserDAO;
@@ -18,35 +17,39 @@ public class SignInServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-             String URL = "SignIn.jsp";
+        String URL = "SessionSetServlet";
+
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            request.setAttribute("username", username);
-            
 
-            UserDTO user = null;
-            try {
-                user = UserDAO.getUserUsernamePassword(username, password);
-                if (!user.isStatus()){throw new NullPointerException();}
-            } catch (SQLException | NullPointerException| ClassNotFoundException e) {}
-            
-            if (user == null) {
-                request.setAttribute("signInError", true);
-                URL = "SignIn.jsp";
-                
-            } else {
-                Cookie usernameC = new Cookie("username", username);
-                Cookie passwordC = new Cookie("password", password);
-                usernameC.setMaxAge(60 * 5);
-                passwordC.setMaxAge(60 * 5);
-                response.addCookie(usernameC);
-                response.addCookie(passwordC);
-                 
-                HttpSession session = request.getSession(true);
-                session.setAttribute("user", user);
+            if (request.getSession(false).getAttribute("user") == null) {
+                String username = request.getParameter("username");
+                String password = request.getParameter("password");
+                request.setAttribute("username", username);
 
-                URL = "Home.jsp";
+                UserDTO user = null;
+                try {
+                    user = UserDAO.getUserUsernamePassword(username, password);
+                    if (!user.isStatus()) {
+                        throw new NullPointerException();
+                    }
+                } catch (SQLException | NullPointerException | ClassNotFoundException e) {
+                }
+
+                if (user == null) {
+                    request.setAttribute("signInError", true);
+                    URL = "SignIn.jsp";
+
+                } else {
+                    Cookie usernameC = new Cookie("username", username);
+                    Cookie passwordC = new Cookie("password", password);
+                    usernameC.setMaxAge(60 * 5);
+                    passwordC.setMaxAge(60 * 5);
+                    response.addCookie(usernameC);
+                    response.addCookie(passwordC);
+
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("user", user);
+                }
             }
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);

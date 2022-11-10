@@ -1,5 +1,5 @@
 <section class = "starci-section-container position-relative" style = "height: 180px">
-    <footer class = "position-absolute starci-stick-bot bg-white" style = "border-top: 1px solid; height: 150px;  ">
+    <footer class = "position-absolute starci-stick-bot" style = "border-top: 1px #cbcbcb solid; height: 150px;  ">
         <div class ="row m-0">
             <div class ="col-2 position-relative" style = "height: 150px">
                 <div class = "starci-center position-relative">

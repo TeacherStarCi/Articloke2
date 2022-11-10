@@ -32,13 +32,15 @@ public class UserDAO implements Serializable {
                     String firstName = res.getString("firstName");
                     String lastName = res.getString("lastName");
                     String picture = res.getString("picture");
+                    float balance = res.getFloat("balance");
                     String role = res.getString("role");
+                    
                     Date DOB = res.getDate("DOB");
                     String address = res.getString("address");
                     String organization = res.getString("organization");
                     String phoneNumber = res.getString("phoneNumber");
                     boolean status = res.getBoolean("status");
-                    user = new UserDTO(username, email, password, firstName, lastName, picture, role, DOB, address, organization, phoneNumber, status);
+                    user = new UserDTO(username, email, password, firstName, lastName, picture,balance, role, DOB, address, organization, phoneNumber, status);
                 }
             }
         } finally {
@@ -79,13 +81,14 @@ public class UserDAO implements Serializable {
                     String firstName = res.getString("firstName");
                     String lastName = res.getString("lastName");
                     String picture = res.getString("picture");
+                    float balance = res.getFloat("balance");
                     String role = res.getString("role");
                     Date DOB = res.getDate("DOB");
                     String address = res.getString("address");
                     String organization = res.getString("organization");
                     String phoneNumber = res.getString("phoneNumber");
                     boolean status = res.getBoolean("status");
-                    return new UserDTO(username, email, password, firstName, lastName, picture, role, DOB, address, organization, phoneNumber, status);
+                    return new UserDTO(username, email, password, firstName, lastName, picture, balance, role, DOB, address, organization, phoneNumber, status);
                 }
             }
         } finally {
@@ -124,6 +127,7 @@ public class UserDAO implements Serializable {
                     String firstName = res.getString("firstName");
                     String lastName = res.getString("lastName");
                     String picture = res.getString("picture");
+                    float balance = res.getFloat("balance");
                     String role = res.getString("role");
                     Date DOB = res.getDate("DOB");
                     String address = res.getString("address");
@@ -133,7 +137,7 @@ public class UserDAO implements Serializable {
                     if (users == null) {
                         users = new ArrayList<>();
                     }
-                    users.add(new UserDTO(username, email, password, firstName, lastName, picture, role, DOB, address, organization, phoneNumber, status));
+                    users.add(new UserDTO(username, email, password, firstName, lastName, picture, balance, role, DOB, address, organization, phoneNumber, status));
                 }
             }
         } finally {
@@ -155,8 +159,8 @@ public class UserDAO implements Serializable {
 
     public static boolean addUser(UserDTO user)
             throws SQLException, ClassNotFoundException {
-        String SQL = "INSERT INTO User_(username, email, password, firstName, lastName, picture, role, DOB, address, organization, phoneNumber, status)"
-                + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO User_(username, email, password, firstName, lastName, picture, balance, role, DOB, address, organization, phoneNumber, status)"
+                + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         boolean flag = false;
         Connection con = null;
         PreparedStatement pre = null;
@@ -171,12 +175,13 @@ public class UserDAO implements Serializable {
                 pre.setString(4, user.getFirstName());
                 pre.setString(5, user.getLastName());
                 pre.setString(6, user.getPicture());
-                pre.setString(7, user.getRole());
-                pre.setDate(8, user.getDOB());
-                pre.setString(9, user.getAddress());
-                pre.setString(10, user.getOrganization());
-                pre.setString(11, user.getPhoneNumber());
-                pre.setBoolean(12, user.isStatus());
+                  pre.setFloat(7, user.getBalance());
+                pre.setString(8, user.getRole());
+                pre.setDate(9, user.getDOB());
+                pre.setString(10, user.getAddress());
+                pre.setString(11, user.getOrganization());
+                pre.setString(12, user.getPhoneNumber());
+                pre.setBoolean(13, user.isStatus());
                 int affectedRow = pre.executeUpdate();
                 if (affectedRow > 0) {
                     flag = true;
@@ -203,7 +208,7 @@ public class UserDAO implements Serializable {
 
     public static boolean updateUser(String username_, UserDTO updateUser) throws SQLException, ClassNotFoundException {
         String SQL = "UPDATE User_ SET email = ?, password = ?, firstName = ?, lastName = ?, "
-                + "picture = ?, role = ?, DOB = ?, address = ?, "
+                + "picture = ?, balance = ?, role = ?, DOB = ?, address = ?, "
                 + "organization = ?, phoneNumber = ?, status = ? WHERE username = ?";
         boolean flag = false;
         Connection con = null;
@@ -216,14 +221,15 @@ public class UserDAO implements Serializable {
                 pre.setString(2, updateUser.getPassword());
                 pre.setString(3, updateUser.getFirstName());
                 pre.setString(4, updateUser.getLastName());
-                pre.setString(6, updateUser.getPicture());
-                pre.setString(6, updateUser.getRole());
-                pre.setDate(7, updateUser.getDOB());
-                pre.setString(8, updateUser.getAddress());
-                pre.setString(9, updateUser.getOrganization());
-                pre.setString(10, updateUser.getPhoneNumber());
-                pre.setBoolean(11, updateUser.isStatus());
-                pre.setString(12, updateUser.getUsername());
+                pre.setString(5, updateUser.getPicture());
+                pre.setFloat(6, updateUser.getBalance());
+                pre.setString(7, updateUser.getRole());
+                pre.setDate(8, updateUser.getDOB());
+                pre.setString(9, updateUser.getAddress());
+                pre.setString(10, updateUser.getOrganization());
+                pre.setString(11, updateUser.getPhoneNumber());
+                pre.setBoolean(12, updateUser.isStatus());
+                pre.setString(13, updateUser.getUsername());
 
                 int affectRow = pre.executeUpdate();
                 if (affectRow > 0) {

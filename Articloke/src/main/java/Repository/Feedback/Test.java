@@ -9,5 +9,8 @@ package Repository.Feedback;
  * @author tucuo
  */
 public class Test {
-    
+    public static void main(String[] args) {
+       // FeedbackDTO feedback = new FeedbackDTO(Feed);
+      //  FeedbackDAO.addFeedback(feedback);
+    }
 }
