@@ -11,24 +11,34 @@ public class UserDTO implements Serializable {
     private String firstName;
     private String lastName;
     private String picture;
-    
+    private float balance;
     private String role;
     private Date DOB;
     private String address;
     private String organization;
     private String phoneNumber;
-    
+
     private boolean status;
+
     public UserDTO() {
     }
 
-    public UserDTO(String username, String email, String password, String firstName, String lastName, String picture, String role, Date DOB, String address, String organization, String phoneNumber, boolean status) {
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public UserDTO(String username, String email, String password, String firstName, String lastName, String picture, float balance, String role, Date DOB, String address, String organization, String phoneNumber, boolean status) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.picture = picture;
+        this.balance = balance;
         this.role = role;
         this.DOB = DOB;
         this.address = address;
@@ -44,7 +54,7 @@ public class UserDTO implements Serializable {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
+
     public String getUsername() {
         return username;
     }
@@ -132,8 +142,5 @@ public class UserDTO implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-   
-    
 
 }

@@ -23,7 +23,33 @@ public class PaperDTO implements Serializable{
     private Timestamp modifiedDate;
     private String username;
     private String publishedStatus;
+    private boolean advanced;
+    private Timestamp submittedDate;
+    private boolean status;
 
+    public boolean isAdvanced() {
+        return advanced;
+    }
+
+    public void setAdvanced(boolean advanced) {
+        this.advanced = advanced;
+    }
+
+    public Timestamp getSubmittedDate() {
+        return submittedDate;
+    }
+
+    public void setSubmittedDate(Timestamp submittedDate) {
+        this.submittedDate = submittedDate;
+    }
+
+    @Override
+    public String toString() {
+        return "PaperDTO{" + "ID=" + ID + ", title=" + title + ", picture=" + picture + ", topic=" + topic + ", description=" + description + ", content=" + content + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", username=" + username + ", publishedStatus=" + publishedStatus + ", advanced=" + advanced + ", submittedDate=" + submittedDate + ", status=" + status + '}';
+    }
+ 
+   
+    
     public String getPublishedStatus() {
         return publishedStatus;
     }
@@ -31,9 +57,7 @@ public class PaperDTO implements Serializable{
     public void setPublishedStatus(String publishedStatus) {
         this.publishedStatus = publishedStatus;
     }
-    private boolean status;
- 
-   
+  
     public PaperDTO() {
     }
 
@@ -45,7 +69,7 @@ public class PaperDTO implements Serializable{
         this.picture = picture;
     }
 
-    public PaperDTO(String ID, String title, String picture, String topic, String description, String content, Timestamp createdDate, Timestamp modifiedDate, String username,  String publishedStatus, boolean status) {
+    public PaperDTO(String ID, String title, String picture, String topic, String description, String content, Timestamp createdDate, Timestamp modifiedDate, String username, String publishedStatus, boolean advanced, Timestamp submittedDate, boolean status) {
         this.ID = ID;
         this.title = title;
         this.picture = picture;
@@ -56,10 +80,12 @@ public class PaperDTO implements Serializable{
         this.modifiedDate = modifiedDate;
         this.username = username;
         this.publishedStatus = publishedStatus;
+        this.advanced = advanced;
+        this.submittedDate = submittedDate;
         this.status = status;
-        
     }
 
+  
 
     public String getID() {
         return ID;

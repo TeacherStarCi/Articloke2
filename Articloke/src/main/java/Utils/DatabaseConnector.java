@@ -9,6 +9,6 @@ public class DatabaseConnector {
             throws SQLException, ClassNotFoundException {
         String url = "jdbc:sqlserver://localhost:1433;databaseName=Articloke";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        return DriverManager.getConnection(url, "sa", "12345");
+        return DriverManager.getConnection(url, "sa", "123456");
     }
 }
